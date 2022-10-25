@@ -93,9 +93,23 @@ function addBooks(){
 
 async function addBookAuthor(){
      let authorsArray = await Author.findAll().then(res=>{return res});
-     for (let i = 0; i < authorsArray.length; i++) {
-          console.log(authorsArray[i]);
-     }
+     // console.log(authorsArray);
+
+     booksArray.forEach(i => {
+          i['authors'].forEach(j =>{
+               console.log(Author.findOne({where: {firstname: j.slice(0, j.search(' '))}}).then(res=>{return res}));
+               
+               // Book_author.create({
+               //      BookId: i['id']
+               // })
+          })
+     })
+
+     // for (let i = 0; i < booksArray.length; i++) {
+     //      for (let j = 0; j < booksArray[i]['authors'].length; j++) {
+               
+     //      }
+     // }
 }
 //-------------------- Книга-автор --------------------
 
