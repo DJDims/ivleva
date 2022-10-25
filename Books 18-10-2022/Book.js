@@ -14,31 +14,31 @@ const Book = db.define('book', {
      },
      isbn: {
           type: Sequelize.STRING,
-          allowNull: false
+          allowNull: true
      },
      pageCount: {
           type: Sequelize.INTEGER,
-          allowNull: false
+          allowNull: true
      },
      publishedDate: {
           type: Sequelize.DATE,
-          allowNull: false
+          allowNull: true
      },
      thumbnailUrl: {
           type: Sequelize.STRING,
-          allowNull: false
+          allowNull: true
      },
      shortDescription: {
           type: Sequelize.STRING,
-          allowNull: false
+          allowNull: true
      },
      longDescription: {
           type: Sequelize.STRING,
-          allowNull: false
+          allowNull: true
      },
      status: {
           type: Sequelize.STRING,
-          allowNull: false
+          allowNull: true
      }
 }, {
      timestamps: false
