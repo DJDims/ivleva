@@ -1,20 +1,20 @@
-// import * as booksArray from './BooksArray.js';
+
 const booksArray = require('./BooksArray');
 
 const db = require('./database.js');
 
-let Book = require('./Book.js');
-let Author = require('./Author.js');
-let Category = require('./Category.js');
-let Book_category = require('./Book_category.js');
-let Book_author = require('./Book_author.js');
+let Book = require('./Models/Book.js');
+let Author = require('./Models/Author.js');
+let Category = require('./Models/Category.js');
+let Book_category = require('./Models/Book_category.js');
+let Book_author = require('./Models/Book_author.js');
 
 function initDB(){
-     Book.sync({force: true});
-     Author.sync({force: true});
-     Category.sync({force: true});
-     Book_category.sync({force: true});
-     Book_author.sync({force: true});
+     Book.sync();
+     Author.sync();
+     Category.sync();
+     Book_category.sync();
+     Book_author.sync();
      
      Book.belongsToMany(Category, { through: 'Book_category' });
      Category.belongsToMany(Book, { through: 'Book_category' });
