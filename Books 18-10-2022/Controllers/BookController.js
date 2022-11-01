@@ -16,7 +16,7 @@ class BookController{
     }
 
     async findBooksByCategoryId(categoryId) {
-        const booksCategories = Book_category.findAll({where: {id: categoryId}}).then(res=>{return res});
+        const booksCategories = Book_category.findAll({where: {categoryId: categoryId}}).then(res=>{return res});
         const books = new Array();
         booksCategories.forEach(element => {
             books.push(this.findBookById(element['bookId']));

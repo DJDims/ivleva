@@ -1,4 +1,5 @@
 const Author = require("../Models/Author");
+const Book_category = require("../Models/Book_category");
 
 class BookController{
     async findAllBoks() {
@@ -11,6 +12,15 @@ class BookController{
 
     async findAuthorByFirstname(firstname) {
         return await Author.findOne({where: {firstname: firstname}}).then(res=>{return res});
+    }
+
+    async findAuthorsByBookId(bookId){
+        const booksAuthors = Book_category.findAll({where: {bookId: bookId}}).then(res=>{return res});
+        const authors = new Array();
+        booksAuthors.forEach(element => {
+            authors.push(this.findAuthorById(element['authorId']));
+        });
+        return authors;
     }
 
 }
