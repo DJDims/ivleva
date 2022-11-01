@@ -128,4 +128,4 @@ async function addBookCategory(){
 // addCategories();
 // addBooks();
 // addBookAuthor();
-addBookCategory()
+// addBookCategory()
