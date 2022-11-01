@@ -1,4 +1,4 @@
-const db = require('./database.js');
+const db = require('../database.js');
 const{Sequelize} = require('sequelize');
 
 const Book_category = db.define('Book_category', {
