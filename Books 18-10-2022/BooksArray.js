@@ -117,7 +117,7 @@ var booksArray = [{
      "shortDescription": "Griffon in Action is a comprehensive tutorial written for Java developers who want a more productive approach to UI development. In this book, you'll immediately dive into Griffon. After a Griffon orientation and a quick Groovy tutorial, you'll start building examples that explore Griffon's high productivity approach to Swing development. One of the troublesome parts of Swing development is the amount of Java code that is required to get a simple application off the ground.",
      "longDescription": "Although several options exist for interface development in Java, even popular UI toolkits like Swing have been notoriously complex and difficult to use. Griffon, an agile framework that uses Groovy to simplify Swing, makes UI development dramatically faster and easier. In many respects, Griffon is for desktop development what Grails is for web development. While it's based on Swing, its declarative style and approachable level of abstraction is instantly familiar to developers familiar with other technologies such as Flex or JavaFX.    Griffon in Action is a comprehensive tutorial written for Java developers who want a more productive approach to UI development. In this book, you'll immediately dive into Griffon. After a Griffon orientation and a quick Groovy tutorial, you'll start building examples that explore Griffon's high productivity approach to Swing development. One of the troublesome parts of Swing development is the amount of Java code that is required to get a simple application off the ground.    You'll learn how SwingBuilder (and its cousin builders) present a very palatable alternative in the form of a DSL geared towards building graphical user interfaces. Pair it up with the convention over configuration paradigm, a well tested and tried application source structure (based on Grails) and you have a recipe for quick and effective Swing application development. Griffon in Action covers declarative view development, like the one provided by JavaFX Script, as well as the structure, architecture and life cycle of Java application development",
      "status": "PUBLISH",
-     "authors": ["Andres Almiray", "Danno Ferrin", "", "James Shingler"],
+     "authors": ["Andres Almiray", "Danno Ferrin", "James Shingler"],
      "categories": ["Java"]
  }, {
      "id": 10,
@@ -457,7 +457,7 @@ var booksArray = [{
      "shortDescription": "ASP.NET 4.0 in Practice contains real world techniques from well-known professionals who have been using ASP.NET since the first previews.",
      "longDescription": "ASP.NET is an established technology to build web applications using Microsoft products. It drives a number of enterprise-level web sites around the world, but it can be scaled for projects of any size. The new version 4.0 is an evolutionary step: you will find a lot of new features that you will be able to leverage to build better web applications with minimal effort.    ASP.NET 4.0 in Practice contains real world techniques from well-known professionals who have been using ASP.NET since the first previews. Using a practical Problem-Solution-Discussion format, it will guide you through the most common scenarios you will face in a typical ASP.NET application, and provide solutions and suggestions to take your applications to another level.",
      "status": "PUBLISH",
-     "authors": ["Daniele Bochicchio", "Stefano Mostarda", "", "Marco De Sanctis"],
+     "authors": ["Daniele Bochicchio", "Stefano Mostarda", "Marco De Sanctis"],
      "categories": ["Microsoft .NET"]
  }, {
      "id": 37,
@@ -510,7 +510,7 @@ var booksArray = [{
      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/burnett.jpg",
      "longDescription": "This first book on the union of two rapidly growing approaches to programming--visual programming and object technology--provides a window on a subject of increasing commercial importance. It is an introduction and reference for cutting-edge developers, and for researchers, students, and enthusiasts interested in the design of visual OOP languages and environments.  Visual Object-Oriented Programming includes chapters on both emerging research and on a few classic systems, that together can help those who design visual object-oriented programming systems avoid some known pitfalls. The book contains an experience report on the use of available visual programming languages in a commercial setting, and chapters, by some of the leaders of this cutting-edge subject, covering systems such as Prograph, VIPR, PURSUIT, ThingLab II, Vampire, Forms/3, Self's environment, Vista, SPE, and Cerno.",
      "status": "PUBLISH",
-     "authors": ["Margaret M. Burnett", "Adele Goldberg", "", "Ted G. Lewis"],
+     "authors": ["Margaret M. Burnett", "Adele Goldberg", "Ted G. Lewis"],
      "categories": ["Programming"]
  }, {
      "id": 41,
@@ -618,7 +618,7 @@ var booksArray = [{
      "shortDescription": "Spring Dynamic Modules in Action introduces Spring DM and OSGi to Java EE developers and architects. It presents the fundamental concepts of OSGi-based apps and maps them to the familiar ideas of the Spring framework. Then, it engages you with the techniques and concepts you'll need to develop stable, flexible enterprise apps. You'll learn how to embed a Spring container inside an OSGi bundle, and how Spring DM lets you blend Spring strengths like dependency injection with OSGi-based services. Along the way, you'll see how Spring DM handles data access and web-based components, and you'll explore topics like unit testing and configuration in an OSGi-based environment.",
      "longDescription": "OSGi is increasingly familiar to Java coders working in distributed environments, but the tools required to implement OSGi-based systems have been slow to develop. Spring Dynamic Modules (Spring DM) is a framework designed to make it easy to build Spring apps that take advantage of the OSGi approach to modular Java development. It simplifies the task of creating true component and service oriented architectures in an OSGi environment using all the powerful features of the Spring framework.    Spring Dynamic Modules in Action introduces Spring DM and OSGi to Java EE developers and architects. It presents the fundamental concepts of OSGi-based apps and maps them to the familiar ideas of the Spring framework. Then, it engages you with the techniques and concepts you'll need to develop stable, flexible enterprise apps. You'll learn how to embed a Spring container inside an OSGi bundle, and how Spring DM lets you blend Spring strengths like dependency injection with OSGi-based services. Along the way, you'll see how Spring DM handles data access and web-based components, and you'll explore topics like unit testing and configuration in an OSGi-based environment.",
      "status": "PUBLISH",
-     "authors": ["Arnaud Cogoluegnes", "Thierry Templier", "", "Andy Piper"],
+     "authors": ["Arnaud Cogoluegnes", "Thierry Templier", "Andy Piper"],
      "categories": ["Java"]
  }, {
      "id": 53,
@@ -645,7 +645,7 @@ var booksArray = [{
      "shortDescription": "Android in Practice is treasure trove of Android goodness, with over 100 tested, ready-to-use techniques including complete end-to-end example applications and practical tips for real world mobile application developers. Written by real world Android developers, this book addresses the trickiest questions raised in forums and mailing lists. Using an easy-to-follow problem/solution/discussion format, it dives into important topics not covered in other Android books, like advanced drawing and graphics, testing and instrumentation, building and deploying applications, using alternative languages, and native development.",
      "longDescription": "Android, Google's platform for mobile application development, provides powerful features, a robust SDK, and almost limitless possibilities. It's not hard to find the information you need to build your first Android app, but then what  If you want to build real apps for real users, you have real questions and you need real answers.    Android in Practice is treasure trove of Android goodness, with over 100 tested, ready-to-use techniques including complete end-to-end example applications and practical tips for real world mobile application developers. Written by real world Android developers, this book addresses the trickiest questions raised in forums and mailing lists. Using an easy-to-follow problem/solution/discussion format, it dives into important topics not covered in other Android books, like advanced drawing and graphics, testing and instrumentation, building and deploying applications, using alternative languages, and native development.    If you're new to Android, or even if you have a few cycles under your belt, you'll love the quick \"pre-flight check,\" where you'll review key platform details and tools and the building blocks of all Android applications. Then, you'll delve into Android use cases   from visual elements and style, to saving and sharing data, networking, background tasks, concurrency, and more.",
      "status": "PUBLISH",
-     "authors": ["Charlie Collins", "Michael D. Galpin", "", "Matthias Kaeppler"],
+     "authors": ["Charlie Collins", "Michael D. Galpin", "Matthias Kaeppler"],
      "categories": ["Mobile Technology"]
  }, {
      "id": 55,
@@ -804,7 +804,7 @@ var booksArray = [{
      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/dbrown.jpg",
      "longDescription": "The original Struts project revolutionized Java web development and its rapid adoption resulted in the thousands of Struts-based applications deployed worldwide. Keeping pace with new ideas and trends, Apache Struts 2 has emerged as the product of a merger between the Apache Struts and OpenSymphony WebWork projects, united in their goal to develop an easy-to-use yet feature-rich framework. Struts 2 represents a revolution in design and ease of use when compared to classic Struts. It adds exciting and powerful features such as a plugin framework, JavaServer Faces integration, and XML-free configuration.    Struts 2 In Action introduces the Apache Struts 2 web application framework and shows you how to quickly develop professional, production-ready modern web applications. Written by Don Brown, one of the leading developers of Struts 2, Chad Davis, a passionate Struts 2 developer, along with Scott Stanlick, this book gently walks you through the key features of Struts 2 in example-driven, easy-to-digest sections.    Struts 2 in Action delivers accurate, seasoned information that can immediately be put to work. This book is designed for working Java web developers   especially those with some background in Struts 1 or WebWork. The core content, covering key framework components such as Actions, Results, and Interceptors, includes new features like the annotation-based configuration options. You'll find chapters on Struts 2 plugins, FreeMarker, and migration from Struts 1 and WebWork 2. Finally, new topics such as the Ajax tags, Spring Framework integration, and configuration by convention give familiar subjects new depth.",
      "status": "PUBLISH",
-     "authors": ["Donald Brown", "Chad Michael Davis", "", "Scott Stanlick"],
+     "authors": ["Donald Brown", "Chad Michael Davis", "Scott Stanlick"],
      "categories": ["Java"]
  }, {
      "id": 70,
@@ -843,7 +843,7 @@ var booksArray = [{
      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/deshmukh2.jpg",
      "longDescription": "With the tremendous penetration of J2EE in the enterprise, passing the Sun Certified Web Component Developer exam has become an important qualification for Java and J2EE developers. To pass the SCWCD exam (Number: 310-081) you need to answer 69 questions in 135 minutes and get 62% of them right. You also need  150 and this (completely updated and newly revised) book.    In its first edition, the SCWCD Exam Study Kit was the most popular book used to pass this most desirable web development certification exam. The new edition will help you learn the concepts    large and small    that you need to know. It covers the newest version of the exam and not a single topic is missed.    The SCWCD exam is for Sun Certified Java Programmers who have a certain amount of experience with Servlets and JSPs, but for those who do not, the book starts with three introductory chapters on these topics. Although the SCWCD Exam Study Kit has one purpose, to help you get certified, you will find yourself returning to it as a reference after passing the exam.",
      "status": "PUBLISH",
-     "authors": ["Hanumant Deshmukh", "Jignesh Malavia", "", "Matthew Scarpino"],
+     "authors": ["Hanumant Deshmukh", "Jignesh Malavia", "Matthew Scarpino"],
      "categories": ["Internet"]
  }, {
      "id": 73,
@@ -1131,7 +1131,7 @@ var booksArray = [{
      "shortDescription": "OSGi in Action is a comprehensive guide to OSGi with two primary goals. First, it provides a clear introduction to OSGi concepts with examples that are relevant both for architects and developers. The central idea of OSGi is modularity, so you start by learning about OSGi bundles. You'll then see how OSGi handles module lifecycles and follow up with how it promotes service-oriented interaction among application components.",
      "longDescription": "If you're a Java developer, you've almost certainly heard of OSGi   and also heard that it's becoming quite a big deal. But you may still be wondering exactly \"What is OSGi \"    Simply put, OSGi is a technology that allows you to create highly modular Java applications. It introduces a logical and physical module format, called a bundle, for explicitly structuring your application as a set of interconnected modules. OSGi lets you install, start, stop, update, or uninstall modules at execution time without taking down your entire system. In addition, OSGi defines a local service-oriented approach for creating applications out of loosely coupled components.    With the prevalence of modern component and service-based architectures, OSGi is becoming increasingly important. It meshes well with such approaches and greatly simplifies their creation and management. It's the backbone of Eclipse's plugin system as well as many recent JavaEE containers, such as GlassFish v3, WebSphere v6.1, and WebLogic Event Server. Even the SpringSource Application Platform is built on top of it.    OSGi in Action is a comprehensive guide to OSGi with two primary goals.    First, it provides a clear introduction to OSGi concepts with examples that are relevant both for architects and developers. The central idea of OSGi is modularity, so you start by learning about OSGi bundles.    You'll then see how OSGi handles module lifecycles and follow up with how it promotes service-oriented interaction among application components.    With the core concepts well in hand, you'll explore numerous application scenarios and techniques. How much of OSGi do you actually need  How do you embed OSGi inside other containers  What are the best practices for migrating legacy systems to OSGi  How can you embrace and make the most of system dynamism     Expert authors Richard S. Hall, Karl Pauls, and Stuart McCulloch have years of experience both in building OSGi-based systems and in contributing to OSGi implementations such as Apache Felix.",
      "status": "PUBLISH",
-     "authors": ["Richard S. Hall", "Karl Pauls", "Stuart McCulloch", "", "David Savage"],
+     "authors": ["Richard S. Hall", "Karl Pauls", "Stuart McCulloch", "David Savage"],
      "categories": ["Internet"]
  }, {
      "id": 135,
@@ -1212,7 +1212,7 @@ var booksArray = [{
      "shortDescription": "With clear writing, reusable examples, and unmatched advice on best practices, Lucene in Action is still the definitive guide to developing with Lucene.",
      "longDescription": "When Lucene first hit the scene five years ago, it was nothing short of amazing. By using this open-source, highly scalable, super-fast search engine, developers could integrate search into applications quickly and efficiently. A lot has changed since then   search has grown from a \"nice-to-have\" feature into an indispensable part of most enterprise applications. Lucene now powers search in diverse companies including Akamai, Netflix, LinkedIn, Technorati, HotJobs, Epiphany, FedEx, Mayo Clinic, MIT, New Scientist Magazine, and many others.    Some things remain the same, though. Lucene still delivers high-performance search features in a disarmingly easy-to-use API. It's still a single compact JAR file (less than 1 MB!). Due to its vibrant and diverse open-source community of developers and users, Lucene is relentlessly improving, with evolutions to APIs, significant new features such as payloads, and a huge (as much as 8x) increase in indexing speed with Lucene 3.0.    And with clear writing, reusable examples, and unmatched advice on best practices, Lucene in Action is still the definitive guide to developing with Lucene.",
      "status": "PUBLISH",
-     "authors": ["Erik Hatcher", "Otis Gospodnetic", "", "Michael McCandless"],
+     "authors": ["Erik Hatcher", "Otis Gospodnetic", "Michael McCandless"],
      "categories": ["Java", "Open Source"]
  }, {
      "id": 142,
@@ -1358,7 +1358,7 @@ var booksArray = [{
      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/hughes.jpg",
      "longDescription": "The first edition of Java Network Programming was acclaimed by readers as an outstanding networking reference. It provided complete details of the Java platform's support for networking and I/O with extensive API coverage and sophisticated examples.    This second edition is strengthened with complete coverage of JDK 1.2 and many more practical examples. Unlike other books in the field, Java Network Programming, 2nd Edition goes well beyond simple examples to show how to develop robust, efficient real-world applications.    What's inside:        * Introduction to networking and Internet protocols      * Complete coverage of the Java networking and I/O APIs      * Details of multithreading and exception handling      * Byte, Character, Object and Message streams      * IP, TCP, UDP, Multicast, HTTP, DNS, RMI, CORBA and Servlets      * Finger, DNS, HTTP, and ping clients and servers      * Multiprotocol chat systems & whiteboards ",
      "status": "PUBLISH",
-     "authors": ["Merlin Hughes", "Michael Shoffner", "", "Derek Hamner"],
+     "authors": ["Merlin Hughes", "Michael Shoffner", "Derek Hamner"],
      "categories": ["Java"]
  }, {
      "id": 154,
@@ -1399,7 +1399,7 @@ var booksArray = [{
      "shortDescription": "Taming Text is a hands-on, example-driven guide to working with unstructured text in the context of real-world applications. This book explores how to automatically organize text using approaches such as full-text search, proper name recognition, clustering, tagging, information extraction, and summarization. The book guides you through examples illustrating each of these topics, as well as the foundations upon which they are built.",
      "longDescription": "It is no secret that the world is drowning in text and data. This causes real problems for everyday users who need to make sense of all the information available, and software engineers who want to make their text-based applications more useful and user-friendly. Whether you're building a search engine for a corporate website, automatically organizing email, or extracting important nuggets of information from the news, dealing with unstructured text can be a daunting task.    Taming Text is a hands-on, example-driven guide to working with unstructured text in the context of real-world applications. This book explores how to automatically organize text using approaches such as full-text search, proper name recognition, clustering, tagging, information extraction, and summarization. The book guides you through examples illustrating each of these topics, as well as the foundations upon which they are bulit.",
      "status": "PUBLISH",
-     "authors": ["Grant S. Ingersoll", "Thomas S. Morton", "", "Andrew L. Farris"],
+     "authors": ["Grant S. Ingersoll", "Thomas S. Morton", "Andrew L. Farris"],
      "categories": ["Software Engineering"]
  }, {
      "id": 158,
@@ -1452,7 +1452,7 @@ var booksArray = [{
      "shortDescription": "iOS 4 in Action, written for Xcode 4, is a detailed, hands-on guide that goes from setting up your development environment, through your first coding steps, all the way to creating a polished, commercial iOS 4 application. You'll run through examples from a variety of areas including a chat client, a video game, an interactive map, and background audio. You'll also learn how the new iOS 4 features apply to your existing iOS 3 based apps. This book will help you become a confident, well-rounded iOS 4 developer.",
      "longDescription": "Written for Xcode 4, iOS 4 in Action guides you from setting up your development environment, through coding your first app, all the way to selling in the App Store. Work through sample applications including a chat client, a video game, an interactive map, background audio, and more as you explore the iOS 4 SDK.    Version 4 of the iOS SDK adds powerful new features like multitasking, GCD, blocks, and iAds. With the release of Xcode 4, it's easier than ever to get programming, even if you're new to Objective-C.    iOS 4 in Action, written for Xcode 4, is a detailed, hands-on guide that goes from setting up your development environment, through your first coding steps, all the way to creating a polished, commercial iOS 4 application. You'll run through examples from a variety of areas including a chat client, a video game, an interactive map, and background audio. You'll also learn how the new iOS 4 features apply to your existing iOS 3 based apps. This book will help you become a confident, well-rounded iOS 4 developer.",
      "status": "PUBLISH",
-     "authors": ["Jocelyn Harrington", "Brandon Trebitowski", "Christopher Allen", "", "Shannon Appelcline"],
+     "authors": ["Jocelyn Harrington", "Brandon Trebitowski", "Christopher Allen", "Shannon Appelcline"],
      "categories": ["Mobile Technology"]
  }, {
      "id": 162,
@@ -1607,7 +1607,7 @@ var booksArray = [{
      "shortDescription": "Groovy in Action, Second Edition is a thoroughly-revised, comprehensive guide to Groovy programming. It introduces Java developers to the dynamic features that Groovy provides, and shows you how to apply Groovy to a range of tasks including building new apps, integration with existing code, and DSL development.",
      "longDescription": "The first edition of Groovy in Action is the undisputed definitive reference on the Groovy language. Written by core members of the Groovy language team, this book presents Groovy like none other can   from the inside out. Since its introduction a few years back, Groovy has grown from an upstart dynamic language for the JVM to become an integral part of any Java developer's toolbox. Projects like Grails and Griffon have extended Groovy's reach into the web and desktop app world.    Groovy in Action, Second Edition is a thoroughly-revised, comprehensive guide to Groovy programming. It introduces Java developers to the dynamic features that Groovy provides, and shows you how to apply Groovy to a range of tasks including building new apps, integration with existing code, and DSL development.    This book introduces Groovy by example, presenting lots of reusable code while explaining the underlying concepts. Java developers new to Groovy find a smooth transition into the dynamic programming world. Groovy experts gain a solid reference that challenges them to explore Groovy deeply and creatively.    For readers learning it from scratch. Groovy in Action thoroughly moves through the Groovy basics, including:    Groovy's unique approach of optional typing  Simple and collective Groovy data types  Working with closures and Groovy control structures  The merits of Metaprogramming  Readers are presented with rich and detailed examples illustrating Groovy's enhancements to Java, including:    How to work with builders and the GDK  Database and XML programming with Groovy  Concurrency for the multicore era: actors, asynchronous collections and dataflow  Building Domain Specific languages   a very hot topic!  Groovy in Action then demonstrates how to integrate Groovy in Java projects and provides:    Tips and Tricks  Unit testing and build support  Groovy frameworks, including Grails, Griffon, and Groovy on Windows",
      "status": "MEAP",
-     "authors": ["Dierk König", "Guillaume Laforge", "Paul King", "Cédric Champeau", "Hamlet D'Arcy", "Erik Pragt", "", "Jon Skeet"],
+     "authors": ["Dierk König", "Guillaume Laforge", "Paul King", "Cédric Champeau", "Hamlet D'Arcy", "Erik Pragt", "Jon Skeet"],
      "categories": ["Java"]
  }, {
      "id": 176,
@@ -1700,7 +1700,7 @@ var booksArray = [{
      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/kuate.jpg",
      "longDescription": "In the classic style of Manning's \"In Action\" series, NHibernate in Action introduces .NET developers to the NHibernate Object/Relational Mapping tool. As NHibernate is a port of Hibernate from Java to .NET, the book is based on Manning's bestselling Hibernate in Action.    NHibernate in Action begins by describing how to implement persistence in a layered .NET application. The book then quickly springs into action by introducing NHibernate through a classic \"Hello World\" example. It explains how to configure NHibernate to specify the mapping information between business objects and database tables, and then explores the internal architecture of NHibernate. A complete example application is progressively built with Agile methodologies in mind, which shows readers all kinds of entity and relationship mappings and how to perform CRUD operations. The book also covers advanced techniques like caching, concurrency access, and isolation levels. The Hibernate Query Language (HQL) and criteria query APIs are thoroughly detailed with optimization tips.    The last chapters of this book discuss various development scenarios, how to implement the layers of an NHibernate application (covering Windows and Web development), and which tools are available for these tasks. They also provide some solutions for data-binding objects to .NET GUI controls, integrating services, and interacting with components using DataSets. Finally, they explain how to build a complex application involving advanced session management and distributed transactions.",
      "status": "PUBLISH",
-     "authors": ["Pierre Henri Kuate", "Tobin Harris", "Christian Bauer", "", "Gavin King"],
+     "authors": ["Pierre Henri Kuate", "Tobin Harris", "Christian Bauer", "Gavin King"],
      "categories": ["Microsoft .NET"]
  }, {
      "id": 183,
@@ -1885,7 +1885,7 @@ var booksArray = [{
      "shortDescription": "Erlang and OTP in Action teaches you to apply Erlang's shared-state model for concurrent programming--a completely different way of tackling the problem of parallel programming from the more common multi-threaded approach. This book walks you through the practical considerations and steps of building systems in Erlang and integrating them with real-world C/C++, Java, and .NET applications. Unlike other books on the market, Erlang and OTP in Action offers a comprehensive view of how concurrency relates to SOA and web technologies.",
      "longDescription": "Concurrent programming has become a required discipline for all programmers. Multi-core processors and the increasing demand for maximum performance and scalability in mission-critical applications have renewed interest in functional languages like Erlang that are designed to handle concurrent programming. Erlang, and the OTP platform, make it possible to deliver more robust applications that satisfy rigorous uptime and performance requirements.    Erlang and OTP in Action teaches you to apply Erlang's shared-state model for concurrent programming--a completely different way of tackling the problem of parallel programming from the more common multi-threaded approach. This book walks you through the practical considerations and steps of building systems in Erlang and integrating them with real-world C/C++, Java, and .NET applications. Unlike other books on the market, Erlang and OTP in Action offers a comprehensive view of how concurrency relates to SOA and web technologies.    This hands-on guide is perfect for readers just learning Erlang or for those who want to apply their theoretical knowledge of this powerful language. You'll delve into the Erlang language and OTP runtime by building several progressively more interesting real-world distributed applications. Once you are competent in the fundamentals of Erlang, the book takes you on a deep dive into the process of designing complex software systems in Erlang.",
      "status": "PUBLISH",
-     "authors": ["Martin Logan", "Eric Merritt", "", "Richard Carlsson"],
+     "authors": ["Martin Logan", "Eric Merritt", "Richard Carlsson"],
      "categories": ["Programming"]
  }, {
      "id": 198,
@@ -1954,7 +1954,7 @@ var booksArray = [{
      "shortDescription": "Restlet in Action gets you started with the Restlet Framework and the REST architecture style. You'll create and deploy applications in record time while learning to use popular RESTful Web APIs effectively. This book looks at the many faces of web development, including server- and client-side, along with cloud computing, mobile Android devices, and semantic web applications. It offers a particular focus on Google's innovative Google Web Toolkit, Google App Engine, and Android technologies.",
      "longDescription": "REpresentational State Transfer, better known as REST, is the architectural style that governs the web's request-and-response resource model. The open source Restlet Framework provides a simple, powerful Java-based API to implement RESTful web applications that supports and integrates with technologies such as Atom, Jetty, JSON, Spring, GWT, Google App Engine, and Android.    Restlet in Action gets you started with the Restlet Framework and the REST architecture style. You'll create and deploy applications in record time while learning to use popular RESTful Web APIs effectively. This book looks at the many faces of web development, including server- and client-side, along with cloud computing, mobile Android devices, and semantic web applications. It offers a particular focus on Google's innovative Google Web Toolkit, Google App Engine, and Android technologies.    The book takes you though a comprehensive presentation of Restlet's main features, including subjects like security, testing and automatic documentation. You'll learn while following the typical Restlet development process, with consistent illustrations based on a sample RESTful email app.    WHAT'S INSIDE        * Learn REST and Restlet from the ground up      * Deploy locally, to the cloud, or on mobile devices      * Numerous illustrations      * Reusable code samples      * Written by the creators of Restlet!    The book requires a basic knowledge of Java and the web, but no prior exposure to REST or Restlet is needed. You'll quickly get the big picture behind REST, the overall design of Restlet and RESTful web development.",
      "status": "PUBLISH",
-     "authors": ["Jerome Louvel", "Thierry Boileau", "", "Philippe Mougin"],
+     "authors": ["Jerome Louvel", "Thierry Boileau", "Philippe Mougin"],
      "categories": ["Internet"]
  }, {
      "id": 203,
@@ -2195,7 +2195,7 @@ var booksArray = [{
      "shortDescription": "Planning and Managing ATM Networks covers strategic planning, initial deployment, overall management, and the day-to-day operation of ATM networks.",
      "longDescription": "Not only is ATM the best available means to greater transmission capacity, it has also the best potential to meet the needs for sophisticated service control, distributed network oversight, efficient operation, and improved flexibility.    Planning and Managing ATM Networks covers strategic planning, initial deployment, overall management, and the day-to-day operation of ATM networks. It defines steps to determine requirements for ATM networks, as ATM implementation becomes widespread in the corporate enterprise network. It describes fundamental management concepts and procedures, including fault and configuration management, performance management, accounting, and security.",
      "status": "PUBLISH",
-     "authors": ["Daniel Minoli", "Thomas W. Golway", "", "Norris P. Smith"],
+     "authors": ["Daniel Minoli", "Thomas W. Golway", "Norris P. Smith"],
      "categories": ["Client-Server", "Networking"]
  }, {
      "id": 222,
@@ -2236,7 +2236,7 @@ var booksArray = [{
      "shortDescription": "Microsoft Entity Framework in Action introduces the Entity Framework to developers working in .NET who already have some knowledge of ADO.NET. The book begins with a review of the core ideas behind the ORM model and shows how Entity Framework offers a smooth transition from a traditional ADO.NET approach. By presenting numerous small examples and a couple larger case studies, the book unfolds the Entity Framework story in clear, easy-to-follow detail. The infrastructure and inner workings will be highlighted only when there   s the need to understand a particular feature.",
      "longDescription": "To be successful, any significant application has to manage the flow of data effectively. Microsoft   s approach to data has taken another major step forward with the new Entity Framework for .NET. The Entity Framework starts with ideas from Object Relational Management (ORM) tools like NHibernate that help bridge the mismatch between relational databases (like SQL Server) and object oriented languages (like C# and VB.NET). But it also blends in the established ADO.NET model and recent language-based innovations of LINQ to create a powerful new data management paradigm.    Microsoft Entity Framework in Action introduces the Entity Framework to developers working in .NET who already have some knowledge of ADO.NET. The book begins with a review of the core ideas behind the ORM model and shows how Entity Framework offers a smooth transition from a traditional ADO.NET approach. By presenting numerous small examples and a couple larger case studies, the book unfolds the Entity Framework story in clear, easy-to-follow detail. The infrastructure and inner workings will be highlighted only when there   s the need to understand a particular feature.",
      "status": "PUBLISH",
-     "authors": ["Stefano Mostarda", "Marco De Sanctis", "", "Daniele Bochicchio"],
+     "authors": ["Stefano Mostarda", "Marco De Sanctis", "Daniele Bochicchio"],
      "categories": ["Microsoft .NET"]
  }, {
      "id": 225,
@@ -2264,7 +2264,7 @@ var booksArray = [{
      "shortDescription": "Sass and Compass in Action is the definitive guide to stylesheet authoring using these two revolutionary tools. Written for both designers and developers, this book demonstrates the power of both Sass and Compass through a series of examples that address common pain points associated with traditional stylesheet authoring. The book begins with simple topics such as CSS resets and moves on to more involved topics such as grid frameworks and CSS3 vendor implementation differences.",
      "longDescription": "Cascading Style Sheets paint the web as the user sees it, and for fifteen years, we've been painting the web by hand. Sass and Compass extend standard CSS to give you more flexibility and the option to simplify or automate many tedious tasks. Think of Sass and Compass as power tools that allow stylesheet authors to \"paint\" with remarkable speed and precision.    Sass is an extension of CSS3, adding language features for creating well-formatted, standard CSS using the command line tool or a web-framework plugin. Compass is a framework that sits atop Sass and tackles common stylesheet problems such as grid layouts, handling CSS3 vendor differences, and production environment stylesheet optimization. Together, they do for CSS what jQuery has done for JavaScript: solve real world problems, letting designers and developers create stylesheets more efficiently.    Sass and Compass in Action is the definitive guide to stylesheet authoring using these two revolutionary tools. Written for both designers and developers, this book demonstrates the power of both Sass and Compass through a series of examples that address common pain points associated with traditional stylesheet authoring. The book begins with simple topics such as CSS resets and moves on to more involved topics such as grid frameworks and CSS3 vendor implementation differences.    Authors Wynn Netherland, Nathan Weizenbaum, and Chris Eppstein cover prominent community plugins that allows stylesheet authors to share styles as developers of other programming languages such as Ruby, Python, Java, and, .NET do. The book also presents Sass and Compass case studies using hot technologies like Sencha Touch. The book culminates in a step-by-step look at building a personal stylesheet framework in which readers can bundle their own approaches and opinions and reuse them across projects.",
      "status": "PUBLISH",
-     "authors": ["Wynn Netherland", "Nathan Weizenbaum", "Chris Eppstein", "", "Brandon Mathis"],
+     "authors": ["Wynn Netherland", "Nathan Weizenbaum", "Chris Eppstein", "Brandon Mathis"],
      "categories": ["Web Development"]
  }, {
      "id": 227,
@@ -2319,7 +2319,7 @@ var booksArray = [{
      "shortDescription": "SQL Server MVP Deep Dives is organized into five parts: Design and Architecture, Development, Administration, Performance Tuning and Optimization, and Business Intelligence. In each, you'll find concise, brilliantly clear chapters that take on key topics like mobile data strategies, Dynamic Management Views, or query performance.",
      "longDescription": "This is no ordinary SQL Server book. In SQL Server MVP Deep Dives, the world's leading experts and practitioners offer a masterful collection of techniques and best practices for SQL Server development and administration. 53 MVPs each pick an area of passionate interest to them and then share their insights and practical know-how with you.    SQL Server MVP Deep Dives is organized into five parts: Design and Architecture, Development, Administration, Performance Tuning and Optimization, and Business Intelligence. In each, you'll find concise, brilliantly clear chapters that take on key topics like mobile data strategies, Dynamic Management Views, or query performance.    WHAT'S INSIDE        * Topics important for SQL Server pros      * Accessible to readers of all levels      * New features of SQL Server 2008    Whether you're just getting started with SQL Server or you're an old master looking for new tricks, this book belongs on your bookshelf.    The authors of this book have generously donated 100% of their royalties to support War Child International.",
      "status": "PUBLISH",
-     "authors": ["Contributions from 53 SQL Server MVPs", "Edited by Paul Nielsen", "Kalen Delaney", "Greg Low", "Adam Machanic", "Paul S. Randal", "", "Kimberly L. Tripp"],
+     "authors": ["Contributions from 53 SQL Server MVPs", "Edited by Paul Nielsen", "Kalen Delaney", "Greg Low", "Adam Machanic", "Paul S. Randal", "Kimberly L. Tripp"],
      "categories": ["Microsoft .NET"]
  }, {
      "id": 231,
@@ -2333,7 +2333,7 @@ var booksArray = [{
      "shortDescription": "SQL Server MVP Deep Dives is organized into five parts: Design and Architecture, Development, Administration, Performance Tuning and Optimization, and Business Intelligence. In each, you'll find concise, brilliantly clear chapters that take on key topics like mobile data strategies, Dynamic Management Views, or query performance.",
      "longDescription": "This is no ordinary SQL Server book. In SQL Server MVP Deep Dives, the world's leading experts and practitioners offer a masterful collection of techniques and best practices for SQL Server development and administration. 53 MVPs each pick an area of passionate interest to them and then share their insights and practical know-how with you.    SQL Server MVP Deep Dives is organized into five parts: Design and Architecture, Development, Administration, Performance Tuning and Optimization, and Business Intelligence. In each, you'll find concise, brilliantly clear chapters that take on key topics like mobile data strategies, Dynamic Management Views, or query performance.",
      "status": "PUBLISH",
-     "authors": ["Contributions from 53 SQL Server MVPs; Edited by Paul Nielsen", "Kalen Delaney", "Greg Low", "Adam Machanic", "Paul S. Randal", "", "Kimberly L. Tripp"],
+     "authors": ["Contributions from 53 SQL Server MVPs; Edited by Paul Nielsen", "Kalen Delaney", "Greg Low", "Adam Machanic", "Paul S. Randal", "Kimberly L. Tripp"],
      "categories": ["Microsoft .NET"]
  }, {
      "id": 232,
@@ -2345,7 +2345,7 @@ var booksArray = [{
      },
      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/nielsonaw.jpg",
      "status": "PUBLISH",
-     "authors": ["Paul Nielsen", "Kalen Delaney", "Greg Low", "Adam Machanic", "Paul S. Randal", "", "Kimberly L. Tripp"],
+     "authors": ["Paul Nielsen", "Kalen Delaney", "Greg Low", "Adam Machanic", "Paul S. Randal", "Kimberly L. Tripp"],
      "categories": ["Microsoft .NET"]
  }, {
      "id": 233,
@@ -2398,7 +2398,7 @@ var booksArray = [{
      },
      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/owen.jpg",
      "status": "PUBLISH",
-     "authors": ["Sean Owen", "Robin Anil", "Ted Dunning", "", "Ellen Friedman"],
+     "authors": ["Sean Owen", "Robin Anil", "Ted Dunning", "Ellen Friedman"],
      "categories": ["Java"]
  }, {
      "id": 238,
@@ -2412,7 +2412,7 @@ var booksArray = [{
      "shortDescription": "ASP.NET MVC in Action is a guide to pragmatic MVC-based web development. After a thorough overview, it dives into issues of architecture and maintainability. The book assumes basic knowledge of ASP.NET (v. 3.5) and expands your expertise.",
      "longDescription": "ASP.NET MVC implements the Model-View-Controller pattern on the ASP.NET runtime. It works well with open source projects like NHibernate, Castle, StructureMap, AutoMapper, and MvcContrib.    ASP.NET MVC in Action is a guide to pragmatic MVC-based web development. After a thorough overview, it dives into issues of architecture and maintainability. The book assumes basic knowledge of ASP.NET (v. 3.5) and expands your expertise. Some of the topics covered:        * How to effectively perform unit and full-system tests.      * How to implement dependency injection using StructureMap or Windsor.      * How to work with the domain and presentation models.      * How to work with persistence layers like NHibernate.    The book's many examples are in C#.",
      "status": "PUBLISH",
-     "authors": ["Jeffrey Palermo", "Ben Scheirman", "", "Jimmy Bogard"],
+     "authors": ["Jeffrey Palermo", "Ben Scheirman", "Jimmy Bogard"],
      "categories": ["Microsoft .NET"]
  }, {
      "id": 239,
@@ -2426,7 +2426,7 @@ var booksArray = [{
      "shortDescription": "ASP.NET MVC 2 in Action is a fast-paced tutorial designed to introduce the MVC model to ASP.NET developers and show how to apply it effectively. After a high-speed ramp up, the book presents over 25 concise chapters exploring key topics like validation, routing, and data access. Each topic is illustrated with its own example so it's easy to dip into the book without reading in sequence. This book covers some high-value, high-end techniques you won't find anywhere else!",
      "longDescription": "The future of high-end web development on the Microsoft platform, ASP.NET MVC 2 provides clear separation of data, interface, and logic and radically simplifies tedious page and event lifecycle management. And since it's an evolution of ASP.NET, you can mix MVC and Web Forms in the same application, building on your existing work.    ASP.NET MVC 2 in Action is a fast-paced tutorial designed to introduce the MVC model to ASP.NET developers and show how to apply it effectively. After a high-speed ramp up, the book presents over 25 concise chapters exploring key topics like validation, routing, and data access. Each topic is illustrated with its own example so it's easy to dip into the book without reading in sequence. This book covers some high-value, high-end techniques you won't find anywhere else!    Microsoft ASP.NET MVC (model/view/controller) is a relatively new Web application framework that combines ASP.NET's power and ease of use with the stability and testability of a MVC framework. The much-anticipated version 2 release brings new capabilities to the framework along with numerous additions that enhance developer productivity. In ASP.NET MVC 2 in Action, readers learn how to move from web form-based development to designs based on the MVC pattern. It begins with an introduction to the MVC framework and quickly dives into a working MVC 2 project.    Featuring full coverage of new version 2 features, this book helps readers use developer-oriented upgrades like \"Areas\" to break a large project into smaller pieces and explore the new data handling tools. This revised edition adds a completely new tutorial to bring developers with no prior exposure to the MVC pattern up to speed quickly, keeping its focus on providing high-quality, professional grade examples that go deeper than the other ASP.NET MVC books.",
      "status": "PUBLISH",
-     "authors": ["Jeffrey Palermo", "Ben Scheirman", "Jimmy Bogard", "Eric Hexter", "", "Matthew Hinze"],
+     "authors": ["Jeffrey Palermo", "Ben Scheirman", "Jimmy Bogard", "Eric Hexter", "Matthew Hinze"],
      "categories": ["Microsoft .NET"]
  }, {
      "id": 240,
@@ -2440,7 +2440,7 @@ var booksArray = [{
      "shortDescription": "SP.NET MVC 3 in Action is a fast-paced tutorial designed to introduce ASP.NET MVC to .NET developers and show how to apply it effectively. After a high-speed ramp up, the book explores key topics like validation, routing, and data access. Each topic is illustrated with its own example so it's easy to dip into the book without reading in sequence. This book also covers some high-value, high-end techniques you won't find anywhere else!",
      "longDescription": "A successful ASP.NET application needs to accomplish its functional goals, provide a comfortable user experience, and be easy to deploy, maintain, and extend. ASP.NET MVC is a development framework designed around these principles. It provides the structure you need to follow the Model-View-Controller (MVC) design pattern, in which an application is divided into three distinct parts:        * Models, the objects that contain an application's logic      * Views, the components that create the user interface of an application      * Controllers, the components that handle and respond to user input    Applications built with ASP.NET MVC are easier to test, maintain, and extend because the architecture and role of each component is well-defined. And since it's built from the ground up as a core part of the .NET framework, it integrates seamlessly with the ASP.NET features, such as Web Forms or Master Pages, that you already use.    ASP.NET MVC 3 in Action is a fast-paced tutorial designed to introduce ASP.NET MVC to .NET developers and show how to apply it effectively. After a high-speed ramp up, the book explores key topics like validation, routing, and data access. Each topic is illustrated with its own example so it's easy to dip into the book without reading in sequence. This book also covers some high-value, high-end techniques you won't find anywhere else!    The book bases all its examples on ASP.NET MVC 3, so you'll get full coverage of major new features such as the Razor view engine, the new Web Matrix helpers, and improved extensibility. MVC 3 is also the first version built exclusively against .NET 4, so you'll see how your ASP.NET applications can benefit from changes in the .NET Framework.",
      "status": "PUBLISH",
-     "authors": ["Jeffrey Palermo", "Jimmy Bogard", "Eric Hexter", "Matthew Hinze", "", "Jeremy Skinner"],
+     "authors": ["Jeffrey Palermo", "Jimmy Bogard", "Eric Hexter", "Matthew Hinze", "Jeremy Skinner"],
      "categories": ["Microsoft .NET"]
  }, {
      "id": 241,
@@ -2467,7 +2467,7 @@ var booksArray = [{
      "shortDescription": "Building on the bestselling first edition, EJB 3 in Action, Second Edition tackles EJB 3.1 head-on, through numerous code samples, real-life scenarios, and illustrations. This book is a fast-paced tutorial for Java EE 6 business component development using EJB 3.1, JPA 2 and CDI. Besides covering the basics of EJB 3.1, this book includes in-depth EJB 3.1 internal implementation details, best practices, design patterns, and performance tuning tips. The book also discusses using open source frameworks like Seam and Spring with EJB 3.1.",
      "longDescription": "The EJB 3 framework was a major advancement for Java EE developers, providing a consistent, easy to use model to create and extend applications. EJB 3 incorporates a POJO programming model and Java 5 annotations, along with the Java Persistence API (JPA), a standard for object-relational mapping. EJB 3.1, the latest version, adds full support for Context and Dependency Injection (CDI), the new standard for type-safe dependency injection for Java EE. With EJB 3.1 you create true object-oriented applications that are easy to write, maintain, and extend.    Building on the bestselling first edition, EJB 3 in Action, Second Edition tackles EJB 3.1 head-on, through numerous code samples, real-life scenarios, and illustrations. This book is a fast-paced tutorial for Java EE 6 business component development using EJB 3.1, JPA 2 and CDI. Besides covering the basics of EJB 3.1, this book includes in-depth EJB 3.1 internal implementation details, best practices, design patterns, and performance tuning tips. The book also discusses using open source frameworks like Seam and Spring with EJB 3.1.",
      "status": "PUBLISH",
-     "authors": ["Debu Panda", "Reza Rahman", "Ryan Cuprak", "", "Michael Remijan"],
+     "authors": ["Debu Panda", "Reza Rahman", "Ryan Cuprak", "Michael Remijan"],
      "categories": ["Java"]
  }, {
      "id": 243,
@@ -2601,7 +2601,7 @@ var booksArray = [{
      "shortDescription": "Windows Phone 7 in Action is a hands-on guide to building mobile applications for WP7 using Silverlight, C#, and XNA. Written for developers who already know their way around Visual Studio, this book zips through the basics, such as writing code to dial the phone, writing emails, and sending text messages, and moves on to the nuts and bolts of building great phone apps. By working through the numerous examples and tutorials, you'll master the APIs used to work with a phone's sensors and hardware, such as the accelerometer, camera, touch screen, GPS, and microphone. You'll also tackle web services and applications that use location and push notification services.",
      "longDescription": "Windows Phone 7 is a major shift in the way Microsoft developers design, develop, and sell mobile apps. By leveraging a trio of established technologies-Silverlight, XNA, and C#   developers can blend what they already know about Windows development with the new opportunities and challenges presented by a mobile platform. And with exciting new Windows Phone devices rolling out now, the demand for WP7 apps is just starting to build.    Windows Phone 7 in Action is a hands-on guide to building mobile applications for WP7 using Silverlight, C#, and XNA. Written for developers who already know their way around Visual Studio, this book zips through the basics, such as writing code to dial the phone, writing emails, and sending text messages, and moves on to the nuts and bolts of building great phone apps. By working through the numerous examples and tutorials, you'll master the APIs used to work with a phone's sensors and hardware, such as the accelerometer, camera, touch screen, GPS, and microphone. You'll also tackle web services and applications that use location and push notification services.    Along the way, you'll discover why Microsoft opted for Silverlight and XNA as the core technologies for WP7. As with Silverlight for the desktop, you can create stunning visual effects using C#. Silverlight for Windows Phone has been enriched with navigation services, a new execution model to better satisfy mobile requirements, and hooks for embedding a browser, playing media files, running cool animations, and more.    The XNA Framework provides libraries to handle 3D graphics, audio, and touch input. Because games are a key target of mobile app development, by the end of the book you will be able to write your own XNA game, utilizing the unique input abilities of the phone. You also learn how to tune your game code to get the best performance while running in the phone's constrained environment.",
      "status": "PUBLISH",
-     "authors": ["Timothy Binkley-Jones", "Massimo Perga", "", "Michael Sync"],
+     "authors": ["Timothy Binkley-Jones", "Massimo Perga", "Michael Sync"],
      "categories": ["Mobile Technology"]
  }, {
      "id": 253,
@@ -2976,7 +2976,7 @@ var booksArray = [{
      "shortDescription": "Guides you through the process of developing Eclipse-based GUIs and shows how to build applications with features your users will love. Packed with examples and no fluff.",
      "longDescription": "SWT and JFace are Eclipse's graphical libraries. They enable you to build nimble and powerful Java GUIs--but this is only the beginning. With Draw2D and the Graphical Editing Framework, you can go beyond static applications and create full-featured editors. And with the Rich Client Platform, you can build customized workbenches whose capabilities far exceed those of traditional interfaces.    SWT/JFace in Action covers the territory, from simple widgets to complex graphics. It guides you through the process of developing Eclipse-based GUIs and shows how to build applications with features your users will love. The authors share their intimate knowledge of the subject with you in a friendly, readable style.    This book encourages you to learn through action. Each topic provides extensive code to show you how SWT/JFace works in practical applications. Not only do these examples help you understand the subject, they are a working set of programs you can reuse in your own interfaces.",
      "status": "PUBLISH",
-     "authors": ["Matthew Scarpino", "Stephen Holder", "Stanford Ng", "", "Laurent Mihalkovic"],
+     "authors": ["Matthew Scarpino", "Stephen Holder", "Stanford Ng", "Laurent Mihalkovic"],
      "categories": ["Java"]
  }, {
      "id": 282,
@@ -3082,7 +3082,7 @@ var booksArray = [{
      "shortDescription": "Java Applets and Channels Without Programming collects almost 100 applets on a CD with detailed instructions on how to use each applet. In addition, style issues are discussed in detail; not only will you learn how to use each applet, you will learn when and where it is appropriate to use each applet. The book also introduces the new concept of channels and shows how these can be used on your web site as well.  ",
      "longDescription": "If you want to use Java to enhance your Web site, you have two choices: you can write the Java applet yourself or you can find an already written Java applet that meets your needs. If you prefer not to do the writing yourself, then Java Applets and Channels Without Programming is for you. It collects almost 100 applets on a CD with detailed instructions on how to use each applet. In addition, style issues are discussed in detail; not only will you learn how to use each applet, you will learn when and where it is appropriate to use each applet. The book also introduces the new concept of channels and shows how these can be used on your web site as well.    The CD-ROM also contains an exclusive applet configuration utility, a program that allows you to configure the Java applets on the CD-ROM in a WYSIWYG (What You See Is What You Get) environment. When using the utility to configure Java applets, you do not need to know any Java programming or even any HTML programming. All you do is change the value of a parameter and click on a button to see the resulting change to the applet. The applet configuration utility is written in Java and runs in your browser, so it runs on any computer platform for which there is a Java-enabled browser.    The CD-ROM also provides example web pages for more than 60 of the included applets, so you can learn how to use the applets in real-world situations.",
      "status": "PUBLISH",
-     "authors": ["Ronny Richardson", "Michael Shoffner", "Marq Singer", "Bruce Murray", "", "Jack Gambol"],
+     "authors": ["Ronny Richardson", "Michael Shoffner", "Marq Singer", "Bruce Murray", "Jack Gambol"],
      "categories": ["Java"]
  }, {
      "id": 291,
@@ -3122,7 +3122,7 @@ var booksArray = [{
      "shortDescription": "Making Sense of Java clearly and concisely explains the concepts, features, benefits, potential, and limitations of Java.",
      "longDescription": "The meteoric rise of interest in Java, and the simultaneous rise in Java-related hype, make this book's no-nonsense evaluation essential reading for all levels of professionals, from managers to programmers. Making Sense of Java clearly and concisely explains the concepts, features, benefits, potential, and limitations of Java. It is not a programmer's how-to guide and assumes little technical knowledge, though software developers will find this lucid overview to be a valuable introduction to the possible uses and capabilities of Java.",
      "status": "PUBLISH",
-     "authors": ["Bruce Simpson", "John Mitchell", "Brian Christeson", "Rehan Zaidi", "", "Jonathan Levine"],
+     "authors": ["Bruce Simpson", "John Mitchell", "Brian Christeson", "Rehan Zaidi", "Jonathan Levine"],
      "categories": ["Java", "Business"]
  }, {
      "id": 294,
@@ -3202,7 +3202,7 @@ var booksArray = [{
      "shortDescription": "ActiveMQ is implemented in Java, but it supports client applications written in many other programming languages including C/C++, .NET, Ruby, Perl, PHP, Python, and more. It can be integrated with other open source frameworks including Tomcat, ServiceMix, JBoss, and can easily bridge to other JMS providers.  ",
      "longDescription": "Modern distributed architectures require a secure, reliable way to exchange messages in asynchronous, loosely-coupled systems. For Java developers, the Java Message Service (JMS) provides that core functionality. The Apache ActiveMQ message broker is a complete open source implementation of the JMS specification. The ActiveMQ Message-Oriented Middleware, coupled with its Enterprise Integration Provider are the building blocks of an Enterprise Service Bus   the backbone of a contemporary Service Oriented Architecture.    ActiveMQ is implemented in Java, but it supports client applications written in many other programming languages including C/C++, .NET, Ruby, Perl, PHP, Python, and more. It can be integrated with other open source frameworks including Tomcat, ServiceMix, JBoss, and can easily bridge to other JMS providers.    Apache ActiveMQ in Action is a thorough, practical guide to implementing message-oriented systems in Java using ActiveMQ. The book lays out the core of ActiveMQ in clear language, starting with the anatomy of a JMS message and moving quickly through connectors, message persistence, authentication and authorization. With the basics well in hand, you move into interesting examples of ActiveMQ at work, following a running Stock Portfolio application. You'll integrate ActiveMQ with containers like Geronimo and JBoss and learn to tie into popular Java-based technologies like Spring Framework.    Along the way, you'll pick up best practices forged out of the deep experience the authors bring to the book. You'll learn to integrate with non-Java technologies and explore advanced topics like broker topologies and configuration and performance tuning.    Additionally, the book will introduce readers to using Apache Camel with Apache ActiveMQ as a way to easily utilize the Enterprise Integration Patterns.",
      "status": "PUBLISH",
-     "authors": ["Bruce Snyder", "Dejan Bosanac", "", "Rob Davies"],
+     "authors": ["Bruce Snyder", "Dejan Bosanac", "Rob Davies"],
      "categories": ["Java"]
  }, {
      "id": 300,
@@ -3283,7 +3283,7 @@ var booksArray = [{
      },
      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/tacy.jpg",
      "status": "PUBLISH",
-     "authors": ["Adam Tacy", "Robert Hanson", "Jason Essington", "", "Anna Tökke"],
+     "authors": ["Adam Tacy", "Robert Hanson", "Jason Essington", "Anna Tökke"],
      "categories": ["Java"]
  }, {
      "id": 307,
@@ -3297,7 +3297,7 @@ var booksArray = [{
      "shortDescription": "JUnit in Action, Second Edition is an up-to-date guide to unit testing Java applications (including Java EE applications) using the JUnit framework and its extensions. This book provides techniques for solving real-world problems such as testing AJAX applications, using mocks to achieve testing isolation, in-container testing for Java EE and database applications, and test automation.",
      "longDescription": "When JUnit was first introduced a decade ago by Kent Beck and Erich Gamma, the Agile movement was in its infancy, \"Test Driven Development\" was unknown, and unit testing was just starting to move into the typical developer's vocabulary. Today, most developers acknowledge the benefits of unit testing and rely on the increasingly sophisticated tools now available. The recently released JUnit 4.5 represents the state of the art in unit testing frameworks, and provides significant new features to improve the Java development process.    JUnit in Action, Second Edition is an up-to-date guide to unit testing Java applications (including Java EE applications) using the JUnit framework and its extensions. This book provides techniques for solving real-world problems such as testing AJAX applications, using mocks to achieve testing isolation, in-container testing for Java EE and database applications, and test automation.    Written to help readers exploit JUnit 4.5, the book covers recent innovations such as the new annotations that simplify test writing, improved exception handling, and the new assertion methods. You'll also discover how to use JUnit extensions to test new application styles and frameworks including Ajax, OSGi, and HTML-based presentation layers.    Using a sample-driven approach, various unit testing strategies are covered, such as how to unit test EJBs, database applications, and web applications. Also addressed are testing strategies using freely available open source frameworks and tools, and how to unit test in isolation with Mock Objects. The book will also bring you up to speed on the latest thinking in TDD, BDD, Continuous Integration, and other practices related to unit testing.  ",
      "status": "PUBLISH",
-     "authors": ["Petar Tahchiev", "Felipe Leme", "Vincent Massol", "", "Gary Gregory"],
+     "authors": ["Petar Tahchiev", "Felipe Leme", "Vincent Massol", "Gary Gregory"],
      "categories": ["Java"]
  }, {
      "id": 308,
@@ -3363,7 +3363,7 @@ var booksArray = [{
      "shortDescription": "Using many examples, the book covers core features like accelerometers, GPS, the Address Book, and much more. Along the way, you'll learn to leverage your iPhone skills to build attractive iPad apps. This is a revised and expanded edition of the original iPhone in Action.",
      "longDescription": "This hands-on tutorial will help you master iPhone/iPad development using the native iPhone SDK. It guides you from setting up dev tools like Xcode and Interface Builder, through coding your first app, all the way to selling in the App Store.    Using many examples, the book covers core features like accelerometers, GPS, the Address Book, and much more. Along the way, you'll learn to leverage your iPhone skills to build attractive iPad apps. This is a revised and expanded edition of the original iPhone in Action.",
      "status": "PUBLISH",
-     "authors": ["Brandon Trebitowski", "Christopher Allen", "", "Shannon Appelcline"],
+     "authors": ["Brandon Trebitowski", "Christopher Allen", "Shannon Appelcline"],
      "categories": ["Mobile Technology"]
  }, {
      "id": 314,
@@ -3609,7 +3609,7 @@ var booksArray = [{
      },
      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/garcia3.jpg",
      "status": "PUBLISH",
-     "authors": ["Jesus Garcia", "Grgur Grisogono", "", "Jacob K. Andresen"],
+     "authors": ["Jesus Garcia", "Grgur Grisogono", "Jacob K. Andresen"],
      "categories": []
  }, {
      "id": 514,
@@ -3635,7 +3635,7 @@ var booksArray = [{
      "shortDescription": "Arduino in Action is a hands-on guide to prototyping and building electronics using the Arduino platform. Suitable for beginners and advanced users, this easy to follow book begins with the basics and systematically guides you through projects ranging from your first blinking LED through connecting Arduino to devices like game controllers or your iPhone.",
      "longDescription": "Whether you want to build an autonomous robot, automate your home electronics, or just automatically tweet when the bread is ready, you can do it with Arduino. Arduino is an inexpensive, easy-to-use, open source hardware and software platform. It supports a mind-boggling array of sensors and components that you can use to build nearly anything you can imagine.\n\nArduino in Action is a hands-on guide to prototyping and building electronics using the Arduino platform. Suitable for beginners and advanced users, this easy to follow book begins with the basics and systematically guides you through projects ranging from your first blinking LED through connecting Arduino to devices like game controllers or your iPhone.\n\nYou'll start at the very beginning: unpacking your first Arduino board, connecting it to a PC, and using the programming environment to make something happen. You'll follow progressively more complex examples as you connect your Arduino to motors, LCD displays, Wi-Fi, GPS, and Bluetooth. You'll explore a variety of input output sensors, including ultrasound, infrared, and light, along with how to use them for tasks like robotic obstacle avoidance.",
      "status": "PUBLISH",
-     "authors": ["Martin Evans", "Joshua Noble", "", "Jordan Hochenbaum"],
+     "authors": ["Martin Evans", "Joshua Noble", "Jordan Hochenbaum"],
      "categories": []
  }, {
      "id": 516,
@@ -3649,7 +3649,7 @@ var booksArray = [{
      "shortDescription": "Node.js in Action is an example-driven tutorial that starts at square one and guides you through all the features, techniques, and concepts you'll need to build production-quality Node applications. You'll start by learning how to set up your Node development environment, including loading the community-created extensions. Next, you'll run several simple demonstration programs where you'll learn the basics of a few common types of Node applications. Then you'll dive into asynchronous programming, a model Node leverages to lessen application bottlenecks.",
      "longDescription": "JavaScript on the server? Yep. Node.js is an elegant server-side JavaScript development environment perfect for scalable, high-performance web applications. With Node you access HTTP and TCP/IP functionality through a minimalist server-side Javascript interface. It supports an asynchronous programming model that enables the web server to more easily do more than one thing at a time, a key requirement for real-time applications such as chat, online games, and live statistics. And since it's JavaScript, you'll use the same language throughout your entire application.\n\nNode.js in Action is an example-driven tutorial that starts at square one and guides you through all the features, techniques, and concepts you'll need to build production-quality Node applications. You'll start by learning how to set up your Node development environment, including loading the community-created extensions. Next, you'll run several simple demonstration programs where you'll learn the basics of a few common types of Node applications. Then you'll dive into asynchronous programming, a model Node leverages to lessen application bottlenecks.\n\nWith the basics under your belt, you're ready to start building serious web applications using Node's HTTP API. You'll explore data storage, application deployment, and output templating, and you'll discover community frameworks that make web development easier and faster. Along the way, you'll learn to interact with the filesystem and to create non-HTTP applications, such as TCP/IP servers and command-line tools.\n\nMuch of the Node ecosystem is open source, so this book will show you how the community works and how you can contribute. You'll learn about the NPM Repository, where most community extensions reside, and you'll learn how to publish your own extensions. In addition, the book outlines online resources for getting help with any stumbling blocks you run into during your journey as a Node developer.\nWHAT'S INSIDE",
      "status": "PUBLISH",
-     "authors": ["Mike Cantelon", "Marc Harter", "T.J. Holowaychuk", "", "Nathan Rajlich"],
+     "authors": ["Mike Cantelon", "Marc Harter", "T.J. Holowaychuk", "Nathan Rajlich"],
      "categories": ["Web Development"]
  }, {
      "id": 517,
@@ -3809,7 +3809,7 @@ var booksArray = [{
      },
      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/delaney.jpg",
      "status": "PUBLISH",
-     "authors": ["Kalen Delaney", "Louis Davidson", "Greg Low", "Brad McGehee", "Paul Nielsen", "Paul Randal", "", "Kimberly Tripp"],
+     "authors": ["Kalen Delaney", "Louis Davidson", "Greg Low", "Brad McGehee", "Paul Nielsen", "Paul Randal", "Kimberly Tripp"],
      "categories": []
  }, {
      "id": 560,
@@ -3823,7 +3823,7 @@ var booksArray = [{
      "shortDescription": "HTML5 In Action provides a complete introduction to web development using HTML5. You'll explore every aspect of the HTML5 specification through real-world examples and code samples. It's much more than just a specification reference, though. It lives up to the name HTML5 in Action by giving you the practical, hands-on guidance you'll need to use key features.",
      "longDescription": "The Web is buzzing about HTML5. What is it? Which browsers support what features? When the specification will be complete? HTML5, along with supporting technologies like CSS3, SVG, and JavaScript, gives web developers powerful new features like local storage, better audio and video support, and standards-driven mobile application development. And it's ready to use now, with browser support from Microsoft, Google, Apple, Mozilla, and Opera.\n\nHTML5 In Action provides a complete introduction to web development using HTML5. You'll explore every aspect of the HTML5 specification through real-world examples and code samples. It's much more than just a specification reference, though. It lives up to the name HTML5 in Action by giving you the practical, hands-on guidance you'll need to use key features like:\n\n    * The new semantic elements and form input types\n    * Native multimedia playback with the video and audio elements\n    * Canvas and 2D drawing APIs\n    * Offline applications\n    * Local and session storage, IndexedDB databases\n    * Web workers\n    * Geolocation, File API, History API\n    * Cross-document Message API\n    * Much, much more\n\nWith this book, you can confidently start using HTML5 today. The relevant, easy-to-follow examples will make you a HTML5 master in no time. You'll even learn how to provide fallbacks for browsers that don't support particular HTML5 features.",
      "status": "PUBLISH",
-     "authors": ["Rob Crowther", "Joe Lennon", "Ash Blue", "", "Greg Wanish"],
+     "authors": ["Rob Crowther", "Joe Lennon", "Ash Blue", "Greg Wanish"],
      "categories": []
  }, {
      "id": 562,
@@ -3832,7 +3832,7 @@ var booksArray = [{
      "pageCount": 0,
      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/bauer3.jpg",
      "status": "MEAP",
-     "authors": ["Christian Bauer", "Gavin King", "", "Gary Gregory"],
+     "authors": ["Christian Bauer", "Gavin King", "Gary Gregory"],
      "categories": []
  }, {
      "id": 566,
@@ -3904,7 +3904,7 @@ var booksArray = [{
      },
      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/jones2.jpg",
      "status": "PUBLISH",
-     "authors": ["Don Jones", "Richard Siddaway", "", "Jeffery Hicks"],
+     "authors": ["Don Jones", "Richard Siddaway", "Jeffery Hicks"],
      "categories": []
  }, {
      "id": 599,
@@ -3944,7 +3944,7 @@ var booksArray = [{
      },
      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/dossot2.jpg",
      "status": "PUBLISH",
-     "authors": ["David Dossot", "John D'Emic", "", "Victor Romero"],
+     "authors": ["David Dossot", "John D'Emic", "Victor Romero"],
      "categories": []
  }, {
      "id": 624,
@@ -4037,7 +4037,7 @@ var booksArray = [{
      "pageCount": 0,
      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/partner.jpg",
      "status": "MEAP",
-     "authors": ["Jonas Partner", "Aleksa Vukotic", "", "Nicki Watt"],
+     "authors": ["Jonas Partner", "Aleksa Vukotic", "Nicki Watt"],
      "categories": []
  }, {
      "id": 639,
@@ -4070,7 +4070,7 @@ var booksArray = [{
      },
      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/hilton.jpg",
      "status": "PUBLISH",
-     "authors": ["Peter Hilton", "Erik Bakker", "", "Francisco Canedo"],
+     "authors": ["Peter Hilton", "Erik Bakker", "Francisco Canedo"],
      "categories": []
  }, {
      "id": 642,
@@ -4124,7 +4124,7 @@ var booksArray = [{
      "pageCount": 0,
      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/back.jpg",
      "status": "PUBLISH",
-     "authors": ["William Back", "Nicholas Goodman", "", "Julian Hyde"],
+     "authors": ["William Back", "Nicholas Goodman", "Julian Hyde"],
      "categories": []
  }, {
      "id": 648,
@@ -4353,7 +4353,7 @@ var booksArray = [{
      "pageCount": 0,
      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/hicks.jpg",
      "status": "PUBLISH",
-     "authors": ["Edited by Jeffery Hicks", "Richard Siddaway", "Oisin Grehan", "", "Aleksandar Nikolic"],
+     "authors": ["Edited by Jeffery Hicks", "Richard Siddaway", "Oisin Grehan", "Aleksandar Nikolic"],
      "categories": []
  }, {
      "id": 680,
@@ -4374,7 +4374,7 @@ var booksArray = [{
      "pageCount": 0,
      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/carrero2.jpg",
      "status": "MEAP",
-     "authors": ["Ivan Porto Carrero", "Ross A. Baker", "Dave Hrycyszyn", "Stefan Ollinger", "", "Jared Armstrong"],
+     "authors": ["Ivan Porto Carrero", "Ross A. Baker", "Dave Hrycyszyn", "Stefan Ollinger", "Jared Armstrong"],
      "categories": []
  }, {
      "id": 683,
@@ -4512,7 +4512,7 @@ var booksArray = [{
      "pageCount": 0,
      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/breed.jpg",
      "status": "MEAP",
-     "authors": ["Samuel M. Breed", "Cole Krumbholz", "", "Phillip Whisenhunt"],
+     "authors": ["Samuel M. Breed", "Cole Krumbholz", "Phillip Whisenhunt"],
      "categories": []
  }, {
      "id": 703,
@@ -4576,7 +4576,7 @@ var booksArray = [{
      "pageCount": 0,
      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/kapur.jpg",
      "status": "MEAP",
-     "authors": ["Ajay Kapur", "Perry Cook", "Spencer Salazar", "", "Ge Wang"],
+     "authors": ["Ajay Kapur", "Perry Cook", "Spencer Salazar", "Ge Wang"],
      "categories": []
  }, {
      "id": 719,
@@ -4615,7 +4615,7 @@ var booksArray = [{
      "pageCount": 0,
      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/martella.jpg",
      "status": "MEAP",
-     "authors": ["Claudio Martella", "Roman Shaposhnik", "", "Dionysios Logothetis"],
+     "authors": ["Claudio Martella", "Roman Shaposhnik", "Dionysios Logothetis"],
      "categories": []
  }, {
      "id": 728,
@@ -4636,7 +4636,7 @@ var booksArray = [{
      "pageCount": 0,
      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/ketelsen.jpg",
      "status": "MEAP",
-     "authors": ["Brian Ketelsen", "Erik St. Martin", "", "William Kennedy"],
+     "authors": ["Brian Ketelsen", "Erik St. Martin", "William Kennedy"],
      "categories": []
  }, {
      "id": 731,
@@ -4681,7 +4681,7 @@ var booksArray = [{
      "pageCount": 0,
      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/pathirana.jpg",
      "status": "MEAP",
-     "authors": ["Sean Allen", "Peter Pathirana", "", "Matthew Jankowski"],
+     "authors": ["Sean Allen", "Peter Pathirana", "Matthew Jankowski"],
      "categories": []
  }, {
      "id": 743,
@@ -4744,7 +4744,7 @@ var booksArray = [{
      "pageCount": 0,
      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/urma.jpg",
      "status": "MEAP",
-     "authors": ["Raoul-Gabriel Urma", "Mario Fusco", "", "Alan Mycroft"],
+     "authors": ["Raoul-Gabriel Urma", "Mario Fusco", "Alan Mycroft"],
      "categories": []
  }, {
      "id": 753,
@@ -4762,7 +4762,7 @@ var booksArray = [{
      "pageCount": 0,
      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/banker2.jpg",
      "status": "MEAP",
-     "authors": ["Kyle Banker", "Peter Bakkum", "Tim Hawkins", "Shaun Verch", "", "Douglas Garrett"],
+     "authors": ["Kyle Banker", "Peter Bakkum", "Tim Hawkins", "Shaun Verch", "Douglas Garrett"],
      "categories": []
  }, {
      "id": 757,
@@ -4780,7 +4780,7 @@ var booksArray = [{
      "pageCount": 0,
      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/derosa.jpg",
      "status": "MEAP",
-     "authors": ["Bear Bibeault", "Yehuda Katz", "", "Aurelio De Rosa"],
+     "authors": ["Bear Bibeault", "Yehuda Katz", "Aurelio De Rosa"],
      "categories": []
  }, {
      "id": 764,
@@ -4846,7 +4846,7 @@ var booksArray = [{
      "pageCount": 0,
      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/bdavis.jpg",
      "status": "MEAP",
-     "authors": ["Bradley Austin Davis", "Karen Bryla", "", "Alex Benton"],
+     "authors": ["Bradley Austin Davis", "Karen Bryla", "Alex Benton"],
      "categories": []
  }, {
      "id": 776,
@@ -4864,7 +4864,7 @@ var booksArray = [{
      "pageCount": 0,
      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/jones6.jpg",
      "status": "MEAP",
-     "authors": ["Don Jones", "Jeffery Hicks", "", "Richard Siddaway"],
+     "authors": ["Don Jones", "Jeffery Hicks", "Richard Siddaway"],
      "categories": []
  }, {
      "id": 785,

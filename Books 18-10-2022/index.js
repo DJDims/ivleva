@@ -64,8 +64,6 @@ function addCategories(){
 
 //-------------------- Добавление книг --------------------
 function addBooks(){
-     const books = new Array();
-
      for (let i = 0; i < booksArray.length; i++) {
           const title = booksArray[i]['title'];
           const isbn = booksArray[i]['isbn'];
@@ -89,33 +87,38 @@ function addBooks(){
      }
 }
 //-------------------- Добавление книг --------------------
+
 //-------------------- Книга-автор --------------------
-
 async function addBookAuthor(){
-     let authorsArray = await Author.findAll().then(res=>{return res});
-     // console.log(authorsArray);
+     for (let i = 0; i < booksArray.length; i++) {
+          let thisBookAuthors = booksArray[i]['authors'];
+          let b = await Book.findOne({where: {title: booksArray[i]['title']}}).then(res=>{return res});
 
-     booksArray.forEach(i => {
-          i['authors'].forEach(j =>{
-               console.log(Author.findOne({where: {firstname: j.slice(0, j.search(' '))}}).then(res=>{return res}));
-               
-               // Book_author.create({
-               //      BookId: i['id']
-               // })
-          })
-     })
-
-     // for (let i = 0; i < booksArray.length; i++) {
-     //      for (let j = 0; j < booksArray[i]['authors'].length; j++) {
-               
-     //      }
-     // }
+          for (let j = 0; j < thisBookAuthors.length; j++) {
+               let a = await Author.findOne({where: {firstname: thisBookAuthors[j].slice(0, thisBookAuthors[j].search(' '))}}).then(res=>{return res});
+               Book_author.create({
+                    BookId: b['id'],
+                    AuthorId: a['id']
+               })
+          }
+     }
 }
 //-------------------- Книга-автор --------------------
 
 //-------------------- Книга-категория --------------------
 function addBookCategory(){
+     for (let i = 0; i < booksArray.length; i++) {
+          let thisBookCategories = booksArray[i]['categories'];
+          let b = Book.findOne({where: {title: booksArray[i]['title']}}).then(res=>{return res});
 
+          for (let j = 0; j < thisBookAuthors.length; j++) {
+               let c = Category.findOne({where: {categoryName: thisBookCategories[j]}}).then(res=>{return res});
+               Book_category.create({
+                    BookId: b['id'],
+                    CategoryId: a['id']
+               })
+          }
+     }
 }
 //-------------------- Книга-категория --------------------
 
@@ -124,4 +127,5 @@ function addBookCategory(){
 // addAuthors();
 // addCategories();
 // addBooks();
-addBookAuthor();
+// addBookAuthor();
+addBookCategory()
