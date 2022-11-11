@@ -23,4 +23,19 @@ class BookController{
         return authors;
     }
 
+    async addAuthor(firstname, surname) {
+        Author.create({
+            firstname: firstname,
+            surname: surname
+        });
+    }
+
+    async editAuthor(id, firstname, surname) {
+        Author.update({firstname: firstname, surname: surname}, {where: {id: id}});
+    }
+
+    async deleteAuthor(id) {
+        Author.destroy({where:{id: id}});
+    }
+
 }

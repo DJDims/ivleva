@@ -33,4 +33,16 @@ class BookController{
         return books;
     }
 
+    async addBook(book) {
+        Book.create();
+    }
+
+    async editBook(id) {
+        Book.update({where: {id: id}});
+    }
+
+    async deleteBook(id) {
+        Book.destroy({where: {id: id}});
+    }
+
 }
