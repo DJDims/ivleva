@@ -33,12 +33,30 @@ class BookController{
         return books;
     }
 
-    async addBook(book) {
-        Book.create();
+    async addBook(title, isbn, pageCount, publishedDate, thumbnailUrl, shortDescription, longDescription, status) {
+        Book.create({
+            title: title,
+            isbn: isbn,
+            pageCount: pageCount,
+            publishedDate: publishedDate,
+            thumbnailUrl: thumbnailUrl,
+            shortDescription: shortDescription,
+            longDescription: longDescription,
+            status: status
+        });
     }
 
-    async editBook(id) {
-        Book.update({where: {id: id}});
+    async editBook(id, title, isbn, pageCount, publishedDate, thumbnailUrl, shortDescription, longDescription, status) {
+        Book.update({where: {id: id}}, {
+            title: title,
+            isbn: isbn,
+            pageCount: pageCount,
+            publishedDate: publishedDate,
+            thumbnailUrl: thumbnailUrl,
+            shortDescription: shortDescription,
+            longDescription: longDescription,
+            status: status
+        });
     }
 
     async deleteBook(id) {

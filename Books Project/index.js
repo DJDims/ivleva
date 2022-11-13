@@ -24,82 +24,90 @@ function initDB(){
 
 //-------------------- Добавление авторов --------------------
 function addAuthors(){
-     const authorsSet = new Set();
+     if (Author.count() == 0) {
+          const authorsSet = new Set();
 
-     for (let i = 0; i < booksArray.length; i++) {
-          for (let j = 0; j < booksArray[i]['authors'].length; j++) {
-               authorsSet.add(booksArray[i]['authors'][j]);
+          for (let i = 0; i < booksArray.length; i++) {
+               for (let j = 0; j < booksArray[i]['authors'].length; j++) {
+                    authorsSet.add(booksArray[i]['authors'][j]);
+               }
           }
-     }
-     authorsSet.forEach(element => {
-          let name = element.slice(0, element.search(' '));
-          let surname = element.slice(element.search(' '), element.length);
-          Author.create({
-               firstname: name,
-               surname: surname
+          authorsSet.forEach(element => {
+               let name = element.slice(0, element.search(' '));
+               let surname = element.slice(element.search(' '), element.length);
+               Author.create({
+                    firstname: name,
+                    surname: surname
+               });
           });
-     });
+     }
 }
 //-------------------- Добавление авторов --------------------
 
 //-------------------- Добавление категорий --------------------
 function addCategories(){
-     const categoriesSet = new Set();
+     if (Category.count() == 0) {
+          const categoriesSet = new Set();
 
-     for (let i = 0; i < booksArray.length; i++) {
-          for (let j = 0; j < booksArray[i]['categories'].length; j++) {
-               if (booksArray[i]['categories'][j ]== "") {
-                    continue;
+          for (let i = 0; i < booksArray.length; i++) {
+               for (let j = 0; j < booksArray[i]['categories'].length; j++) {
+                    if (booksArray[i]['categories'][j ]== "") {
+                         continue;
+                    }
+                    categoriesSet.add(booksArray[i]['categories'][j]);
                }
-               categoriesSet.add(booksArray[i]['categories'][j]);
           }
-     }
-     categoriesSet.forEach(element => {
-          Category.create({
-               categoryName: element
+          categoriesSet.forEach(element => {
+               Category.create({
+                    categoryName: element
+               });
           });
-     });
+     }
 }
 //-------------------- Добавление категорий --------------------
 
 //-------------------- Добавление книг --------------------
 function addBooks(){
-     for (let i = 0; i < booksArray.length; i++) {
-          const title = booksArray[i]['title'];
-          const isbn = booksArray[i]['isbn'];
-          const pageCount = booksArray[i]['pageCount'];
-          const publishedDate = booksArray[i]['publishedDate'];
-          const thumbnailUrl = booksArray[i]['thumbnailUrl'];
-          const shortDescription = booksArray[i]['shortDescription'];
-          const longDescription = booksArray[i]['longDescription'];
-          const status = booksArray[i]['status'];
+     if (Book.count() == 0) {
+          for (let i = 0; i < booksArray.length; i++) {
+               const title = booksArray[i]['title'];
+               const isbn = booksArray[i]['isbn'];
+               const pageCount = booksArray[i]['pageCount'];
+               const publishedDate = booksArray[i]['publishedDate'];
+               const thumbnailUrl = booksArray[i]['thumbnailUrl'];
+               const shortDescription = booksArray[i]['shortDescription'];
+               const longDescription = booksArray[i]['longDescription'];
+               const status = booksArray[i]['status'];
 
-          Book.create({
-               title: title,
-               isbn: isbn,
-               pageCount: pageCount,
-               publishedDate: publishedDate,
-               thumbnailUrl: thumbnailUrl,
-               shortDescription: shortDescription,
-               longDescription: longDescription,
-               status: status
-          });
+               Book.create({
+                    title: title,
+                    isbn: isbn,
+                    pageCount: pageCount,
+                    publishedDate: publishedDate,
+                    thumbnailUrl: thumbnailUrl,
+                    shortDescription: shortDescription,
+                    longDescription: longDescription,
+                    status: status
+               });
+          }
      }
 }
 //-------------------- Добавление книг --------------------
 
 //-------------------- Книга-автор --------------------
 async function addBookAuthor(){
-     for (let i = 0; i < booksArray.length; i++) {
-          let thisBookAuthors = booksArray[i]['authors'];
-          let b = await Book.findOne({where: {title: booksArray[i]['title']}}).then(res=>{return res});
+     if (Book_author.count() == 0) {
+          for (let i = 0; i < booksArray.length; i++) {
+               let thisBookAuthors = booksArray[i]['authors'];
+               let b = await Book.findOne({where: {title: booksArray[i]['title']}}).then(res=>{return res});
 
-          for (let j = 0; j < thisBookAuthors.length; j++) {
-               let a = await Author.findOne({where: {firstname: thisBookAuthors[j].slice(0, thisBookAuthors[j].search(' '))}}).then(res=>{return res});
-               Book_author.create({
-                    BookId: b['id'],
-                    AuthorId: a['id']
-               })
+               for (let j = 0; j < thisBookAuthors.length; j++) {
+                    let a = await Author.findOne({where: {firstname: thisBookAuthors[j].slice(0, thisBookAuthors[j].search(' '))}}).then(res=>{return res});
+                    Book_author.create({
+                         BookId: b['id'],
+                         AuthorId: a['id']
+                    })
+               }
           }
      }
 }
@@ -107,21 +115,35 @@ async function addBookAuthor(){
 
 //-------------------- Книга-категория --------------------
 async function addBookCategory(){
-     for (let i = 0; i < booksArray.length; i++) {
-          let thisBookCategories = booksArray[i]['categories'];
-          let b = await Book.findOne({where: {title: booksArray[i]['title']}}).then(res=>{return res});
+     if (Book_category.count == 0) {
+          for (let i = 0; i < booksArray.length; i++) {
+               let thisBookCategories = booksArray[i]['categories'];
+               let b = await Book.findOne({where: {title: booksArray[i]['title']}}).then(res=>{return res});
 
-          for (let j = 0; j < thisBookCategories.length; j++) {
-               let c = await Category.findOne({where: {categoryName: thisBookCategories[j]}}).then(res=>{return res});
-               Book_category.create({
-                    BookId: b['id'],
-                    CategoryId: c['id']
-               })
+               for (let j = 0; j < thisBookCategories.length; j++) {
+                    let c = await Category.findOne({where: {categoryName: thisBookCategories[j]}}).then(res=>{return res});
+                    Book_category.create({
+                         BookId: b['id'],
+                         CategoryId: c['id']
+                    })
+               }
           }
      }
 }
 //-------------------- Книга-категория --------------------
 
+function lolkek(){
+     const statusSet = new Set();
+
+          for (let i = 0; i < booksArray.length; i++) {
+               statusSet.add(booksArray[i]['status']);
+          }
+          statusSet.forEach(element => {
+               console.log(element)
+          });
+}
+
+// lolkek();
 
 // initDB();
 // addAuthors();

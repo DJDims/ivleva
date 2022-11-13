@@ -1,0 +1,16 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+        <th scope="col">№</th>
+        <th scope="col">Category name</th>
+        <th scope="col">Manage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <th scope="row">1</th>
+        <td>Dmitrii</td>
+        <td><button type="button" class="btn btn-warning mx-2">Edit</button><button type="button" class="btn btn-danger">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
