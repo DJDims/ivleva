@@ -1,9 +1,0 @@
-<div class="card border-primary mb-3" style="max-width: 20rem;">
-    <div class="card-body">
-        <h4 class="card-title">Delete category?</h4>
-        <p class="card-text">Name - </p>
-        <p class="card-text">Linked books:</p>
-        <li id="linkedBooks"></li>
-        <button type="button" class="btn btn-danger">Delete</button>
-    </div>
-</div>
