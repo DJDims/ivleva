@@ -1,6 +1,7 @@
 const Game = require("../Models/Game");
 
 exports.create = (req, res) => {
+    console.log(req.body)
     if (!req.body.title || !req.body.publishYear || !req.body.poster || !req.body.description) {
         res.status(400).send({
             message: "Content can't be empty"

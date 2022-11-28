@@ -21,7 +21,7 @@ Company.belongsToMany(Game, { through: 'Game_Company' });
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/Public'));
 
 app.set("views", "./Views");
 app.set("view engine", "ejs");

@@ -1,3 +1,6 @@
+const Category = require("../Models/Category");
+const Company = require("../Models/Company");
+
 exports.showAddCategory = (req, res) => {
     res.render('../Views/Categories/addCategory.ejs');
 }
@@ -6,7 +9,11 @@ exports.showEditCategory = (req, res) => {
 }
 
 exports.showAddGame = (req, res) => {
-    res.render('../Views/Games/addGame.ejs');
+    Category.findAll().then(categories => {
+        Company.findAll().then(companies => {
+            res.render('../Views/Games/addGame.ejs', {categories: categories, companies: companies});
+        })
+    })
 }
 exports.showEditGame = (req, res) => {
     res.render('../Views/Games/editGame.ejs');

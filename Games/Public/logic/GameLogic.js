@@ -1,41 +1,75 @@
+const companiesBase = document.getElementById("companiesBase");
+const companiesThis = document.getElementById("companiesThis");
 const categoriesBase = document.getElementById("categoriesBase");
 const categoriesThis = document.getElementById("categoriesThis");
 
-function addCategoriesToGame(){
-    const categoriesBaseOptions = getSelectValues(categoriesBase);
-    console.log(categoriesBaseOptions);
-	categoriesBaseOptions.forEach(element => {
-		option = document.getElementById("categoryBase" + element.id);
-		categoriesBase.parentNode.removeChild(option);
+function addCompaniesToGame() {
+	const companiesBaseOptions = getSelectValues(companiesBase);
+
+	companiesBaseOptions.forEach(element => {
+		removeOptionFromSelect(element, companiesBase)
+		addOptionToSelect(element, companiesThis)
 	});
+	setAllSelected(companiesThis)
+}
+
+function removeCompaniesFromGame() {
+	const companiesThisOptions = getSelectValues(companiesThis);
+
+	companiesThisOptions.forEach(element => {
+		removeOptionFromSelect(element, companiesThis)
+		addOptionToSelect(element, companiesBase)
+	});
+	setAllSelected(companiesThis)
+}
+
+function addCategoriesToGame() {
+	const categoriesBaseOptions = getSelectValues(categoriesBase);
+
+	categoriesBaseOptions.forEach(element => {
+		removeOptionFromSelect(element, categoriesBase)
+		addOptionToSelect(element, categoriesThis)
+	});
+	setAllSelected(categoriesThis)
+}
+
+function removeCategoriesFromGame() {
+	const categoriesThisOptions = getSelectValues(categoriesThis);
+
+	categoriesThisOptions.forEach(element => {
+		removeOptionFromSelect(element, categoriesThis)
+		addOptionToSelect(element, categoriesBase)
+	});
+	setAllSelected(categoriesThis)
 }
 
 function getSelectValues(select) {
-    var result = [];
-    var options = select.options;
-    var opt;
-  
-    for (var i=0; i<options.length; i++) {
-      opt = options[i];
-	  
-      if (opt.selected) {
-		  obj = {value: opt.value, text: opt.text}
-        result.push(obj);
-      }
-    }
-    return result;
+	var result = [];
+	var options = select.options;
+	var opt;
+
+	for (var i = 0; i < options.length; i++) {
+		opt = options[i];
+
+		if (opt.selected) {
+			result.push(opt);
+		}
+	}
+	return result;
 }
-// function getSelectValues(select) {
-//     var result = [];
-//     var options = select && select.options;
-//     var opt;
-  
-//     for (var i=0, iLen=options.length; i<iLen; i++) {
-//       opt = options[i];
-  
-//       if (opt.selected) {
-//         result.push(opt.value || opt.text);
-//       }
-//     }
-//     return result;
-// }
+
+function removeOptionFromSelect(option, select) {
+	select.removeChild(option);
+}
+
+function addOptionToSelect(option, select) {
+	select.appendChild(option);
+}
+
+function setAllSelected(select) {
+	const options = select.options;
+	for (let i = 0; i < options.length; i++) {
+		console.log(options[i].id)
+		options[i].selected = 'selected';
+	}
+}

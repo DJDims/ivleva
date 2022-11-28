@@ -38,30 +38,33 @@
                         <p class="mb-1">Add companies</p>
                         <div class="form-group mb-3" style="display: flex; flex-direction: row;">
                             <div style="width: 50%; display: flex; flex-direction: column;">
-                                <select id="companiesBase" multiple>
+                                <select style="height: 150px;" id="companiesBase" multiple>
+                                    <% for (let i = 0; i < companies.length; i++) { %>
+                                        <option value="<%= i %>"><%= companies[i].title %> </option>
+                                    <% } %>
                                 </select>
-                                <button type="button" class="btn btn-primary mx-2 mt-2">Add--&#62</button>
+                                <button type="button" class="btn btn-primary mx-2 mt-2" onclick="addCompaniesToGame()">Add--&#62</button>
                             </div>
                             <div style="width: 50%; display: flex; flex-direction: column;">
-                                <select id="companiesThis" multiple>
+                                <select name="companies" style="height: 150px;" id="companiesThis" multiple>
                                 </select>
-                                <button type="button" class="btn btn-danger mx-2 mt-2">&#60--Remove</button>
+                                <button type="button" class="btn btn-danger mx-2 mt-2" onclick="removeCompaniesFromGame()">&#60--Remove</button>
                             </div>
                         </div>
                         <p class="mb-1">Add categories</p>
                         <div class="form-group" style="display: flex; flex-direction: row;">
                             <div style="width: 50%; display: flex; flex-direction: column;">
-                                <select id="categoriesBase" multiple>
-                                    <% for (let i = 0; i < 10; i++) { %>
-                                        <option value="categoryBase<%= i %>">lolkek<%= i %> </option>
+                                <select style="height: 150px;" id="categoriesBase" multiple>
+                                    <% for (let i = 0; i < categories.length; i++) { %>
+                                        <option value="<%= i %>"><%= categories[i].title %> </option>
                                     <% } %>
                                 </select>
                                 <button type="button" class="btn btn-primary mx-2 mt-2" onclick="addCategoriesToGame()">Add--&#62</button>
                             </div>
                             <div style="width: 50%; display: flex; flex-direction: column;">
-                                <select id="authoriesThis" multiple>
+                                <select name="categories" style="height: 150px;" id="categoriesThis" multiple>
                                 </select>
-                                <button type="button" class="btn btn-danger mx-2 mt-2">&#60--Remove</button>
+                                <button type="button" class="btn btn-danger mx-2 mt-2" onclick="removeCategoriesFromGame()">&#60--Remove</button>
                             </div>
                         </div>
                     </div>
