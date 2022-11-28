@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include('../parts/head'); %>
+</head>
+<body>
+    <%- include('../parts/header'); %>
+
+<div style="width: 100%;">
+    <a href="views/showAddGame" class="btn btn-primary" class="mb-2">Add new</a>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+            <th scope="col">№</th>
+            <th scope="col">Title</th>
+            <th scope="col">Publish Year</th>
+            <th scope="col">Description</th>
+            <th scope="col">Manage</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% games.forEach(element => { %>
+                <tr>
+                    <th scope="row"><%= element.id %></th>
+                    <td><%= element.title %></td>
+                    <td><%= element.publishYear %></td>
+                    <td><%= element.description %></td>
+                    <td><button type="button" class="btn btn-warning mx-2">Edit</button><button type="button" class="btn btn-danger">Delete</button></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</div>
+
+<%- include('../parts/footer'); %>
+</body>
+</html>

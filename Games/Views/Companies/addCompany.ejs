@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%- include('../parts/head'); %>
+</head>
+<body>
+  <%- include('../parts/header'); %>
+
+	<form action="/companies/" method="POST">
+		<div class="card border-primary mb-3" style="min-width: 25rem;">
+			<div class="card-header">Add category</div>
+			<div class="card-body">
+
+				<div class="form-group">
+					<label class="col-form-label" for="categoryName">Company name</label>
+					<input type="text" class="form-control" placeholder="Category name" id="categoryName" name="title">
+				</div>
+				<div class="d-flex justify-content-center">
+					<button type="submit" class="btn btn-primary mt-3">Add category</button>
+				</div>
+			</div>
+		</div>
+	</form>
+  <%- include('../parts/footer'); %>
+</body>
+</html>
