@@ -1,23 +1,40 @@
 const Game = require("../Models/Game");
+const GameCategory = require("../Models/Game_Category");
+const GameCompany = require("../Models/Game_Company");
+const GamePlatform = require("../Models/Game_Platform");
 
-exports.create = (req, res) => {
-    console.log(req.body)
-    if (!req.body.title || !req.body.publishYear || !req.body.poster || !req.body.description) {
-        res.status(400).send({
-            message: "Content can't be empty"
-        })
-        return;
-    }
+
+exports.create = async (req, res) => {
+    // if (!req.body.title || !req.body.publishYear || !req.body.poster || !req.body.description || !req.body.publisher) {
+    //     res.status(400).send({
+    //         message: "Content can't be empty"
+    //     })
+    //     return;
+    // }
 
     const game = {
-        title: req.body.title,
+        title: req.body.title.trim(),
         publishYear: req.body.publishYear,
-        poster: req.body.poster,
-        description: req.body.description
+        poster: req.body.poster.trim(),
+        description: req.body.description.trim(),
+        publisher: req.body.publisher
     }
+
+    const companies = req.body.companies;
+    const categories = req.body.categories;
+    const platforms = req.body.platforms;
 
     Game.create(game)
     .then(data => {
+        for (let i = 0; i < companies.length; i++) {
+            GameCompany.create({gameId: data.id, companyId: companies[i]})
+        }
+        for (let i = 0; i < categories.length; i++) {
+            GameCategory.create({gameId: data.id, categoryId: categories[i]})
+        }
+        for (let i = 0; i < platforms.length; i++) {
+            GamePlatform.create({gameId: data.id, platformId: platforms[i]})
+        }
         res.redirect("/games");
     })
     .catch(err => {
@@ -28,7 +45,7 @@ exports.create = (req, res) => {
 }
 
 exports.update = (req, res) => {
-    if (!req.params.id || !req.body.title || !req.body.publishYear || !req.body.poster || !req.body.description) {
+    if (!req.params.id || !req.body.title || !req.body.publishYear || !req.body.poster || !req.body.description || !req.body.publisher) {
         res.status(400).send({
             message: "Content can't be empty"
         })
@@ -40,7 +57,8 @@ exports.update = (req, res) => {
         title: req.body.title,
         publishYear: req.body.publishYear,
         poster: req.body.poster,
-        description: req.body.description
+        description: req.body.description,
+        publisher: req.body.publisher
     }
 
     Game.update(game, {where:{id: game.id}})
@@ -57,7 +75,7 @@ exports.update = (req, res) => {
 exports.findAll = (req, res) => {
     Game.findAll()
     .then(data => {
-        res.render('../Views/Games/gamesTable.ejs', {games: data});
+        res.render('../Views/Games/table.ejs', {games: data});
     })
     .catch(err => {
         res.status(500).send({

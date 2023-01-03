@@ -1,4 +1,4 @@
-const Company = require("../Models/Company");
+const Platform = require("../Models/Platform");
 
 exports.create = (req, res) => {
     if (!req.body.title) {
@@ -8,13 +8,13 @@ exports.create = (req, res) => {
         return;
     }
 
-    const company = {
+    const platform = {
         title: req.body.title
     }
 
-    Company.create(company)
+    Platform.create(platform)
     .then(data => {
-        res.redirect("/companies");
+        res.redirect("/platforms");
     })
     .catch(err => {
         res.status(500).send({
@@ -31,14 +31,14 @@ exports.update = (req, res) => {
         return;
     }
 
-    const company = {
+    const platform = {
         id: req.params.id,
         title: req.body.title
     }
 
-    Company.update(company, {where:{id: company.id}})
+    Platform.update(platform, {where:{id: platform.id}})
     .then(data => {
-        res.redirect("/companies");
+        res.redirect("/platforms");
     })
     .catch(err => {
         res.status(500).send({
@@ -48,9 +48,9 @@ exports.update = (req, res) => {
 }
 
 exports.findAll = (req, res) => {
-    Company.findAll()
+    Platform.findAll()
     .then(data => {
-        res.render('../Views/Companies/table.ejs', {companies: data});
+        res.render('../Views/Platforms/table.ejs', {platforms: data});
     })
     .catch(err => {
         res.status(500).send({
@@ -69,7 +69,7 @@ exports.findById = (req, res) => {
 
     const id = req.params.id;
     
-    Company.findOne({where: {id: id}})
+    Platform.findOne({where: {id: id}})
     .then(data => {
         res.send(data)
     })
@@ -90,7 +90,7 @@ exports.delete = (req, res) => {
 
     const id = req.params.id;
     
-    Company.destroy({where: {id: id}})
+    Platform.destroy({where: {id: id}})
     .then(data => {
         res.send(data)
     })

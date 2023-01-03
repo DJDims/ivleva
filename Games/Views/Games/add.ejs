@@ -30,23 +30,31 @@
                             <label class="col-form-label" for="description">Description</label>
                             <textarea type="text area" class="form-control" placeholder="Description" id="description" name="description"></textarea>
                         </div>
+                        <div class="form-group">
+                            <label class="col-form-label" for="publisher">Publisher</label>
+                            <select class="form-control" name="publisher" id="publisher">
+                                <% for (let i = 0; i < companies.length; i++) { %>
+                                    <option value="<%= companies[i].id %>"><%= companies[i].title %> </option>
+                                <% } %>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="card border-primary mb-3" style="min-width: 30rem;">
                     <div class="card-header"> </div>
                     <div class="card-body">
-                        <p class="mb-1">Add companies</p>
+                        <p class="mb-1">Add developers</p>
                         <div class="form-group mb-3" style="display: flex; flex-direction: row;">
                             <div style="width: 50%; display: flex; flex-direction: column;">
-                                <select style="height: 150px;" id="companiesBase" multiple>
+                                <select style="height: 100px;" id="companiesBase" multiple>
                                     <% for (let i = 0; i < companies.length; i++) { %>
-                                        <option value="<%= i %>"><%= companies[i].title %> </option>
+                                        <option value="<%= companies[i].id %>"><%= companies[i].title %> </option>
                                     <% } %>
                                 </select>
                                 <button type="button" class="btn btn-primary mx-2 mt-2" onclick="addCompaniesToGame()">Add--&#62</button>
                             </div>
                             <div style="width: 50%; display: flex; flex-direction: column;">
-                                <select name="companies" style="height: 150px;" id="companiesThis" multiple>
+                                <select name="companies" style="height: 100px;" id="companiesThis" multiple>
                                 </select>
                                 <button type="button" class="btn btn-danger mx-2 mt-2" onclick="removeCompaniesFromGame()">&#60--Remove</button>
                             </div>
@@ -54,17 +62,33 @@
                         <p class="mb-1">Add categories</p>
                         <div class="form-group" style="display: flex; flex-direction: row;">
                             <div style="width: 50%; display: flex; flex-direction: column;">
-                                <select style="height: 150px;" id="categoriesBase" multiple>
+                                <select style="height: 100px;" id="categoriesBase" multiple>
                                     <% for (let i = 0; i < categories.length; i++) { %>
-                                        <option value="<%= i %>"><%= categories[i].title %> </option>
+                                        <option value="<%= categories[i].id %>"><%= categories[i].title %> </option>
                                     <% } %>
                                 </select>
                                 <button type="button" class="btn btn-primary mx-2 mt-2" onclick="addCategoriesToGame()">Add--&#62</button>
                             </div>
                             <div style="width: 50%; display: flex; flex-direction: column;">
-                                <select name="categories" style="height: 150px;" id="categoriesThis" multiple>
+                                <select name="categories" style="height: 100px;" id="categoriesThis" multiple>
                                 </select>
                                 <button type="button" class="btn btn-danger mx-2 mt-2" onclick="removeCategoriesFromGame()">&#60--Remove</button>
+                            </div>
+                        </div>
+                        <p class="mb-1">Add platforms</p>
+                        <div class="form-group" style="display: flex; flex-direction: row;">
+                            <div style="width: 50%; display: flex; flex-direction: column;">
+                                <select style="height: 100px;" id="platformsBase" multiple>
+                                    <% for (let i = 0; i < platforms.length; i++) { %>
+                                        <option value="<%= platforms[i].id %>"><%= platforms[i].title %> </option>
+                                    <% } %>
+                                </select>
+                                <button type="button" class="btn btn-primary mx-2 mt-2" onclick="addPlatformsToGame()">Add--&#62</button>
+                            </div>
+                            <div style="width: 50%; display: flex; flex-direction: column;">
+                                <select name="platforms" style="height: 100px;" id="platformsThis" multiple>
+                                </select>
+                                <button type="button" class="btn btn-danger mx-2 mt-2" onclick="removePlatformsFromGame()">&#60--Remove</button>
                             </div>
                         </div>
                     </div>

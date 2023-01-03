@@ -50,7 +50,7 @@ exports.update = (req, res) => {
 exports.findAll = (req, res) => {
     Category.findAll()
     .then(data => {
-        res.render('../Views/Categories/categoriesTable.ejs', {categories: data});
+        res.render('../Views/Categories/table.ejs', {categories: data});
     })
     .catch(err => {
         res.status(500).send({
@@ -71,7 +71,7 @@ exports.findById = (req, res) => {
     
     Category.findOne({where: {id: id}})
     .then(data => {
-        res.render('../Views/Categories/categoryCard.ejs', {category: data});
+        res.render('../Views/Categories/card.ejs', {category: data});
     })
     .catch(err => {
         res.status(500).send({
