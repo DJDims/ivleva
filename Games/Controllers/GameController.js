@@ -54,15 +54,31 @@ exports.update = (req, res) => {
 
     const game = {
         id: req.params.id,
-        title: req.body.title,
+        title: req.body.title.trim(),
         publishYear: req.body.publishYear,
-        poster: req.body.poster,
-        description: req.body.description,
+        poster: req.body.poster.trim(),
+        description: req.body.description.trim(),
         publisher: req.body.publisher
     }
 
+    const companies = req.body.companies;
+    const categories = req.body.categories;
+    const platforms = req.body.platforms;
+
     Game.update(game, {where:{id: game.id}})
     .then(data => {
+        GameCompany.destroy({where: {gameId: game.id}});
+        GameCategory.destroy({where: {gameId: game.id}});
+        GamePlatform.destroy({where: {gameId: game.id}});
+        for (let i = 0; i < companies.length; i++) {
+            GameCompany.create({gameId: game.id, companyId: companies[i]})
+        }
+        for (let i = 0; i < categories.length; i++) {
+            GameCategory.create({gameId: game.id, categoryId: categories[i]})
+        }
+        for (let i = 0; i < platforms.length; i++) {
+            GamePlatform.create({gameId: game.id, platformId: platforms[i]})
+        }
         res.redirect("/games");
     })
     .catch(err => {
@@ -75,7 +91,9 @@ exports.update = (req, res) => {
 exports.findAll = (req, res) => {
     Game.findAll()
     .then(data => {
-        res.render('../Views/Games/table.ejs', {games: data});
+        Game.count().then(total => {
+            res.render('../Views/Games/table.ejs', {games: data, total: total});
+        })
     })
     .catch(err => {
         res.status(500).send({
@@ -117,7 +135,16 @@ exports.delete = (req, res) => {
     
     Game.destroy({where: {id: id}})
     .then(data => {
-        res.send(data)
+        GameCategory.destroy({where: {GameId: id}})
+        .then(cat => {
+            GameCompany.destroy({where: {GameId: id}})
+            .then(com => {
+                GamePlatform.destroy({where: {GameId: id}})
+                .then(pla => {
+                    res.redirect("/games");
+                })
+            })
+        })
     })
     .catch(err => {
         res.status(500).send({

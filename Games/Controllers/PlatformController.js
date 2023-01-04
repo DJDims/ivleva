@@ -1,4 +1,5 @@
 const Platform = require("../Models/Platform");
+const GamePlatform = require("../Models/Game_Platform");
 
 exports.create = (req, res) => {
     if (!req.body.title) {
@@ -50,7 +51,9 @@ exports.update = (req, res) => {
 exports.findAll = (req, res) => {
     Platform.findAll()
     .then(data => {
-        res.render('../Views/Platforms/table.ejs', {platforms: data});
+        Platform.count().then(total => {
+            res.render('../Views/Platforms/table.ejs', {platforms: data, total: total});
+        })
     })
     .catch(err => {
         res.status(500).send({
@@ -92,7 +95,10 @@ exports.delete = (req, res) => {
     
     Platform.destroy({where: {id: id}})
     .then(data => {
-        res.send(data)
+        GamePlatform.destroy({where: {PlatformId: id}})
+        .then(pla => {
+            res.redirect("/platforms");
+        })
     })
     .catch(err => {
         res.status(500).send({

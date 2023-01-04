@@ -12,5 +12,10 @@ module.exports = app => {
     router.get("/showDeleteCompany/:id", viewsController.showDeleteCompany);
     router.get("/showDeletePlatform/:id", viewsController.showDeletePlatform);
 
+    router.get("/showEditCategory/:id", viewsController.showEditCategory);
+    router.get("/showEditGame/:id", viewsController.showEditGame);
+    router.get("/showEditCompany/:id", viewsController.showEditCompany);
+    router.get("/showEditPlatform/:id", viewsController.showEditPlatform);
+
     app.use("/views", router);
 }

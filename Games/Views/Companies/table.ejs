@@ -7,7 +7,10 @@
     <%- include('../parts/header'); %>
 
 <div style="width: 100%;">
-    <a href="views/showAddCompany" class="btn btn-primary" class="mb-2">Add new</a>
+    <div class="d-flex flex-row justify-content-between" style="width: 70%;">
+        <a href="views/showAddCompany" class="btn btn-primary" class="mb-2">Add new</a>
+        <p>Total: <%= total %> companies</p>
+    </div>
     <table class="table table-hover">
         <thead>
             <tr>
@@ -21,7 +24,10 @@
                 <tr>
                     <th scope="row"><%= element.id %></th>
                     <td><%= element.title %></td>
-                    <td><button type="button" class="btn btn-warning mx-2">Edit</button><a href="/views/showDeleteCompany/<%= element.id %>" class="btn btn-danger">Delete</a></td>
+                    <td>
+                        <a href="/views/showEditCompany/<%= element.id %>" class="btn btn-warning">Edit</a>
+                        <a href="/views/showDeleteCompany/<%= element.id %>" class="btn btn-danger">Delete</a>
+                    </td>
                 </tr>
             <% }); %>
         </tbody>

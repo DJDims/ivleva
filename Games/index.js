@@ -2,6 +2,7 @@ const express = require("express");
 
 const app = express();
 const path = require("path");
+const methodOverride = require("method-override");
 
 const Category = require('./Models/Category');
 const Company = require('./Models/Company');
@@ -30,6 +31,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(methodOverride('_method'));
+
 app.set("views", "./Views");
 app.set("view engine", "ejs");
 
@@ -42,6 +45,7 @@ require("./Routes/CompanyRoutes")(app);
 require("./Routes/GameRoutes")(app);
 require("./Routes/PlatformRoutes")(app);
 require("./Routes/ViewRoutes")(app);
+require("./Routes/AdminRoutes")(app);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

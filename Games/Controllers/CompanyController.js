@@ -1,4 +1,5 @@
 const Company = require("../Models/Company");
+const GameCompany = require("../Models/Game_Company");
 
 exports.create = (req, res) => {
     if (!req.body.title) {
@@ -50,7 +51,9 @@ exports.update = (req, res) => {
 exports.findAll = (req, res) => {
     Company.findAll()
     .then(data => {
-        res.render('../Views/Companies/table.ejs', {companies: data});
+        Company.count().then(total => {
+            res.render('../Views/Companies/table.ejs', {companies: data, total: total});
+        })
     })
     .catch(err => {
         res.status(500).send({
@@ -92,7 +95,10 @@ exports.delete = (req, res) => {
     
     Company.destroy({where: {id: id}})
     .then(data => {
-        res.send(data)
+        GameCompany.destroy({where: {companyId: id}})
+        .then(com => {
+            res.redirect("/companies");
+        })
     })
     .catch(err => {
         res.status(500).send({

@@ -1,4 +1,5 @@
 const Category = require("../Models/Category");
+const GameCategory = require("../Models/Game_Category");
 
 exports.create = (req, res) => {
     if (!req.body.title) {
@@ -50,7 +51,9 @@ exports.update = (req, res) => {
 exports.findAll = (req, res) => {
     Category.findAll()
     .then(data => {
-        res.render('../Views/Categories/table.ejs', {categories: data});
+        Category.count().then(total => {
+            res.render('../Views/Categories/table.ejs', {categories: data, total: total});
+        })
     })
     .catch(err => {
         res.status(500).send({
@@ -92,7 +95,10 @@ exports.delete = (req, res) => {
     
     Category.destroy({where: {id: id}})
     .then(data => {
-        res.redirect("/categories");
+        GameCategory.destroy({where: {categoryId: id}})
+        .then(cat => {
+            res.redirect("/categories");
+        })
     })
     .catch(err => {
         res.status(500).send({
