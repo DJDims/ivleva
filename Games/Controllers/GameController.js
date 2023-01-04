@@ -4,7 +4,7 @@ const GameCompany = require("../Models/Game_Company");
 const GamePlatform = require("../Models/Game_Platform");
 
 
-exports.create = async (req, res) => {
+exports.create =  (req, res) => {
     if (!req.body.title || !req.body.publishYear || !req.body.poster || !req.body.description || !req.body.publisher) {
         res.status(400).send({
             message: "Content can't be empty"
@@ -67,19 +67,22 @@ exports.update = (req, res) => {
 
     Game.update(game, {where:{id: game.id}})
     .then(data => {
-        GameCompany.destroy({where: {gameId: game.id}});
-        GameCategory.destroy({where: {gameId: game.id}});
-        GamePlatform.destroy({where: {gameId: game.id}});
-        for (let i = 0; i < companies.length; i++) {
-            GameCompany.create({gameId: game.id, companyId: companies[i]})
-        }
-        for (let i = 0; i < categories.length; i++) {
-            GameCategory.create({gameId: game.id, categoryId: categories[i]})
-        }
-        for (let i = 0; i < platforms.length; i++) {
-            GamePlatform.create({gameId: game.id, platformId: platforms[i]})
-        }
-        res.redirect("/games");
+        GameCompany.destroy({where: {gameId: game.id}}).then(a => {
+            GameCategory.destroy({where: {gameId: game.id}}).then(b => {
+                GamePlatform.destroy({where: {gameId: game.id}}).then(c => {
+                    for (let i = 0; i < companies.length; i++) {
+                        GameCompany.create({gameId: game.id, companyId: companies[i]})
+                    }
+                    for (let i = 0; i < categories.length; i++) {
+                        GameCategory.create({gameId: game.id, categoryId: categories[i]})
+                    }
+                    for (let i = 0; i < platforms.length; i++) {
+                        GamePlatform.create({gameId: game.id, platformId: platforms[i]})
+                    }
+                    res.redirect("/games");
+                });
+            });
+        });
     })
     .catch(err => {
         res.status(500).send({

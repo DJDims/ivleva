@@ -47,17 +47,19 @@ exports.showEditGame = (req, res) => {
         GameCategory.findAll({attributes:['categoryId'], where:{gameId:id}}).then(thisCategoriesId => {
             const thisCategoriesIds = [];
             thisCategoriesId.forEach(element => {thisCategoriesIds.push(element['categoryId'])});
-            Category.findAll({where: {id:{[Op.or]:thisCategoriesIds}}}).then(thisCategories => {
+            Category.findAll({where: {id:{[Op.in]:thisCategoriesIds}}}).then(thisCategories => {
                 Category.findAll({where:{id:{[Op.not]:thisCategoriesIds}}}).then(baseCategories => {
+                    
                     GameCompany.findAll({attributes:['companyId'], where:{gameId:id}}).then(thisCompaniesId => {
                         const thisCompaniesIds = [];
                         thisCompaniesId.forEach(element => {thisCompaniesIds.push(element['companyId'])});
-                        Company.findAll({where: {id:{[Op.or]:thisCompaniesIds}}}).then(thisCompanies => {
+                        Company.findAll({where: {id:{[Op.in]:thisCompaniesIds}}}).then(thisCompanies => {
                             Company.findAll({where:{id:{[Op.not]:thisCompaniesIds}}}).then(baseCompanies => {
+                                
                                 GamePlatform.findAll({attributes:['platformId'], where:{gameId:id}}).then(thisPlatformsId => {
                                     const thisPlatformsIds = [];
                                     thisPlatformsId.forEach(element => {thisPlatformsIds.push(element['platformId'])});
-                                    Platform.findAll({where: {id:{[Op.or]:thisPlatformsIds}}}).then(thisPlatforms => {
+                                    Platform.findAll({where: {id:{[Op.in]:thisPlatformsIds}}}).then(thisPlatforms => {
                                         Platform.findAll({where:{id:{[Op.not]:thisPlatformsIds}}}).then(basePlatforms => {
                                             Company.findAll().then(companies => {
                                                 res.render('../Views/Games/edit.ejs', {
