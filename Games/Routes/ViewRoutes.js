@@ -1,5 +1,6 @@
 module.exports = app => {
     const viewsController = require("../Controllers/ViewController");
+    const gamesController = require("../Controllers/GameController");
     const router = require("express").Router();
 
     router.get("/showAddCategory", viewsController.showAddCategory);
@@ -16,6 +17,8 @@ module.exports = app => {
     router.get("/showEditGame/:id", viewsController.showEditGame);
     router.get("/showEditCompany/:id", viewsController.showEditCompany);
     router.get("/showEditPlatform/:id", viewsController.showEditPlatform);
+
+    router.get("/showGamesByYear/:year", gamesController.findAllByYear);
 
     app.use("/views", router);
 }

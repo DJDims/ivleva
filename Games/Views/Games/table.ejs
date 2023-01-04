@@ -25,7 +25,7 @@
                 <tr>
                     <th scope="row"><%= element.id %></th>
                     <td><%= element.title %></td>
-                    <td><%= element.publishYear %></td>
+                    <td><a href="/views/showGamesByYear/<%= element.publishYear %>"><%= element.publishYear %></a></td>
                     <td>
                         <a href="/views/showEditGame/<%= element.id %>" class="btn btn-warning">Edit</a>
                         <a href="/views/showDeleteGame/<%= element.id %>" class="btn btn-danger">Delete</a>

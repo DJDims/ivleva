@@ -5,12 +5,12 @@ const GamePlatform = require("../Models/Game_Platform");
 
 
 exports.create = async (req, res) => {
-    // if (!req.body.title || !req.body.publishYear || !req.body.poster || !req.body.description || !req.body.publisher) {
-    //     res.status(400).send({
-    //         message: "Content can't be empty"
-    //     })
-    //     return;
-    // }
+    if (!req.body.title || !req.body.publishYear || !req.body.poster || !req.body.description || !req.body.publisher) {
+        res.status(400).send({
+            message: "Content can't be empty"
+        })
+        return;
+    }
 
     const game = {
         title: req.body.title.trim(),
@@ -92,6 +92,21 @@ exports.findAll = (req, res) => {
     Game.findAll()
     .then(data => {
         Game.count().then(total => {
+            res.render('../Views/Games/table.ejs', {games: data, total: total});
+        })
+    })
+    .catch(err => {
+        res.status(500).send({
+            message: err.message || "Some error)"
+        })
+    })
+}
+
+exports.findAllByYear = (req, res) => {
+    const year = req.params.year;
+    Game.findAll({where: {publishYear: year}})
+    .then(data => {
+        Game.count({where: {publishYear: year}}).then(total => {
             res.render('../Views/Games/table.ejs', {games: data, total: total});
         })
     })
