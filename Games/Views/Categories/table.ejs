@@ -23,7 +23,7 @@
             <% categories.forEach(element => { %>
                 <tr>
                     <th scope="row"><%= element.id %></th>
-                    <td><%= element.title %></td>
+                    <td><a href="/categories/<%= element.id %>"><%= element.title %></a></td>
                     <td>
                         <a href="/views/showEditCategory/<%= element.id %>" class="btn btn-warning">Edit</a>
                         <a href="/views/showDeleteCategory/<%= element.id %>" class="btn btn-danger">Delete</a>

@@ -23,7 +23,7 @@
                 <% platforms.forEach(element => { %>
                     <tr>
                         <th scope="row"><%= element.id %></th>
-                        <td><%= element.title %></td>
+                        <td><a href="/platforms/<%= element.id %>"><%= element.title %></a></td>
                         <td>
                           	<a href="/views/showEditPlatform/<%= element.id %>" class="btn btn-warning">Edit</a>
 							<a href="/views/showDeletePlatform/<%= element.id %>" class="btn btn-danger">Delete</a>

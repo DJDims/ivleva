@@ -1,5 +1,7 @@
 const Category = require("../Models/Category");
 const GameCategory = require("../Models/Game_Category");
+const Game = require("../Models/Game");
+const { Op } = require("sequelize");
 
 exports.create = (req, res) => {
     if (!req.body.title) {
@@ -74,7 +76,13 @@ exports.findById = (req, res) => {
     
     Category.findOne({where: {id: id}})
     .then(data => {
-        res.render('../Views/Categories/card.ejs', {category: data});
+        GameCategory.findAll({where:{categoryId: id}}).then(gameId => {
+            const gameIds = [];
+            gameId.forEach(element => {gameIds.push(element['gameId'])});
+            Game.findAll({where:{id:{[Op.in]:gameIds}}}).then(games => {
+                res.render('../Views/Categories/details.ejs', {category: data, games: games});
+            })
+        })
     })
     .catch(err => {
         res.status(500).send({

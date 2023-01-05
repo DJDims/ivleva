@@ -1,5 +1,7 @@
 const Company = require("../Models/Company");
 const GameCompany = require("../Models/Game_Company");
+const Game = require("../Models/Game");
+const { Op } = require("sequelize");
 
 exports.create = (req, res) => {
     if (!req.body.title) {
@@ -74,7 +76,15 @@ exports.findById = (req, res) => {
     
     Company.findOne({where: {id: id}})
     .then(data => {
-        res.send(data)
+        GameCompany.findAll({where:{companyId: id}}).then(gameId => {
+            const gameIds = [];
+            gameId.forEach(element => {gameIds.push(element['gameId'])});
+            Game.findAll({where:{id:{[Op.in]:gameIds}}}).then(gamesDeveloped => {
+                Game.findAll({where:{publisher: id}}).then(gamesPublished => {
+                    res.render('../Views/Companies/details.ejs', {company: data, gamesDeveloped: gamesDeveloped, gamesPublished: gamesPublished});
+                })
+            })
+        })
     })
     .catch(err => {
         res.status(500).send({

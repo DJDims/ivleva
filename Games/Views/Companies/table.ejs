@@ -23,7 +23,7 @@
             <% companies.forEach(element => { %>
                 <tr>
                     <th scope="row"><%= element.id %></th>
-                    <td><%= element.title %></td>
+                    <td><a href="/companies/<%= element.id %>"><%= element.title %></a></td>
                     <td>
                         <a href="/views/showEditCompany/<%= element.id %>" class="btn btn-warning">Edit</a>
                         <a href="/views/showDeleteCompany/<%= element.id %>" class="btn btn-danger">Delete</a>
