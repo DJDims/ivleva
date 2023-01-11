@@ -70,7 +70,8 @@ exports.showEditGame = (req, res) => {
                                                     thisCompanies: thisCompanies, 
                                                     baseCompanies: baseCompanies, 
                                                     thisPlatforms: thisPlatforms, 
-                                                    basePlatforms: basePlatforms});
+                                                    basePlatforms: basePlatforms
+                                                });
                                             })
                                         })
                                     })

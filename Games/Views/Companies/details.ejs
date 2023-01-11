@@ -9,7 +9,7 @@
         <h4 style="text-align: center;">Company - <b><%= company.title %></b></h4>
         <div class="d-flex flex-row justify-content-around">
             <div>
-                <h5>Game developed by this company:</h5>
+                <h5>Games developed by this company:</h5>
                 <ul>
                     <%gamesDeveloped.forEach(element => {%>
                         <li><%=element.title%></li>
@@ -17,7 +17,7 @@
                 </ul>
             </div>
             <div>
-                <h5>Game published by this company:</h5>
+                <h5>Games published by this company:</h5>
                 <ul>
                     <%gamesPublished.forEach(element => {%>
                         <li><%=element.title%></li>

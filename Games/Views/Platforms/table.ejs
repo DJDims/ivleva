@@ -20,16 +20,16 @@
                 </tr>
             </thead>
             <tbody>
-                <% platforms.forEach(element => { %>
+            <% for (let i = 0; i < platforms.length; i++) { %>
                     <tr>
-                        <th scope="row"><%= element.id %></th>
-                        <td><a href="/platforms/<%= element.id %>"><%= element.title %></a></td>
+                        <th scope="row"><%= i+1 %></th>
+                        <td><a href="/platforms/<%= platforms[i].id %>"><%= platforms[i].title %></a></td>
                         <td>
-                          	<a href="/views/showEditPlatform/<%= element.id %>" class="btn btn-warning">Edit</a>
-							<a href="/views/showDeletePlatform/<%= element.id %>" class="btn btn-danger">Delete</a>
+                          	<a href="/views/showEditPlatform/<%= platforms[i].id %>" class="btn btn-warning">Edit</a>
+							<a href="/views/showDeletePlatform/<%= platforms[i].id %>" class="btn btn-danger">Delete</a>
 						</td>
                     </tr>
-                <% }); %>
+                <% }; %>
             </tbody>
         </table>
     </div>

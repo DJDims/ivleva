@@ -20,16 +20,16 @@
             </tr>
         </thead>
         <tbody>
-            <% companies.forEach(element => { %>
+            <% for (let i = 0; i < companies.length; i++) { %>
                 <tr>
-                    <th scope="row"><%= element.id %></th>
-                    <td><a href="/companies/<%= element.id %>"><%= element.title %></a></td>
+                    <th scope="row"><%= i+1 %></th>
+                    <td><a href="/companies/<%= companies[i].id %>"><%= companies[i].title %></a></td>
                     <td>
-                        <a href="/views/showEditCompany/<%= element.id %>" class="btn btn-warning">Edit</a>
-                        <a href="/views/showDeleteCompany/<%= element.id %>" class="btn btn-danger">Delete</a>
+                        <a href="/views/showEditCompany/<%= companies[i].id %>" class="btn btn-warning">Edit</a>
+                        <a href="/views/showDeleteCompany/<%= companies[i].id %>" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
-            <% }); %>
+            <% }; %>
         </tbody>
     </table>
 </div>

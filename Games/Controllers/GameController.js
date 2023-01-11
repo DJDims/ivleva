@@ -1,8 +1,11 @@
 const Game = require("../Models/Game");
+const Company = require("../Models/Company");
+const Category = require("../Models/Category");
+const Platform = require("../Models/Platform");
 const GameCategory = require("../Models/Game_Category");
 const GameCompany = require("../Models/Game_Company");
 const GamePlatform = require("../Models/Game_Platform");
-
+const { Op } = require("sequelize");
 
 exports.create =  (req, res) => {
     if (!req.body.title || !req.body.publishYear || !req.body.poster || !req.body.description || !req.body.publisher) {
@@ -131,8 +134,28 @@ exports.findById = (req, res) => {
     const id = req.params.id;
     
     Game.findOne({where: {id: id}})
-    .then(data => {
-        res.send(data)
+    .then(game => {
+        GameCompany.findAll({where:{gameId: id}}).then(companyId => {
+            const companyIds = [];
+            companyId.forEach(element => {companyIds.push(element['companyId'])});
+            Company.findAll({where:{id:{[Op.in]:companyIds}}}).then(companies => {
+                GameCategory.findAll({where:{gameId: id}}).then(categoryId => {
+                    const categoryIds = [];
+                    categoryId.forEach(element => {categoryIds.push(element['categoryId'])});
+                    Category.findAll({where:{id:{[Op.in]:categoryIds}}}).then(categories => {
+                        GamePlatform.findAll({where:{gameId: id}}).then(platformId => {
+                            const platformIds = [];
+                            platformId.forEach(element => {platformIds.push(element['platformId'])});
+                            Platform.findAll({where:{id:{[Op.in]:platformIds}}}).then(platforms => {
+                                Company.findOne({where: {id: game.publisher}}).then(publisher => {
+                                    res.render('../Views/Games/details.ejs', {game: game, companies: companies, categories: categories, platforms: platforms, publisher: publisher});
+                                })
+                            })
+                        })
+                    })
+                })
+            })
+        })
     })
     .catch(err => {
         res.status(500).send({

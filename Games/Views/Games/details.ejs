@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<%- include('../parts/head'); %>
+</head>
+<body>
+    <%- include('../parts/header'); %>
+
+	<div class="d-flex flex-row justify-content-between" style="width: 100%;">
+		<div style="width: 24%;">
+			<h4><%= game.title %> </h4>
+			<img src="<%= game.poster %>" style="width: 80%;">
+			<ul>
+				<li>Publish year: <%= game.publishYear %></li>
+				<li>Publisher: <%= publisher.title %> </li>
+			</ul>
+		</div>
+		<div style="width: 50%;">
+			<h5>Описание:</h5>
+			<p><%= game.description %></p>
+		</div>
+		<!-- accordion -->
+		<div style="width: 24%;">
+			<div class="accordion" id="accordionExample">
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="headingOne">
+						<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+							aria-expanded="true" aria-controls="collapseOne">
+							Categories
+						</button>
+					</h2>
+					<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+						data-bs-parent="#accordionExample">
+						<div class="accordion-body">
+							<ul>
+								<% companies.forEach(element=> { %>
+									<li><a href="/companies/<%= element.id %> "><%= element.title %></a></li>
+								<% }); %>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="headingTwo">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+							data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+							Developers
+						</button>
+					</h2>
+					<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+						data-bs-parent="#accordionExample">
+						<div class="accordion-body">
+							<ul>
+								<% categories.forEach(element=> { %>
+									<li><a href="/categories/<%= element.id %>"><%= element.title %></a></li>
+								<% }); %>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="headingThree">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+							data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+							Platforms
+						</button>
+					</h2>
+					<div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+						data-bs-parent="#accordionExample">
+						<div class="accordion-body">
+							<ul>
+								<% platforms.forEach(element=> { %>
+									<li><a href="/platforms/<%= element.id %>"><%= element.title %></a></li>
+								<% }); %>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- accordion -->
+	</div>
+	
+
+  	<%- include('../parts/footer'); %>
+</body>
+</html>
