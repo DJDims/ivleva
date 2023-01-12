@@ -100,3 +100,9 @@ function setAllSelected(select) {
 		options[i].selected = 'selected';
 	}
 }
+
+function smbtForm() {
+	setAllSelected(companiesThis)
+	setAllSelected(categoriesThis)
+	setAllSelected(platformsThis)
+}

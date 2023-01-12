@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const methodOverride = require("method-override");
+var $ = require( "jquery" );
 
 const Category = require('./Models/Category');
 const Company = require('./Models/Company');

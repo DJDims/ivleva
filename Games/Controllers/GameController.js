@@ -29,14 +29,20 @@ exports.create =  (req, res) => {
 
     Game.create(game)
     .then(data => {
-        for (let i = 0; i < companies.length; i++) {
-            GameCompany.create({gameId: data.id, companyId: companies[i]})
+        if(companies != null) {
+            for (let i = 0; i < companies.length; i++) {
+                GameCompany.create({gameId: data.id, companyId: companies[i]})
+            }
         }
-        for (let i = 0; i < categories.length; i++) {
-            GameCategory.create({gameId: data.id, categoryId: categories[i]})
+        if(categories != null) {
+            for (let i = 0; i < categories.length; i++) {
+                GameCategory.create({gameId: data.id, categoryId: categories[i]})
+            }
         }
-        for (let i = 0; i < platforms.length; i++) {
-            GamePlatform.create({gameId: data.id, platformId: platforms[i]})
+        if(platforms != null) {
+            for (let i = 0; i < platforms.length; i++) {
+                GamePlatform.create({gameId: data.id, platformId: platforms[i]})
+            }
         }
         res.redirect("/games");
     })
@@ -73,14 +79,20 @@ exports.update = (req, res) => {
         GameCompany.destroy({where: {gameId: game.id}}).then(a => {
             GameCategory.destroy({where: {gameId: game.id}}).then(b => {
                 GamePlatform.destroy({where: {gameId: game.id}}).then(c => {
-                    for (let i = 0; i < companies.length; i++) {
-                        GameCompany.create({gameId: game.id, companyId: companies[i]})
+                    if(companies != null) {
+                        for (let i = 0; i < companies.length; i++) {
+                            GameCompany.create({gameId: game.id, companyId: companies[i]})
+                        }
                     }
-                    for (let i = 0; i < categories.length; i++) {
-                        GameCategory.create({gameId: game.id, categoryId: categories[i]})
+                    if(categories != null) {
+                        for (let i = 0; i < categories.length; i++) {
+                            GameCategory.create({gameId: game.id, categoryId: categories[i]})
+                        }
                     }
-                    for (let i = 0; i < platforms.length; i++) {
-                        GamePlatform.create({gameId: game.id, platformId: platforms[i]})
+                    if(platforms != null) {
+                        for (let i = 0; i < platforms.length; i++) {
+                            GamePlatform.create({gameId: game.id, platformId: platforms[i]})
+                        }
                     }
                     res.redirect("/games");
                 });
@@ -135,19 +147,19 @@ exports.findById = (req, res) => {
     
     Game.findOne({where: {id: id}})
     .then(game => {
-        GameCompany.findAll({where:{gameId: id}}).then(companyId => {
-            const companyIds = [];
-            companyId.forEach(element => {companyIds.push(element['companyId'])});
-            Company.findAll({where:{id:{[Op.in]:companyIds}}}).then(companies => {
-                GameCategory.findAll({where:{gameId: id}}).then(categoryId => {
-                    const categoryIds = [];
-                    categoryId.forEach(element => {categoryIds.push(element['categoryId'])});
-                    Category.findAll({where:{id:{[Op.in]:categoryIds}}}).then(categories => {
-                        GamePlatform.findAll({where:{gameId: id}}).then(platformId => {
-                            const platformIds = [];
-                            platformId.forEach(element => {platformIds.push(element['platformId'])});
-                            Platform.findAll({where:{id:{[Op.in]:platformIds}}}).then(platforms => {
-                                Company.findOne({where: {id: game.publisher}}).then(publisher => {
+        Company.findOne({where: {id: game.publisher}}).then(publisher => {
+            GameCompany.findAll({where:{gameId: id}}).then(companyId => {
+                const companyIds = [];
+                companyId.forEach(element => {companyIds.push(element['companyId'])});
+                Company.findAll({where:{id:{[Op.in]:companyIds}}}).then(companies => {
+                    GameCategory.findAll({where:{gameId: id}}).then(categoryId => {
+                        const categoryIds = [];
+                        categoryId.forEach(element => {categoryIds.push(element['categoryId'])});
+                        Category.findAll({where:{id:{[Op.in]:categoryIds}}}).then(categories => {
+                            GamePlatform.findAll({where:{gameId: id}}).then(platformId => {
+                                const platformIds = [];
+                                platformId.forEach(element => {platformIds.push(element['platformId'])});
+                                Platform.findAll({where:{id:{[Op.in]:platformIds}}}).then(platforms => {
                                     res.render('../Views/Games/details.ejs', {game: game, companies: companies, categories: categories, platforms: platforms, publisher: publisher});
                                 })
                             })
