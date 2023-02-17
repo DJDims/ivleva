@@ -1,6 +1,9 @@
 const db = require('../database.js');
 const Sequelize = require('sequelize');
 
+const Game = require('./Game');
+const Platform = require('./Platform');
+
 const Game_Platform = db.define('game_platform', {
     id: {
         type: Sequelize.INTEGER,
@@ -10,11 +13,19 @@ const Game_Platform = db.define('game_platform', {
     },
     gameId: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+            model: Game,
+            key: 'id'
+        }
     },
     platformId: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+            model: Platform,
+            key: 'id'
+        }
     }
 }, {
      timestamps: false

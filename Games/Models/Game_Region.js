@@ -1,6 +1,9 @@
 const db = require('../database.js');
 const Sequelize = require('sequelize');
 
+const Game = require('./Game');
+const Region = require('./Region');
+
 const Game_Region = db.define('game_region', {
     id: {
         type: Sequelize.INTEGER,
@@ -10,11 +13,19 @@ const Game_Region = db.define('game_region', {
     },
     gameId: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+            model: Game,
+            key: 'id'
+        }
     },
     regionId: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+            model: Region,
+            key: 'id'
+        }
     }
 }, {
      timestamps: false

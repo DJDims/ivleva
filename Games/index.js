@@ -5,40 +5,39 @@ const path = require("path");
 const methodOverride = require("method-override");
 var $ = require( "jquery" );
 
-const Category = require('./Models/Category');
-const Company = require('./Models/Company');
-const Game = require('./Models/Game');
-const Platform = require('./Models/Platform');
-const Game_Category = require('./Models/Game_Category');
-const Game_Company = require('./Models/Game_Company');
-const Game_Platform = require('./Models/Game_Platform');
+const DB = require('./database.js');
 
-Category.sync();
-Company.sync();
-Game.sync();
-Platform.sync();
-Game_Category.sync();
-Game_Company.sync();
-Game_Platform.sync();
+const Bundle = require('./Models/Bundle.js');
+const Category = require('./Models/Category.js');
+const Characteristic = require('./Models/Characteristic.js');
+const Company = require('./Models/Company.js');
+const Game = require('./Models/Game.js');
+const Game_Bundle = require('./Models/Game_Bundle.js');
+const Game_Category = require('./Models/Game_Category.js');
+const Game_Characteristic = require('./Models/Game_Characteristic.js');
+const Game_Company = require('./Models/Game_Company.js');
+const Game_Platform = require('./Models/Game_Platform.js');
+const Game_Region = require('./Models/Game_Region.js');
+const Game_User = require('./Models/Game_User.js');
+const Platform = require('./Models/Platform.js');
+const Region = require('./Models/Region.js');
+const Review = require('./Models/Review.js');
+const User = require('./Models/User.js');
 
-Game.belongsToMany(Category, { through: 'Game_Category' });
-Category.belongsToMany(Game, { through: 'Game_Category' });
-Game.belongsToMany(Company, { through: 'Game_Company' });
-Company.belongsToMany(Game, { through: 'Game_Company' });
-Game.belongsToMany(Platform, { through: 'Game_Platform' });
-Platform.belongsToMany(Game, { through: 'Game_Platform' });
+DB.sync();
 
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.json());
+// app.use(express.urlencoded({extended: true}));
+// app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(methodOverride('_method'));
+// app.use(methodOverride('_method'));
 
-app.set("views", "./Views");
-app.set("view engine", "ejs");
+// app.set("views", "./Views");
+// app.set("view engine", "ejs");
 
 app.get("/", (req, res) =>{
-    res.render("index.ejs");
+    // res.render("index.ejs");
+    res.send("Hello, JPTV20!");
 });
 
 require("./Routes/CategoryRoutes")(app);
