@@ -1,44 +1,48 @@
-const Category = require("../Models/Category");
+const Review = require("../Models/Review");
 
 exports.create = (req, res) => {
-    if (!req.body.title) {
+    if (!req.body.reviewText || !req.body.gameUserId) {
         res.status(400).send({
             message: "Content can't be empty"
         })
         return;
     }
 
-    const category = {
-        title: req.body.title
+    const review = {
+        reviewText: req.body.reviewText,
+        grade: req.body.grade,
+        gameUserId: req.body.gameUserId
     }
 
-    Category.create(category)
+    Review.create(review)
     .then(data => {
         res.send(data)
     })
 }
 
 exports.update = (req, res) => {
-    if (!req.params.id || !req.body.title) {
+    if (!req.params.id || !req.body.reviewText || !req.body.gameUserId) {
         res.status(400).send({
             message: "Content can't be empty"
         })
         return;
     }
 
-    const category = {
+    const review = {
         id: req.params.id,
-        title: req.body.title
+        reviewText: req.body.reviewText,
+        grade: req.body.grade,
+        gameUserId: req.body.gameUserId
     }
 
-    Category.update(category, {where:{id: category.id}})
+    Review.update(review, {where:{id: review.id}})
     .then(data => {
         res.send(data)
     })
 }
 
 exports.findAll = (req, res) => {
-    Category.findAll()
+    Review.findAll()
     .then(data => {
         res.send(data)
     })
@@ -54,7 +58,7 @@ exports.findById = (req, res) => {
 
     const id = req.params.id;
     
-    Category.findOne({where: {id: id}})
+    Review.findOne({where: {id: id}})
     .then(data => {
         res.send(data)
     })
@@ -70,14 +74,14 @@ exports.delete = (req, res) => {
 
     const id = req.params.id;
     
-    Category.destroy({where: {id: id}})
+    Review.destroy({where: {id: id}})
     .then(data => {
         res.send(data)
     })
 }
 
 exports.count = (req, res) => {
-    Category.count()
+    Review.count()
     .then(data => {
         res.send(data)
     })

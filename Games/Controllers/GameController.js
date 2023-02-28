@@ -1,14 +1,24 @@
 const Game = require("../Models/Game");
-const Company = require("../Models/Company");
-const Category = require("../Models/Category");
-const Platform = require("../Models/Platform");
 const GameCategory = require("../Models/Game_Category");
 const GameCompany = require("../Models/Game_Company");
 const GamePlatform = require("../Models/Game_Platform");
-const { Op } = require("sequelize");
+const GameRegion = require("../Models/Game_Region");
+const GameBundle = require("../Models/Game_Bundle");
+const GameCharacteristic = require("../Models/Game_Characteristic");
+
+const Company = require("../Models/Company");
+const Category = require("../Models/Category");
+const Platform = require("../Models/Platform");
 
 exports.create =  (req, res) => {
-    if (!req.body.title || !req.body.publishYear || !req.body.poster || !req.body.description || !req.body.publisher) {
+    if (!req.body.title 
+        || !req.body.publishYear 
+        || !req.body.publisher
+        || !req.body.poster 
+        || !req.body.description
+        || !req.body.price
+        || !req.body.ageLimit
+        ) {
         res.status(400).send({
             message: "Content can't be empty"
         })
@@ -17,15 +27,20 @@ exports.create =  (req, res) => {
 
     const game = {
         title: req.body.title.trim(),
+        publisher: req.body.publisher,
         publishYear: req.body.publishYear,
         poster: req.body.poster.trim(),
         description: req.body.description.trim(),
-        publisher: req.body.publisher
+        price: req.body.price,
+        ageLimit: req.body.ageLimit
     }
 
     const companies = req.body.companies;
     const categories = req.body.categories;
     const platforms = req.body.platforms;
+    const regions = req.body.regions;
+    const bundles = req.body.bundles;
+    const characteristics = req.body.characteristics;
 
     Game.create(game)
     .then(data => {
@@ -44,17 +59,33 @@ exports.create =  (req, res) => {
                 GamePlatform.create({gameId: data.id, platformId: platforms[i]})
             }
         }
-        res.redirect("/games");
-    })
-    .catch(err => {
-        res.status(500).send({
-            message: err.message || "Some error)"
-        })
+        if(regions != null) {
+            for (let i = 0; i < regions.length; i++) {
+                GameRegion.create({gameId: data.id, regionId: regions[i]})
+            }
+        }
+        if(bundles != null) {
+            for (let i = 0; i < bundles.length; i++) {
+                GameBundle.create({gameId: data.id, bundleId: bundles[i]})
+            }
+        }
+        if(characteristics != null) {
+            for (let i = 0; i < characteristics.length; i++) {
+                GameCharacteristic.create({gameId: data.id, characteristicId: characteristics[i]})
+            }
+        }
     })
 }
 
 exports.update = (req, res) => {
-    if (!req.params.id || !req.body.title || !req.body.publishYear || !req.body.poster || !req.body.description || !req.body.publisher) {
+    if (!req.params.id 
+        || !req.body.title 
+        || !req.body.publishYear 
+        || !req.body.publisher
+        || !req.body.poster 
+        || !req.body.description
+        || !req.body.price
+        || !req.body.ageLimit) {
         res.status(400).send({
             message: "Content can't be empty"
         })
@@ -64,44 +95,62 @@ exports.update = (req, res) => {
     const game = {
         id: req.params.id,
         title: req.body.title.trim(),
+        publisher: req.body.publisher,
         publishYear: req.body.publishYear,
         poster: req.body.poster.trim(),
         description: req.body.description.trim(),
-        publisher: req.body.publisher
+        price: req.body.price,
+        ageLimit: req.body.ageLimit
     }
 
     const companies = req.body.companies;
     const categories = req.body.categories;
     const platforms = req.body.platforms;
+    const regions = req.body.regions;
+    const bundles = req.body.bundles;
+    const characteristics = req.body.characteristics;
 
     Game.update(game, {where:{id: game.id}})
     .then(data => {
         GameCompany.destroy({where: {gameId: game.id}}).then(a => {
             GameCategory.destroy({where: {gameId: game.id}}).then(b => {
                 GamePlatform.destroy({where: {gameId: game.id}}).then(c => {
-                    if(companies != null) {
-                        for (let i = 0; i < companies.length; i++) {
-                            GameCompany.create({gameId: game.id, companyId: companies[i]})
-                        }
-                    }
-                    if(categories != null) {
-                        for (let i = 0; i < categories.length; i++) {
-                            GameCategory.create({gameId: game.id, categoryId: categories[i]})
-                        }
-                    }
-                    if(platforms != null) {
-                        for (let i = 0; i < platforms.length; i++) {
-                            GamePlatform.create({gameId: game.id, platformId: platforms[i]})
-                        }
-                    }
-                    res.redirect("/games");
-                });
-            });
-        });
-    })
-    .catch(err => {
-        res.status(500).send({
-            message: err.message || "Some error)"
+                    GameRegion.destroy({where: {gameId: game.id}}).then(d => {
+                        GameBundle.destroy({where: {gameId: game.id}}).then(e => {
+                            if(companies != null) {
+                                for (let i = 0; i < companies.length; i++) {
+                                    GameCompany.create({gameId: data.id, companyId: companies[i]})
+                                }
+                            }
+                            if(categories != null) {
+                                for (let i = 0; i < categories.length; i++) {
+                                    GameCategory.create({gameId: data.id, categoryId: categories[i]})
+                                }
+                            }
+                            if(platforms != null) {
+                                for (let i = 0; i < platforms.length; i++) {
+                                    GamePlatform.create({gameId: data.id, platformId: platforms[i]})
+                                }
+                            }
+                            if(regions != null) {
+                                for (let i = 0; i < regions.length; i++) {
+                                    GameRegion.create({gameId: data.id, regionId: regions[i]})
+                                }
+                            }
+                            if(bundles != null) {
+                                for (let i = 0; i < bundles.length; i++) {
+                                    GameBundle.create({gameId: data.id, bundleId: bundles[i]})
+                                }
+                            }
+                            if(characteristics != null) {
+                                for (let i = 0; i < characteristics.length; i++) {
+                                    GameCharacteristic.create({gameId: data.id, characteristicId: characteristics[i]})
+                                }
+                            }
+                        })
+                    })
+                })
+            })
         })
     })
 }
@@ -109,29 +158,23 @@ exports.update = (req, res) => {
 exports.findAll = (req, res) => {
     Game.findAll()
     .then(data => {
-        Game.count().then(total => {
-            res.render('../Views/Games/table.ejs', {games: data, total: total});
-        })
-    })
-    .catch(err => {
-        res.status(500).send({
-            message: err.message || "Some error)"
-        })
+        res.send(data)
     })
 }
 
 exports.findAllByYear = (req, res) => {
+    if (!req.params.year) {
+        res.status(400).send({
+            message: "Content can't be empty"
+        })
+        return;
+    }
+
     const year = req.params.year;
+    
     Game.findAll({where: {publishYear: year}})
     .then(data => {
-        Game.count({where: {publishYear: year}}).then(total => {
-            res.render('../Views/Games/table.ejs', {games: data, total: total});
-        })
-    })
-    .catch(err => {
-        res.status(500).send({
-            message: err.message || "Some error)"
-        })
+        res.send(data)
     })
 }
 
@@ -146,33 +189,8 @@ exports.findById = (req, res) => {
     const id = req.params.id;
     
     Game.findOne({where: {id: id}})
-    .then(game => {
-        Company.findOne({where: {id: game.publisher}}).then(publisher => {
-            GameCompany.findAll({where:{gameId: id}}).then(companyId => {
-                const companyIds = [];
-                companyId.forEach(element => {companyIds.push(element['companyId'])});
-                Company.findAll({where:{id:{[Op.in]:companyIds}}}).then(companies => {
-                    GameCategory.findAll({where:{gameId: id}}).then(categoryId => {
-                        const categoryIds = [];
-                        categoryId.forEach(element => {categoryIds.push(element['categoryId'])});
-                        Category.findAll({where:{id:{[Op.in]:categoryIds}}}).then(categories => {
-                            GamePlatform.findAll({where:{gameId: id}}).then(platformId => {
-                                const platformIds = [];
-                                platformId.forEach(element => {platformIds.push(element['platformId'])});
-                                Platform.findAll({where:{id:{[Op.in]:platformIds}}}).then(platforms => {
-                                    res.render('../Views/Games/details.ejs', {game: game, companies: companies, categories: categories, platforms: platforms, publisher: publisher});
-                                })
-                            })
-                        })
-                    })
-                })
-            })
-        })
-    })
-    .catch(err => {
-        res.status(500).send({
-            message: err.message || "Some error)"
-        })
+    .then(data => {
+        res.send(data)
     })
 }
 
@@ -194,14 +212,16 @@ exports.delete = (req, res) => {
             .then(com => {
                 GamePlatform.destroy({where: {GameId: id}})
                 .then(pla => {
-                    res.redirect("/games");
+                    res.send(data)
                 })
             })
         })
     })
-    .catch(err => {
-        res.status(500).send({
-            message: err.message || "Some error)"
-        })
+}
+
+exports.count = (req, res) => {
+    Game.count()
+    .then(data => {
+        res.send(data)
     })
 }

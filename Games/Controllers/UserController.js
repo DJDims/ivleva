@@ -1,44 +1,65 @@
-const Category = require("../Models/Category");
+const User = require("../Models/User");
 
 exports.create = (req, res) => {
-    if (!req.body.title) {
+    if (!req.body.nick 
+        || !req.body.password 
+        || !req.body.salt 
+        || !req.body.region 
+        || !req.body.birthDate) {
         res.status(400).send({
             message: "Content can't be empty"
         })
         return;
     }
 
-    const category = {
-        title: req.body.title
+    const user = {
+        nick: req.body.nick,
+        password: req.body.password,
+        salt: req.body.salt,
+        wallet: req.body.wallet,
+        avatar: req.body.avatar,
+        region: req.body.region,
+        birthDate: req.body.birthDate
     }
 
-    Category.create(category)
+    User.create(user)
     .then(data => {
         res.send(data)
     })
 }
 
 exports.update = (req, res) => {
-    if (!req.params.id || !req.body.title) {
+    if (!req.params.id 
+        || !req.body.nick 
+        || !req.body.password 
+        || !req.body.salt 
+        || !req.body.region 
+        || !req.body.birthDate) {
         res.status(400).send({
             message: "Content can't be empty"
         })
         return;
     }
 
-    const category = {
+    const user = {
         id: req.params.id,
-        title: req.body.title
+        nick: req.body.nick,
+        password: req.body.password,
+        salt: req.body.salt,
+        wallet: req.body.wallet,
+        avatar: req.body.avatar,
+        region: req.body.region,
+        birthDate: req.body.birthDate
     }
 
-    Category.update(category, {where:{id: category.id}})
+    User.update(user, {where:{id: user.id}})
     .then(data => {
         res.send(data)
     })
 }
 
 exports.findAll = (req, res) => {
-    Category.findAll()
+    User.findAll()
     .then(data => {
         res.send(data)
     })
@@ -54,7 +75,7 @@ exports.findById = (req, res) => {
 
     const id = req.params.id;
     
-    Category.findOne({where: {id: id}})
+    User.findOne({where: {id: id}})
     .then(data => {
         res.send(data)
     })
@@ -70,14 +91,11 @@ exports.delete = (req, res) => {
 
     const id = req.params.id;
     
-    Category.destroy({where: {id: id}})
-    .then(data => {
-        res.send(data)
-    })
+    User.destroy({where: {id: id}})
 }
 
 exports.count = (req, res) => {
-    Category.count()
+    User.count()
     .then(data => {
         res.send(data)
     })

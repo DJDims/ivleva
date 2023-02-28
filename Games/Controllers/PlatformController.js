@@ -1,7 +1,4 @@
 const Platform = require("../Models/Platform");
-const GamePlatform = require("../Models/Game_Platform");
-const Game = require("../Models/Game");
-const { Op } = require("sequelize");
 
 exports.create = (req, res) => {
     if (!req.body.title) {
@@ -17,12 +14,7 @@ exports.create = (req, res) => {
 
     Platform.create(platform)
     .then(data => {
-        res.redirect("/platforms");
-    })
-    .catch(err => {
-        res.status(500).send({
-            message: err.message || "Some error)"
-        })
+        res.send(data)
     })
 }
 
@@ -41,26 +33,14 @@ exports.update = (req, res) => {
 
     Platform.update(platform, {where:{id: platform.id}})
     .then(data => {
-        res.redirect("/platforms");
-    })
-    .catch(err => {
-        res.status(500).send({
-            message: err.message || "Some error)"
-        })
+        res.send(data)
     })
 }
 
 exports.findAll = (req, res) => {
     Platform.findAll()
     .then(data => {
-        Platform.count().then(total => {
-            res.render('../Views/Platforms/table.ejs', {platforms: data, total: total});
-        })
-    })
-    .catch(err => {
-        res.status(500).send({
-            message: err.message || "Some error)"
-        })
+        res.send(data);
     })
 }
 
@@ -76,18 +56,7 @@ exports.findById = (req, res) => {
     
     Platform.findOne({where: {id: id}})
     .then(data => {
-        GamePlatform.findAll({where:{platformId: id}}).then(gameId => {
-            const gameIds = [];
-            gameId.forEach(element => {gameIds.push(element['gameId'])});
-            Game.findAll({where:{id:{[Op.in]:gameIds}}}).then(games => {
-                res.render('../Views/Platforms/details.ejs', {platform: data, games: games});
-            })
-        })
-    })
-    .catch(err => {
-        res.status(500).send({
-            message: err.message || "Some error)"
-        })
+        res.send(data);
     })
 }
     
@@ -103,14 +72,13 @@ exports.delete = (req, res) => {
     
     Platform.destroy({where: {id: id}})
     .then(data => {
-        GamePlatform.destroy({where: {PlatformId: id}})
-        .then(pla => {
-            res.redirect("/platforms");
-        })
+        res.send(data)
     })
-    .catch(err => {
-        res.status(500).send({
-            message: err.message || "Some error)"
-        })
+}
+
+exports.count = (req, res) => {
+    Platform.count()
+    .then(data => {
+        res.send(data)
     })
 }

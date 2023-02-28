@@ -26,9 +26,22 @@ const Game_User = db.define('game_user', {
             model: User,
             key: 'id'
         }
+    },
+    purchaseDate: {
+        type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.NOW
     }
 }, {
-     timestamps: false
-});
+     timestamps: false,
+     indexes: [
+        {
+            name: 'uniqueq',
+            fields: ['gameId', 'userId'],
+            unique: true
+        }
+    ]
+}
+);
 
 module.exports = Game_User;

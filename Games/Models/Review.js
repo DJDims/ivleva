@@ -21,6 +21,7 @@ const Review = db.define('review', {
     gameUserId: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        unique: true,
         references: {
             model: Game_User,
             key: 'id'

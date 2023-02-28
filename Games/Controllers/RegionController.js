@@ -1,44 +1,44 @@
-const Category = require("../Models/Category");
+const Region = require("../Models/Region");
 
 exports.create = (req, res) => {
-    if (!req.body.title) {
+    if (!req.body.name) {
         res.status(400).send({
             message: "Content can't be empty"
         })
         return;
     }
 
-    const category = {
-        title: req.body.title
+    const region = {
+        name: req.body.name,
     }
 
-    Category.create(category)
+    Region.create(region)
     .then(data => {
         res.send(data)
     })
 }
 
 exports.update = (req, res) => {
-    if (!req.params.id || !req.body.title) {
+    if (!req.params.id || !req.body.name) {
         res.status(400).send({
             message: "Content can't be empty"
         })
         return;
     }
 
-    const category = {
+    const region = {
         id: req.params.id,
-        title: req.body.title
+        name: req.body.name,
     }
 
-    Category.update(category, {where:{id: category.id}})
+    Region.update(region, {where:{id: region.id}})
     .then(data => {
         res.send(data)
     })
 }
 
 exports.findAll = (req, res) => {
-    Category.findAll()
+    Region.findAll()
     .then(data => {
         res.send(data)
     })
@@ -54,7 +54,7 @@ exports.findById = (req, res) => {
 
     const id = req.params.id;
     
-    Category.findOne({where: {id: id}})
+    Region.findOne({where: {id: id}})
     .then(data => {
         res.send(data)
     })
@@ -70,14 +70,14 @@ exports.delete = (req, res) => {
 
     const id = req.params.id;
     
-    Category.destroy({where: {id: id}})
+    Region.destroy({where: {id: id}})
     .then(data => {
         res.send(data)
     })
 }
 
 exports.count = (req, res) => {
-    Category.count()
+    Region.count()
     .then(data => {
         res.send(data)
     })

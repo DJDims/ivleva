@@ -1,44 +1,46 @@
-const Category = require("../Models/Category");
+const Bundle = require("../Models/Bundle");
 
 exports.create = (req, res) => {
-    if (!req.body.title) {
+    if (!req.body.title || ! req.body.price) {
         res.status(400).send({
             message: "Content can't be empty"
         })
         return;
     }
 
-    const category = {
-        title: req.body.title
+    const bundle = {
+        title: req.body.title,
+        price: req.body.price
     }
 
-    Category.create(category)
+    Bundle.create(bundle)
     .then(data => {
         res.send(data)
     })
 }
 
 exports.update = (req, res) => {
-    if (!req.params.id || !req.body.title) {
+    if (!req.params.id || !req.body.title || !req.body.price) {
         res.status(400).send({
             message: "Content can't be empty"
         })
         return;
     }
 
-    const category = {
+    const bundle = {
         id: req.params.id,
-        title: req.body.title
+        title: req.body.title,
+        price : req.body.price
     }
 
-    Category.update(category, {where:{id: category.id}})
+    Bundle.update(bundle, {where:{id: bundle.id}})
     .then(data => {
         res.send(data)
     })
 }
 
 exports.findAll = (req, res) => {
-    Category.findAll()
+    Bundle.findAll()
     .then(data => {
         res.send(data)
     })
@@ -54,7 +56,7 @@ exports.findById = (req, res) => {
 
     const id = req.params.id;
     
-    Category.findOne({where: {id: id}})
+    Bundle.findOne({where: {id: id}})
     .then(data => {
         res.send(data)
     })
@@ -70,14 +72,14 @@ exports.delete = (req, res) => {
 
     const id = req.params.id;
     
-    Category.destroy({where: {id: id}})
+    Bundle.destroy({where: {id: id}})
     .then(data => {
         res.send(data)
     })
 }
 
 exports.count = (req, res) => {
-    Category.count()
+    Bundle.count()
     .then(data => {
         res.send(data)
     })

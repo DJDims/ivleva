@@ -1,44 +1,46 @@
-const Category = require("../Models/Category");
+const Characteristic = require("../Models/Characteristic");
 
 exports.create = (req, res) => {
-    if (!req.body.title) {
+    if (!req.body.title || !req.body.type) {
         res.status(400).send({
             message: "Content can't be empty"
         })
         return;
     }
 
-    const category = {
-        title: req.body.title
+    const characteristic = {
+        title: req.body.title,
+        type: req.body.type
     }
 
-    Category.create(category)
+    Characteristic.create(characteristic)
     .then(data => {
         res.send(data)
     })
 }
 
 exports.update = (req, res) => {
-    if (!req.params.id || !req.body.title) {
+    if (!req.params.id || !req.body.title || !req.body.type) {
         res.status(400).send({
             message: "Content can't be empty"
         })
         return;
     }
 
-    const category = {
+    const characteristic = {
         id: req.params.id,
-        title: req.body.title
+        title: req.body.title,
+        type: req.body.type
     }
 
-    Category.update(category, {where:{id: category.id}})
+    Characteristic.update(characteristic, {where:{id: characteristic.id}})
     .then(data => {
         res.send(data)
     })
 }
 
 exports.findAll = (req, res) => {
-    Category.findAll()
+    Characteristic.findAll()
     .then(data => {
         res.send(data)
     })
@@ -54,7 +56,7 @@ exports.findById = (req, res) => {
 
     const id = req.params.id;
     
-    Category.findOne({where: {id: id}})
+    Characteristic.findOne({where: {id: id}})
     .then(data => {
         res.send(data)
     })
@@ -70,14 +72,14 @@ exports.delete = (req, res) => {
 
     const id = req.params.id;
     
-    Category.destroy({where: {id: id}})
+    Characteristic.destroy({where: {id: id}})
     .then(data => {
         res.send(data)
     })
 }
 
 exports.count = (req, res) => {
-    Category.count()
+    Characteristic.count()
     .then(data => {
         res.send(data)
     })

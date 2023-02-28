@@ -1,6 +1,3 @@
-const express = require("express");
-
-const app = express();
 
 const DB = require('./database');
 
@@ -20,28 +17,6 @@ const Platform = require('./Models/Platform');
 const Region = require('./Models/Region');
 const Review = require('./Models/Review');
 const User = require('./Models/User');
+const Role = require('./Models/Role');
 
-DB.sync();
-
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
-
-app.get("/", (req, res) =>{
-    res.send("Hello, JPTV20!");
-});
-
-require("./Routes/BundleRoutes")(app);
-require("./Routes/CategoryRoutes")(app);
-require("./Routes/CharacteristicRoutes")(app);
-require("./Routes/CompanyRoutes")(app);
-require("./Routes/GameRoutes")(app);
-require("./Routes/PlatformRoutes")(app);
-require("./Routes/RegionRoutes")(app);
-require("./Routes/ReviewRoutes")(app);
-require("./Routes/RoleRoutes")(app);
-require("./Routes/UserRoutes")(app);
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}.`)
-});
+DB.sync({force: true});

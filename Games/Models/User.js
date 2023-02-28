@@ -2,6 +2,7 @@ const db = require('../database.js');
 const Sequelize = require('sequelize');
 
 const Region = require('./Region');
+const Role = require('./Role');
 
 const User = db.define('user', {
 	id: {
@@ -12,7 +13,8 @@ const User = db.define('user', {
 	},
 	nick: {
 		type: Sequelize.STRING,
-		allowNull: false
+		allowNull: false,
+		unique: true
 	},
 	password: {
 		type: Sequelize.STRING,
@@ -42,6 +44,15 @@ const User = db.define('user', {
 		type: Sequelize.DATE,
 		allowNull: false
 	},
+	role: {
+		type: Sequelize.INTEGER,
+		allowNull: false,
+		defaultValue: 3,
+		references: {
+			model: Role,
+			key: 'id'
+		}
+	}
 }, {
 	timestamps: false
 });

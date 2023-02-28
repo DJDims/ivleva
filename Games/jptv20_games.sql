@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Фев 10 2023 г., 13:50
--- Версия сервера: 10.4.24-MariaDB
--- Версия PHP: 8.1.6
+-- Время создания: Фев 17 2023 г., 19:22
+-- Версия сервера: 10.4.27-MariaDB
+-- Версия PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,13 +24,13 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `bundle`
+-- Структура таблицы `bundles`
 --
 
-CREATE TABLE `bundle` (
+CREATE TABLE `bundles` (
   `id` int(11) NOT NULL,
-  `title` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
-  `price` int(11) NOT NULL
+  `title` varchar(255) NOT NULL,
+  `price` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -41,7 +41,7 @@ CREATE TABLE `bundle` (
 
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `title` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -52,8 +52,8 @@ CREATE TABLE `categories` (
 
 CREATE TABLE `characteristics` (
   `id` int(11) NOT NULL,
-  `title` varchar(80) COLLATE utf8_unicode_ci NOT NULL,
-  `type` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+  `title` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -64,7 +64,7 @@ CREATE TABLE `characteristics` (
 
 CREATE TABLE `companies` (
   `id` int(11) NOT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `title` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -75,22 +75,22 @@ CREATE TABLE `companies` (
 
 CREATE TABLE `games` (
   `id` int(11) NOT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(255) NOT NULL,
   `publishYear` int(11) NOT NULL,
   `publisher` int(11) NOT NULL,
-  `poster` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `description` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `price` float DEFAULT NULL,
+  `poster` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `price` float NOT NULL,
   `ageLimit` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `game_bundle`
+-- Структура таблицы `game_bundles`
 --
 
-CREATE TABLE `game_bundle` (
+CREATE TABLE `game_bundles` (
   `id` int(11) NOT NULL,
   `gameId` int(11) NOT NULL,
   `bundleId` int(11) NOT NULL
@@ -176,7 +176,7 @@ CREATE TABLE `game_users` (
 
 CREATE TABLE `platforms` (
   `id` int(11) NOT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `title` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -187,7 +187,7 @@ CREATE TABLE `platforms` (
 
 CREATE TABLE `regions` (
   `id` int(11) NOT NULL,
-  `title` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+  `title` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -198,9 +198,20 @@ CREATE TABLE `regions` (
 
 CREATE TABLE `reviews` (
   `id` int(11) NOT NULL,
-  `reviewText` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
+  `reviewText` varchar(255) NOT NULL,
   `grade` int(11) NOT NULL,
   `gameUserId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -211,13 +222,14 @@ CREATE TABLE `reviews` (
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `nick` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `passwords` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `salt` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `nick` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `salt` varchar(255) NOT NULL,
   `wallet` float NOT NULL,
-  `avatar` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `avatar` varchar(255) NOT NULL,
   `region` int(11) NOT NULL,
-  `birthDate` date NOT NULL
+  `birthDate` datetime NOT NULL,
+  `role` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -225,9 +237,9 @@ CREATE TABLE `users` (
 --
 
 --
--- Индексы таблицы `bundle`
+-- Индексы таблицы `bundles`
 --
-ALTER TABLE `bundle`
+ALTER TABLE `bundles`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -256,9 +268,9 @@ ALTER TABLE `games`
   ADD KEY `publisher` (`publisher`);
 
 --
--- Индексы таблицы `game_bundle`
+-- Индексы таблицы `game_bundles`
 --
-ALTER TABLE `game_bundle`
+ALTER TABLE `game_bundles`
   ADD PRIMARY KEY (`id`),
   ADD KEY `gameId` (`gameId`),
   ADD KEY `bundleId` (`bundleId`);
@@ -268,8 +280,8 @@ ALTER TABLE `game_bundle`
 --
 ALTER TABLE `game_categories`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `categoryId` (`categoryId`),
-  ADD KEY `gameId` (`gameId`);
+  ADD KEY `gameId` (`gameId`),
+  ADD KEY `categoryId` (`categoryId`);
 
 --
 -- Индексы таблицы `game_characteristics`
@@ -284,16 +296,16 @@ ALTER TABLE `game_characteristics`
 --
 ALTER TABLE `game_companies`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `companyId` (`companyId`),
-  ADD KEY `gameId` (`gameId`);
+  ADD KEY `gameId` (`gameId`),
+  ADD KEY `companyId` (`companyId`);
 
 --
 -- Индексы таблицы `game_platforms`
 --
 ALTER TABLE `game_platforms`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `platformId` (`platformId`),
-  ADD KEY `gameId` (`gameId`);
+  ADD KEY `gameId` (`gameId`),
+  ADD KEY `platformId` (`platformId`);
 
 --
 -- Индексы таблицы `game_regions`
@@ -331,20 +343,27 @@ ALTER TABLE `reviews`
   ADD KEY `gameUserId` (`gameUserId`);
 
 --
+-- Индексы таблицы `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `region` (`region`);
+  ADD KEY `region` (`region`),
+  ADD KEY `role` (`role`);
 
 --
 -- AUTO_INCREMENT для сохранённых таблиц
 --
 
 --
--- AUTO_INCREMENT для таблицы `bundle`
+-- AUTO_INCREMENT для таблицы `bundles`
 --
-ALTER TABLE `bundle`
+ALTER TABLE `bundles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -372,9 +391,9 @@ ALTER TABLE `games`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT для таблицы `game_bundle`
+-- AUTO_INCREMENT для таблицы `game_bundles`
 --
-ALTER TABLE `game_bundle`
+ALTER TABLE `game_bundles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -432,6 +451,12 @@ ALTER TABLE `reviews`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT для таблицы `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
@@ -448,42 +473,39 @@ ALTER TABLE `games`
   ADD CONSTRAINT `games_ibfk_1` FOREIGN KEY (`publisher`) REFERENCES `companies` (`id`);
 
 --
--- Ограничения внешнего ключа таблицы `game_bundle`
+-- Ограничения внешнего ключа таблицы `game_bundles`
 --
-ALTER TABLE `game_bundle`
-  ADD CONSTRAINT `game_bundle_ibfk_1` FOREIGN KEY (`gameId`) REFERENCES `games` (`id`),
-  ADD CONSTRAINT `game_bundle_ibfk_2` FOREIGN KEY (`bundleId`) REFERENCES `bundle` (`id`);
+ALTER TABLE `game_bundles`
+  ADD CONSTRAINT `game_bundles_ibfk_1` FOREIGN KEY (`gameId`) REFERENCES `games` (`id`),
+  ADD CONSTRAINT `game_bundles_ibfk_2` FOREIGN KEY (`bundleId`) REFERENCES `bundles` (`id`);
 
 --
 -- Ограничения внешнего ключа таблицы `game_categories`
 --
 ALTER TABLE `game_categories`
-  ADD CONSTRAINT `game_categories_ibfk_1` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`id`),
-  ADD CONSTRAINT `game_categories_ibfk_2` FOREIGN KEY (`gameId`) REFERENCES `games` (`id`);
+  ADD CONSTRAINT `game_categories_ibfk_1` FOREIGN KEY (`gameId`) REFERENCES `games` (`id`),
+  ADD CONSTRAINT `game_categories_ibfk_2` FOREIGN KEY (`categoryId`) REFERENCES `categories` (`id`);
 
 --
 -- Ограничения внешнего ключа таблицы `game_characteristics`
 --
 ALTER TABLE `game_characteristics`
   ADD CONSTRAINT `game_characteristics_ibfk_1` FOREIGN KEY (`gameId`) REFERENCES `games` (`id`),
-  ADD CONSTRAINT `game_characteristics_ibfk_2` FOREIGN KEY (`gameId`) REFERENCES `games` (`id`),
-  ADD CONSTRAINT `game_characteristics_ibfk_3` FOREIGN KEY (`characteristicId`) REFERENCES `characteristics` (`id`),
-  ADD CONSTRAINT `game_characteristics_ibfk_4` FOREIGN KEY (`gameId`) REFERENCES `games` (`id`),
-  ADD CONSTRAINT `game_characteristics_ibfk_5` FOREIGN KEY (`characteristicId`) REFERENCES `characteristics` (`id`);
+  ADD CONSTRAINT `game_characteristics_ibfk_2` FOREIGN KEY (`characteristicId`) REFERENCES `characteristics` (`id`);
 
 --
 -- Ограничения внешнего ключа таблицы `game_companies`
 --
 ALTER TABLE `game_companies`
-  ADD CONSTRAINT `game_companies_ibfk_1` FOREIGN KEY (`companyId`) REFERENCES `companies` (`id`),
-  ADD CONSTRAINT `game_companies_ibfk_2` FOREIGN KEY (`gameId`) REFERENCES `games` (`id`);
+  ADD CONSTRAINT `game_companies_ibfk_1` FOREIGN KEY (`gameId`) REFERENCES `games` (`id`),
+  ADD CONSTRAINT `game_companies_ibfk_2` FOREIGN KEY (`companyId`) REFERENCES `companies` (`id`);
 
 --
 -- Ограничения внешнего ключа таблицы `game_platforms`
 --
 ALTER TABLE `game_platforms`
-  ADD CONSTRAINT `game_platforms_ibfk_1` FOREIGN KEY (`platformId`) REFERENCES `platforms` (`id`),
-  ADD CONSTRAINT `game_platforms_ibfk_2` FOREIGN KEY (`gameId`) REFERENCES `games` (`id`);
+  ADD CONSTRAINT `game_platforms_ibfk_1` FOREIGN KEY (`gameId`) REFERENCES `games` (`id`),
+  ADD CONSTRAINT `game_platforms_ibfk_2` FOREIGN KEY (`platformId`) REFERENCES `platforms` (`id`);
 
 --
 -- Ограничения внешнего ключа таблицы `game_regions`
@@ -497,11 +519,7 @@ ALTER TABLE `game_regions`
 --
 ALTER TABLE `game_users`
   ADD CONSTRAINT `game_users_ibfk_1` FOREIGN KEY (`gameId`) REFERENCES `games` (`id`),
-  ADD CONSTRAINT `game_users_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `game_users_ibfk_3` FOREIGN KEY (`gameId`) REFERENCES `games` (`id`),
-  ADD CONSTRAINT `game_users_ibfk_4` FOREIGN KEY (`userId`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `game_users_ibfk_5` FOREIGN KEY (`gameId`) REFERENCES `games` (`id`),
-  ADD CONSTRAINT `game_users_ibfk_6` FOREIGN KEY (`userId`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `game_users_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `users` (`id`);
 
 --
 -- Ограничения внешнего ключа таблицы `reviews`
@@ -513,7 +531,8 @@ ALTER TABLE `reviews`
 -- Ограничения внешнего ключа таблицы `users`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`region`) REFERENCES `regions` (`id`);
+  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`region`) REFERENCES `regions` (`id`),
+  ADD CONSTRAINT `users_ibfk_2` FOREIGN KEY (`role`) REFERENCES `roles` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

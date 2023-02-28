@@ -10,7 +10,8 @@ const Region = db.define('region', {
      },
      title: {
           type: Sequelize.STRING,
-          allowNull: false
+          allowNull: false,
+          unique: true
      }
      }, {
      timestamps: false

@@ -2,7 +2,7 @@ const db = require('../database.js');
 const Sequelize = require('sequelize');
 
 const Game = require('./Game');
-const Company = require('./Platform');
+const Company = require('./Company');
 
 const Game_Company = db.define('game_company', {
     id: {

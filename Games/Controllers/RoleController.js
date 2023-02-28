@@ -1,44 +1,45 @@
-const Category = require("../Models/Category");
+const Role = require("../Models/Role");
 
 exports.create = (req, res) => {
-    if (!req.body.title) {
+    if (!req.body.name) {
         res.status(400).send({
             message: "Content can't be empty"
         })
         return;
     }
 
-    const category = {
-        title: req.body.title
+    const role = {
+        name: req.body.name
     }
+    console.log('lolkek');
 
-    Category.create(category)
+    Role.create(role)
     .then(data => {
         res.send(data)
     })
 }
 
 exports.update = (req, res) => {
-    if (!req.params.id || !req.body.title) {
+    if (!req.params.id || !req.body.name) {
         res.status(400).send({
             message: "Content can't be empty"
         })
         return;
     }
 
-    const category = {
+    const role = {
         id: req.params.id,
-        title: req.body.title
+        name: req.body.name
     }
 
-    Category.update(category, {where:{id: category.id}})
+    Role.update(role, {where:{id: role.id}})
     .then(data => {
         res.send(data)
     })
 }
 
 exports.findAll = (req, res) => {
-    Category.findAll()
+    Role.findAll()
     .then(data => {
         res.send(data)
     })
@@ -54,7 +55,7 @@ exports.findById = (req, res) => {
 
     const id = req.params.id;
     
-    Category.findOne({where: {id: id}})
+    Role.findOne({where: {id: id}})
     .then(data => {
         res.send(data)
     })
@@ -70,14 +71,14 @@ exports.delete = (req, res) => {
 
     const id = req.params.id;
     
-    Category.destroy({where: {id: id}})
+    Role.destroy({where: {id: id}})
     .then(data => {
         res.send(data)
     })
 }
 
 exports.count = (req, res) => {
-    Category.count()
+    Role.count()
     .then(data => {
         res.send(data)
     })
