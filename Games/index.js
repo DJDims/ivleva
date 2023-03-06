@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 
 const app = express();
 
@@ -23,6 +24,7 @@ const User = require('./Models/User');
 
 DB.sync();
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
@@ -30,6 +32,7 @@ app.get("/", (req, res) =>{
     res.send("Hello, JPTV20!");
 });
 
+require("./Routes/authRoutes")(app);
 require("./Routes/BundleRoutes")(app);
 require("./Routes/CategoryRoutes")(app);
 require("./Routes/CharacteristicRoutes")(app);
