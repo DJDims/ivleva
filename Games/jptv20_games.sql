@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Фев 17 2023 г., 19:22
+-- Время создания: Мар 12 2023 г., 15:08
 -- Версия сервера: 10.4.27-MariaDB
 -- Версия PHP: 8.2.0
 
@@ -44,6 +44,42 @@ CREATE TABLE `categories` (
   `title` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Дамп данных таблицы `categories`
+--
+
+INSERT INTO `categories` (`id`, `title`) VALUES
+(1, 'Horror'),
+(2, 'Psyhological'),
+(3, 'Survival'),
+(4, 'Visual'),
+(5, 'Shooter'),
+(6, 'Sandbox'),
+(7, 'Factory'),
+(8, 'Immersive'),
+(9, 'Arcade'),
+(10, 'Fighting'),
+(11, 'Rythm'),
+(12, 'Platformer'),
+(13, 'Rogue'),
+(14, 'Strategy'),
+(15, 'Puzzle'),
+(16, 'RPG'),
+(17, 'MMO'),
+(18, 'Diabloid'),
+(19, 'Race'),
+(20, 'Sport'),
+(21, 'Simulator'),
+(22, 'Adventure'),
+(23, 'Deep plot'),
+(24, 'Casual'),
+(25, 'Action'),
+(26, 'Cyberpunk'),
+(27, 'Survival'),
+(28, 'VR'),
+(29, 'Science'),
+(30, 'OST');
+
 -- --------------------------------------------------------
 
 --
@@ -66,6 +102,55 @@ CREATE TABLE `companies` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Дамп данных таблицы `companies`
+--
+
+INSERT INTO `companies` (`id`, `title`) VALUES
+(1, 'ASkii Soft'),
+(2, 'GSC Gameworld'),
+(3, 'CD Project Red'),
+(4, '505 games'),
+(5, 'Valve'),
+(6, 'TomHapp Games'),
+(7, 'Free Lives'),
+(8, 'Irrational Games'),
+(9, '2K Games'),
+(10, 'Ubisoft'),
+(11, 'Electronic Arts'),
+(12, 'DYO Team'),
+(13, 'Rockstar'),
+(14, 'Frictional games'),
+(15, 'Tell Tale'),
+(16, 'Bethesda'),
+(17, 'Arcane Studio'),
+(18, '4A Games'),
+(19, 'Id Software'),
+(20, 'Remedy'),
+(21, 'Tommorow Corporation'),
+(22, 'Gearbox'),
+(23, 'Devolver Digital'),
+(24, 'Dennaton Games'),
+(25, 'Deep Silver'),
+(26, 'TobyFox'),
+(27, 'Red Barrels'),
+(28, 'Re-Logic'),
+(29, 'Project Moon'),
+(30, 'Wube Games'),
+(31, 'Soviet Games'),
+(32, 'Team Salvato'),
+(33, 'Chinese Room'),
+(34, 'Kojima Productions'),
+(35, 'Illusion Softworks'),
+(36, 'Vanripper'),
+(37, 'Scott Cawthon'),
+(38, 'Edmund McMillen'),
+(39, 'Take-Two'),
+(40, 'Riot Games'),
+(41, 'Blizzard'),
+(42, 'Deconstructeam'),
+(43, 'ZA/UM');
 
 -- --------------------------------------------------------
 
@@ -213,6 +298,14 @@ CREATE TABLE `roles` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Дамп данных таблицы `roles`
+--
+
+INSERT INTO `roles` (`id`, `name`) VALUES
+(1, 'ADMIN'),
+(2, 'USER');
 
 -- --------------------------------------------------------
 
@@ -370,7 +463,7 @@ ALTER TABLE `bundles`
 -- AUTO_INCREMENT для таблицы `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT для таблицы `characteristics`
@@ -382,7 +475,7 @@ ALTER TABLE `characteristics`
 -- AUTO_INCREMENT для таблицы `companies`
 --
 ALTER TABLE `companies`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT для таблицы `games`
@@ -454,7 +547,7 @@ ALTER TABLE `reviews`
 -- AUTO_INCREMENT для таблицы `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `users`

@@ -20,21 +20,17 @@ const User = db.define('user', {
 		type: Sequelize.STRING,
 		allowNull: false
 	},
-	salt: {
-		type: Sequelize.STRING,
-		allowNull: false
-	},
 	wallet: {
 		type: Sequelize.FLOAT,
-		allowNull: false
+		allowNull: true
 	},
 	avatar: {
 		type: Sequelize.STRING,
-		allowNull: false
+		allowNull: true
 	},
 	region: {
 		type: Sequelize.INTEGER,
-		allowNull: false,
+		allowNull: true,
 		references: {
 			model: Region,
 			key: 'id'
@@ -42,7 +38,7 @@ const User = db.define('user', {
 	},
 	birthDate: {
 		type: Sequelize.DATE,
-		allowNull: false
+		allowNull: true
 	},
 	role: {
 		type: Sequelize.INTEGER,
