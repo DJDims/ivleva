@@ -19,8 +19,8 @@ checkDuplicateUsername = (req, res, next) => {
 };
 
 checkRoleExisted = (req, res, next) => {
-	if (req.body.roles) {
-		ROLES.findOne({ where: { name: req.body.role.name } }).then(data => {
+	if (req.body.role) {
+		ROLES.findOne({ where: { name: req.body.role } }).then(data => {
 			if (!data) {
 				res.status(400).send({
 					message: "Failed! Role does not exist = " + req.body.role

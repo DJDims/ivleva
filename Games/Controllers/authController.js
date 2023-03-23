@@ -3,7 +3,7 @@ const config = require("../authConfig");
 const User = require("../Models/User");
 const Role = require("../Models/Role");
 
-const roleId = 2
+let roleId = 2
 
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");

@@ -7,8 +7,11 @@ const GameBundle = require("../Models/Game_Bundle");
 const GameCharacteristic = require("../Models/Game_Characteristic");
 
 const Company = require("../Models/Company");
+const Bundle = require("../Models/Bundle");
 const Category = require("../Models/Category");
 const Platform = require("../Models/Platform");
+
+const { Op } = require("sequelize");
 
 exports.create =  (req, res) => {
     if (!req.body.title 
@@ -223,5 +226,71 @@ exports.count = (req, res) => {
     Game.count()
     .then(data => {
         res.send(data)
+    })
+}
+
+exports.findByCompany = (req, res) => {
+    if (!req.params.company) {
+        res.status(400).send({
+            message: "Content can't be empty"
+        })
+        return;
+    }
+
+    const companyTitle = req.params.company;
+    Company.findOne({where: {title: companyTitle}}).then(company => {
+        GameCompany.findAll({attributes:['gameId'], where: {companyId: company.id}, raw: true}).then(gc => {
+            let out = [];
+            gc.forEach(e => {
+                out.push(e.gameId);
+            });
+            Game.findAll({where: {id: {[Op.in]: out}}}).then(data => {
+                res.send(data)
+            })
+        })
+    })
+}
+
+exports.findByCategory = (req, res) => {
+    if (!req.params.category) {
+        res.status(400).send({
+            message: "Content can't be empty"
+        })
+        return;
+    }
+
+    const categoryTitle = req.params.category;
+    Category.findOne({where: {title: categoryTitle}}).then(category => {
+        GameCategory.findAll({attributes:['gameId'], where: {categoryId: category.id}, raw: true}).then(gc => {
+            let out = [];
+            gc.forEach(e => {
+                out.push(e.gameId);
+            });
+            Game.findAll({where: {id: {[Op.in]: out}}}).then(data => {
+                res.send(data)
+            })
+        })
+    })
+}
+
+exports.findByBundle = (req, res) => {
+    if (!req.params.bundle) {
+        res.status(400).send({
+            message: "Content can't be empty"
+        })
+        return;
+    }
+
+    const bundleTitle = req.params.bundle;
+    Bundle.findOne({where: {title: bundleTitle}}).then(bundle => {
+        GameBundle.findAll({attributes:['gameId'], where: {bundleId: bundle.id}, raw: true}).then(bc => {
+            let out = [];
+            bc.forEach(e => {
+                out.push(e.gameId);
+            });
+            Game.findAll({where: {id: {[Op.in]: out}}}).then(data => {
+                res.send(data)
+            })
+        })
     })
 }

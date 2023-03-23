@@ -1,15 +1,17 @@
+const authJwt = require("../middleware/authJwt");
+
 module.exports = app => {
     const bundleController = require("../Controllers/BundleController");
     const router = require("express").Router();
 
-    router.post("/", bundleController.create);
+    router.post("/", [authJwt.verifyToken, authJwt.isAdmin], bundleController.create);
 
-    router.put("/:id", bundleController.update);
+    router.put("/:id", [authJwt.verifyToken, authJwt.isAdmin], bundleController.update);
 
     router.get("/", bundleController.findAll);
     router.get("/:id", bundleController.findById);
 
-    router.delete("/:id", bundleController.delete);
+    router.delete("/:id", [authJwt.verifyToken, authJwt.isAdmin], bundleController.delete);
     
     app.use("/bundles", router);
 }
