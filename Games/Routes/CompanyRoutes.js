@@ -15,3 +15,27 @@ module.exports = app => {
     
     app.use("/companies", router);
 }
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Company:
+ *       type: object
+ *       required:
+ *         - title
+ *       properties:
+ *         id:
+ *           type: integer
+ *           description: The auto-generated id of the company
+ *         title:
+ *           type: string
+ *           description: The title of company
+ *       example:
+ *         id: 1
+ *         title: Wube Software
+ * /companies:
+ *    post:
+ *      content:
+ *          
+ */
