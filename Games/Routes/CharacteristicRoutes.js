@@ -4,14 +4,14 @@ module.exports = app => {
     const characteristicController = require("../Controllers/CharacteristicController");
     const router = require("express").Router();
     
-    router.post("/", [authJwt.verifyToken, authJwt.isAdmin], characteristicController.create);
+    router.post("/characteristic/", [authJwt.verifyToken, authJwt.isAdmin], characteristicController.create);
 
-    router.put("/:id", [authJwt.verifyToken, authJwt.isAdmin], characteristicController.update);
+    router.put("/characteristic/:id", [authJwt.verifyToken, authJwt.isAdmin], characteristicController.update);
 
-    router.get("/", characteristicController.findAll);
-    router.get("/:id", characteristicController.findById);
+    router.get("/characteristic/", characteristicController.findAll);
+    router.get("/characteristic/:id", characteristicController.findById);
 
-    router.delete("/:id", [authJwt.verifyToken, authJwt.isAdmin], characteristicController.delete);
+    router.delete("/characteristic/:id", [authJwt.verifyToken, authJwt.isAdmin], characteristicController.delete);
     
-    app.use("/characteristic", router);
+    app.use("/", router);
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Мар 12 2023 г., 15:08
+-- Время создания: Мар 24 2023 г., 09:45
 -- Версия сервера: 10.4.27-MariaDB
 -- Версия PHP: 8.2.0
 
@@ -317,13 +317,20 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `nick` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `salt` varchar(255) NOT NULL,
-  `wallet` float NOT NULL,
-  `avatar` varchar(255) NOT NULL,
-  `region` int(11) NOT NULL,
-  `birthDate` datetime NOT NULL,
+  `wallet` float DEFAULT NULL,
+  `avatar` varchar(255) DEFAULT NULL,
+  `region` int(11) DEFAULT NULL,
+  `birthDate` datetime DEFAULT NULL,
   `role` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`id`, `nick`, `password`, `wallet`, `avatar`, `region`, `birthDate`, `role`) VALUES
+(1, 'admin', '$2a$08$1d9sfa18E4mgpTuiDZkrLeExQl6CdvamPeYsl.RmmB0DFUqiSqas.', NULL, NULL, NULL, NULL, 1),
+(2, 'user', '$2a$08$XgLkdXxphx4ozj3.hl0Ua.OxQTLht6BuJpco3jgdkFIveQflc/PrW', NULL, NULL, NULL, NULL, 1);
 
 --
 -- Индексы сохранённых таблиц
@@ -413,6 +420,7 @@ ALTER TABLE `game_regions`
 --
 ALTER TABLE `game_users`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `uniqueq` (`gameId`,`userId`),
   ADD KEY `gameId` (`gameId`),
   ADD KEY `userId` (`userId`);
 
@@ -553,7 +561,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц

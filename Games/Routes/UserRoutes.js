@@ -2,14 +2,14 @@ module.exports = app => {
     const userController = require("../Controllers/UserController");
     const router = require("express").Router();
     
-    router.post("/", userController.create);
+    router.post("/user/", userController.create);
 
-    router.put("/:id", userController.update);
+    router.put("/user/:id", userController.update);
 
-    router.get("/", userController.findAll);
-    router.get("/:id", userController.findById);
+    router.get("/user/", userController.findAll);
+    router.get("/user/:id", userController.findById);
 
-    router.delete("/:id", userController.delete);
+    router.delete("/user/:id", userController.delete);
     
-    app.use("/user", router);
+    app.use("/", router);
 }

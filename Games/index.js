@@ -3,6 +3,7 @@ const cors = require("cors");
 
 const swaggerJsdoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
+const swaggerFile = require("./swagger_output.json");
 
 const app = express();
 
@@ -35,6 +36,8 @@ app.get("/", (req, res) => {
     res.send("Hello, JPTV20!");
 });
 
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
+
 require("./Routes/authRoutes")(app);
 require("./Routes/BundleRoutes")(app);
 require("./Routes/CategoryRoutes")(app);
@@ -47,39 +50,6 @@ require("./Routes/ReviewRoutes")(app);
 require("./Routes/RoleRoutes")(app);
 require("./Routes/UserRoutes")(app);
 
-const options = {
-    definition: {
-        openapi: "3.0.0",
-        info: {
-            title: "GameShop Express API with Swagger",
-            version: "0.1.0",
-            description:
-                "This is a simple CRUD API application made with Express and documented with Swagger",
-            license: {
-                name: "MIT",
-                url: "https://spdx.org/licenses/MIT.html",
-            },
-            contact: {
-                name: "LogRocket",
-                url: "https://logrocket.com",
-                email: "info@email.com",
-            },
-        },
-        servers: [
-            {
-                url: "http://localhost:3000",
-            },
-        ],
-    },
-    apis: ["./Routes/*.js"],
-};
-
-const specs = swaggerJsdoc(options);
-app.use(
-    "/api-docs",
-    swaggerUi.serve,
-    swaggerUi.setup(specs)
-);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

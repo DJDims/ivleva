@@ -1,7 +1,7 @@
 const Region = require("../Models/Region");
 
 exports.create = (req, res) => {
-    if (!req.body.name) {
+    if (!req.body.title) {
         res.status(400).send({
             message: "Content can't be empty"
         })
@@ -9,7 +9,7 @@ exports.create = (req, res) => {
     }
 
     const region = {
-        name: req.body.name,
+        title: req.body.title,
     }
 
     Region.create(region)
@@ -19,7 +19,7 @@ exports.create = (req, res) => {
 }
 
 exports.update = (req, res) => {
-    if (!req.params.id || !req.body.name) {
+    if (!req.params.id || !req.body.title) {
         res.status(400).send({
             message: "Content can't be empty"
         })
@@ -28,7 +28,7 @@ exports.update = (req, res) => {
 
     const region = {
         id: req.params.id,
-        name: req.body.name,
+        title: req.body.title,
     }
 
     Region.update(region, {where:{id: region.id}})

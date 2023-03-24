@@ -4,14 +4,14 @@ module.exports = app => {
     const bundleController = require("../Controllers/BundleController");
     const router = require("express").Router();
 
-    router.post("/", [authJwt.verifyToken, authJwt.isAdmin], bundleController.create);
+    router.post("/bundles/", [authJwt.verifyToken, authJwt.isAdmin], bundleController.create);
 
-    router.put("/:id", [authJwt.verifyToken, authJwt.isAdmin], bundleController.update);
+    router.put("/bundles/:id", [authJwt.verifyToken, authJwt.isAdmin], bundleController.update);
 
-    router.get("/", bundleController.findAll);
-    router.get("/:id", bundleController.findById);
+    router.get("/bundles/", bundleController.findAll);
+    router.get("/bundles/:id", bundleController.findById);
 
-    router.delete("/:id", [authJwt.verifyToken, authJwt.isAdmin], bundleController.delete);
+    router.delete("/bundles/:id", [authJwt.verifyToken, authJwt.isAdmin], bundleController.delete);
     
-    app.use("/bundles", router);
+    app.use("/", router);
 }

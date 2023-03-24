@@ -3,19 +3,20 @@ const config = require("../authConfig");
 const User = require("../Models/User");
 const Role = require("../Models/Role");
 
-let roleId = 2
-
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 
 exports.signup = (req, res) => {
+	let roleId = 2;
 	if (req.body.role) {
 		Role.findOne({
 			where: {
 				name: req.body.role
 			}
 		}).then(role => {
-			roleId = role.id
+			roleId = role.id;
+		}).catch(err => {
+			res.status(404).send({ message: "Role not found." });
 		});
 	}
 

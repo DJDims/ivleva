@@ -3,7 +3,6 @@ const User = require("../Models/User");
 exports.create = (req, res) => {
     if (!req.body.nick 
         || !req.body.password 
-        || !req.body.salt 
         || !req.body.region 
         || !req.body.birthDate) {
         res.status(400).send({
@@ -15,7 +14,6 @@ exports.create = (req, res) => {
     const user = {
         nick: req.body.nick,
         password: req.body.password,
-        salt: req.body.salt,
         wallet: req.body.wallet,
         avatar: req.body.avatar,
         region: req.body.region,
@@ -32,7 +30,6 @@ exports.update = (req, res) => {
     if (!req.params.id 
         || !req.body.nick 
         || !req.body.password 
-        || !req.body.salt 
         || !req.body.region 
         || !req.body.birthDate) {
         res.status(400).send({
@@ -45,7 +42,6 @@ exports.update = (req, res) => {
         id: req.params.id,
         nick: req.body.nick,
         password: req.body.password,
-        salt: req.body.salt,
         wallet: req.body.wallet,
         avatar: req.body.avatar,
         region: req.body.region,

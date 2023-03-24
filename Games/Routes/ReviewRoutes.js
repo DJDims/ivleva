@@ -4,14 +4,14 @@ module.exports = app => {
     const reviewController = require("../Controllers/ReviewController");
     const router = require("express").Router();
     
-    router.post("/", [authJwt.verifyToken, authJwt.isAdmin], reviewController.create);
+    router.post("/review/", [authJwt.verifyToken, authJwt.isAdmin], reviewController.create);
 
-    router.put("/:id", [authJwt.verifyToken, authJwt.isAdmin], reviewController.update);
+    router.put("/review/:id", [authJwt.verifyToken, authJwt.isAdmin], reviewController.update);
 
-    router.get("/", reviewController.findAll);
-    router.get("/:id", reviewController.findById);
+    router.get("/review/", reviewController.findAll);
+    router.get("/review/:id", reviewController.findById);
 
-    router.delete("/:id", [authJwt.verifyToken, authJwt.isAdmin], reviewController.delete);
+    router.delete("/review/:id", [authJwt.verifyToken, authJwt.isAdmin], reviewController.delete);
     
-    app.use("/review", router);
+    app.use("/", router);
 }
