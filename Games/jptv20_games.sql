@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Мар 24 2023 г., 09:45
+-- Время создания: Мар 31 2023 г., 20:54
 -- Версия сервера: 10.4.27-MariaDB
 -- Версия PHP: 8.2.0
 
@@ -32,6 +32,45 @@ CREATE TABLE `bundles` (
   `title` varchar(255) NOT NULL,
   `price` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Дамп данных таблицы `bundles`
+--
+
+INSERT INTO `bundles` (`id`, `title`, `price`) VALUES
+(1, 'Bioshock: The Collection', 59.99),
+(2, 'Hotline Miami Collection', 40.33),
+(3, 'Fallout Classic Collection', 19.99),
+(4, 'Fallout Series', 179.92),
+(5, 'Outlast Trinity', 39.33),
+(6, 'The Walking Dead Ultimate Bundle', 117.83),
+(7, 'Amnesia Re-Collection', 54.39),
+(8, 'Frictional Collection', 80.03),
+(9, 'Watch_Dogs Bundle', 80.98),
+(10, 'Watch_Dogs Complete', 49.99),
+(11, 'Dishonored - Definitive Edition', 19.99),
+(12, 'Dishonored: Death of the Outsider - Deluxe Bundle', 59.99),
+(13, 'Prey and Dishonored 2 Bundle', 48.58),
+(14, 'Arkane 20th Anniversary Bundle', 88.74),
+(15, 'Prey Digital Deluxe', 39.99),
+(16, 'Prey Digital Deluxe + Control Ultimate Edition', 71.98),
+(17, 'Control + Alan Wake Franchise', 59.38),
+(18, 'Disco Elysium + Control', 71.98),
+(19, 'Alan Wake Collectors Edition', 16.79),
+(20, 'Alan Wake Franchise', 20.99),
+(21, 'S.T.A.L.K.E.R Bundle', 33.99),
+(22, 'Metro Exodus - Gold Edition', 39.99),
+(23, 'Metro Saga Bundle', 59.46),
+(24, 'The Orange Box', 19.5),
+(25, 'Half-Life Complete', 32.4),
+(26, 'Valve Complete Pack', 62.23),
+(27, 'Half-Life 1: Source', 9.75),
+(28, 'Half-Life 1 Anthology', 11.07),
+(29, 'Left 4 Dead Bundle', 14.62),
+(30, 'Portal Bundle', 14.62),
+(31, 'The Binding of Isaac: Rebirth Complete Bundle', 48.46),
+(32, 'The Binding of Isaac: Afterbirth+ Bundle', 35.97),
+(33, 'The Blue King Collection', 75.52);
 
 -- --------------------------------------------------------
 
@@ -91,6 +130,19 @@ CREATE TABLE `characteristics` (
   `title` varchar(255) NOT NULL,
   `type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Дамп данных таблицы `characteristics`
+--
+
+INSERT INTO `characteristics` (`id`, `title`, `type`) VALUES
+(1, 'GPU', 'GTX1050'),
+(2, 'GPU', 'GTX1060'),
+(3, 'GPU', 'GTX1070'),
+(4, 'GPU', 'GTX1650'),
+(5, 'GPU', 'GTX1660'),
+(6, 'CPU', 'Intel Core I5'),
+(7, 'CPU', 'Intel Core I7');
 
 -- --------------------------------------------------------
 
@@ -264,6 +316,23 @@ CREATE TABLE `platforms` (
   `title` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Дамп данных таблицы `platforms`
+--
+
+INSERT INTO `platforms` (`id`, `title`) VALUES
+(1, 'Windows'),
+(2, 'XBox One'),
+(3, 'XBox 360'),
+(4, 'XBox'),
+(5, 'PlayStation 1'),
+(6, 'PlayStation 2'),
+(7, 'PlayStation 3'),
+(8, 'PlayStation 4'),
+(9, 'PSP'),
+(10, 'Nintendo Switch'),
+(11, 'SteamDeck');
+
 -- --------------------------------------------------------
 
 --
@@ -317,7 +386,7 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `nick` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `wallet` float DEFAULT NULL,
+  `wallet` float NOT NULL DEFAULT 0,
   `avatar` varchar(255) DEFAULT NULL,
   `region` int(11) DEFAULT NULL,
   `birthDate` datetime DEFAULT NULL,
@@ -329,8 +398,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nick`, `password`, `wallet`, `avatar`, `region`, `birthDate`, `role`) VALUES
-(1, 'admin', '$2a$08$1d9sfa18E4mgpTuiDZkrLeExQl6CdvamPeYsl.RmmB0DFUqiSqas.', NULL, NULL, NULL, NULL, 1),
-(2, 'user', '$2a$08$XgLkdXxphx4ozj3.hl0Ua.OxQTLht6BuJpco3jgdkFIveQflc/PrW', NULL, NULL, NULL, NULL, 1);
+(1, 'admin', '$2a$08$1d9sfa18E4mgpTuiDZkrLeExQl6CdvamPeYsl.RmmB0DFUqiSqas.', 0, NULL, NULL, NULL, 1),
+(2, 'user', '$2a$08$XgLkdXxphx4ozj3.hl0Ua.OxQTLht6BuJpco3jgdkFIveQflc/PrW', 0, NULL, NULL, NULL, 1);
 
 --
 -- Индексы сохранённых таблиц
@@ -372,6 +441,7 @@ ALTER TABLE `games`
 --
 ALTER TABLE `game_bundles`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNIQUE` (`gameId`,`bundleId`),
   ADD KEY `gameId` (`gameId`),
   ADD KEY `bundleId` (`bundleId`);
 
@@ -380,6 +450,7 @@ ALTER TABLE `game_bundles`
 --
 ALTER TABLE `game_categories`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNIQUE` (`gameId`,`categoryId`),
   ADD KEY `gameId` (`gameId`),
   ADD KEY `categoryId` (`categoryId`);
 
@@ -388,6 +459,7 @@ ALTER TABLE `game_categories`
 --
 ALTER TABLE `game_characteristics`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNIQUE` (`gameId`,`characteristicId`),
   ADD KEY `gameId` (`gameId`),
   ADD KEY `characteristicId` (`characteristicId`);
 
@@ -396,6 +468,7 @@ ALTER TABLE `game_characteristics`
 --
 ALTER TABLE `game_companies`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNIQUE` (`gameId`,`companyId`),
   ADD KEY `gameId` (`gameId`),
   ADD KEY `companyId` (`companyId`);
 
@@ -404,6 +477,7 @@ ALTER TABLE `game_companies`
 --
 ALTER TABLE `game_platforms`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNIQUE` (`gameId`,`platformId`),
   ADD KEY `gameId` (`gameId`),
   ADD KEY `platformId` (`platformId`);
 
@@ -412,6 +486,7 @@ ALTER TABLE `game_platforms`
 --
 ALTER TABLE `game_regions`
   ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `UNIQUE` (`gameId`,`regionId`),
   ADD KEY `gameId` (`gameId`),
   ADD KEY `regionId` (`regionId`);
 
@@ -465,7 +540,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `bundles`
 --
 ALTER TABLE `bundles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT для таблицы `categories`
@@ -477,7 +552,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT для таблицы `characteristics`
 --
 ALTER TABLE `characteristics`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT для таблицы `companies`
@@ -537,7 +612,7 @@ ALTER TABLE `game_users`
 -- AUTO_INCREMENT для таблицы `platforms`
 --
 ALTER TABLE `platforms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT для таблицы `regions`

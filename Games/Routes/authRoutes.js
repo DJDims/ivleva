@@ -14,7 +14,8 @@ module.exports = app => {
     "/auth/signup",
     [
       verifySignUp.checkDuplicateUsername,
-      verifySignUp.checkRoleExisted
+      verifySignUp.checkRoleExisted,
+      verifySignUp.checkRegionExisted
     ],
     controller.signup
   );

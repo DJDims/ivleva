@@ -15,9 +15,9 @@ const { Op } = require("sequelize");
 
 exports.create =  (req, res) => {
     if (!req.body.title 
-        || !req.body.publishYear 
+        || !req.body.publishYear
         || !req.body.publisher
-        || !req.body.poster 
+        || !req.body.poster
         || !req.body.description
         || !req.body.price
         || !req.body.ageLimit
@@ -38,45 +38,9 @@ exports.create =  (req, res) => {
         ageLimit: req.body.ageLimit
     }
 
-    const companies = req.body.companies;
-    const categories = req.body.categories;
-    const platforms = req.body.platforms;
-    const regions = req.body.regions;
-    const bundles = req.body.bundles;
-    const characteristics = req.body.characteristics;
-
     Game.create(game)
     .then(data => {
-        if(companies != null) {
-            for (let i = 0; i < companies.length; i++) {
-                GameCompany.create({gameId: data.id, companyId: companies[i]})
-            }
-        }
-        if(categories != null) {
-            for (let i = 0; i < categories.length; i++) {
-                GameCategory.create({gameId: data.id, categoryId: categories[i]})
-            }
-        }
-        if(platforms != null) {
-            for (let i = 0; i < platforms.length; i++) {
-                GamePlatform.create({gameId: data.id, platformId: platforms[i]})
-            }
-        }
-        if(regions != null) {
-            for (let i = 0; i < regions.length; i++) {
-                GameRegion.create({gameId: data.id, regionId: regions[i]})
-            }
-        }
-        if(bundles != null) {
-            for (let i = 0; i < bundles.length; i++) {
-                GameBundle.create({gameId: data.id, bundleId: bundles[i]})
-            }
-        }
-        if(characteristics != null) {
-            for (let i = 0; i < characteristics.length; i++) {
-                GameCharacteristic.create({gameId: data.id, characteristicId: characteristics[i]})
-            }
-        }
+        res.send({message: "Game "+game.title+" was succesfully added"});
     })
 }
 
@@ -106,55 +70,9 @@ exports.update = (req, res) => {
         ageLimit: req.body.ageLimit
     }
 
-    const companies = req.body.companies;
-    const categories = req.body.categories;
-    const platforms = req.body.platforms;
-    const regions = req.body.regions;
-    const bundles = req.body.bundles;
-    const characteristics = req.body.characteristics;
-
     Game.update(game, {where:{id: game.id}})
     .then(data => {
-        GameCompany.destroy({where: {gameId: game.id}}).then(a => {
-            GameCategory.destroy({where: {gameId: game.id}}).then(b => {
-                GamePlatform.destroy({where: {gameId: game.id}}).then(c => {
-                    GameRegion.destroy({where: {gameId: game.id}}).then(d => {
-                        GameBundle.destroy({where: {gameId: game.id}}).then(e => {
-                            if(companies != null) {
-                                for (let i = 0; i < companies.length; i++) {
-                                    GameCompany.create({gameId: data.id, companyId: companies[i]})
-                                }
-                            }
-                            if(categories != null) {
-                                for (let i = 0; i < categories.length; i++) {
-                                    GameCategory.create({gameId: data.id, categoryId: categories[i]})
-                                }
-                            }
-                            if(platforms != null) {
-                                for (let i = 0; i < platforms.length; i++) {
-                                    GamePlatform.create({gameId: data.id, platformId: platforms[i]})
-                                }
-                            }
-                            if(regions != null) {
-                                for (let i = 0; i < regions.length; i++) {
-                                    GameRegion.create({gameId: data.id, regionId: regions[i]})
-                                }
-                            }
-                            if(bundles != null) {
-                                for (let i = 0; i < bundles.length; i++) {
-                                    GameBundle.create({gameId: data.id, bundleId: bundles[i]})
-                                }
-                            }
-                            if(characteristics != null) {
-                                for (let i = 0; i < characteristics.length; i++) {
-                                    GameCharacteristic.create({gameId: data.id, characteristicId: characteristics[i]})
-                                }
-                            }
-                        })
-                    })
-                })
-            })
-        })
+        
     })
 }
 
@@ -293,4 +211,179 @@ exports.findByBundle = (req, res) => {
             })
         })
     })
+}
+
+exports.findByPlatform = (req, res) => {
+    if (!req.params.platform) {
+        res.status(400).send({
+            message: "Content can't be empty"
+        })
+        return;
+    }
+
+    const platformTitle = req.params.platform;
+    Platform.findOne({where: {title: platformTitle}}).then(platform => {
+        GamePlatform.findAll({attributes:['gameId'], where: {platformId: platform.id}, raw: true}).then(gp => {
+            let out = [];
+            gp.forEach(e => {
+                out.push(e.gameId);
+            });
+            Game.findAll({where: {id: {[Op.in]: out}}}).then(data => {
+                res.send(data)
+            })
+        })
+    })
+}
+
+exports.addCompanies = (req, res) => {
+    let out = [];
+    if (!req.params.id || !req.body.сompanies) {
+        res.status(400).send({message: "Content can't be empty"})
+        return;
+    }
+
+    req.body.сompanies.forEach(e => {
+        Company.findByPk(e).then(data => {
+            if(data) {
+                GameCompany.create({gameId: req.params.id, companyId: e})
+                .catch(err => {
+                    out.push("Failed! Dublicate row with id"+e);
+                });
+            } else {
+                out.push("Failed! Company with id "+e+" not exists");
+            }
+        })
+    });
+    if (out.length == 0) {
+        res.send({message: "All successfully added"});
+    } else {
+        res.status(404).send({message: out});
+    }
+    return;
+}
+
+exports.removeCompanies = (req, res) => {
+    let out = [];
+    if (!req.params.id || !req.body.сompanies) {
+        res.status(400).send({message: "Content can't be empty"})
+        return;
+    }
+
+    req.body.сompanies.forEach(e => {
+        Company.findByPk(e).then(data => {
+            if(data) {
+                GameCompany.destroy({gameId: req.params.id, companyId: e})
+            } else {
+                out.push("Failed! Company with id "+e+" not exists");
+            }
+        })
+    });
+    if (out.length == 0) {
+        res.send({message: "All successfully removed"});
+    } else {
+        res.status(404).send({message: out});
+    }
+    return;
+}
+
+exports.addCategories = (req, res) => {
+    let out = [];
+    if (!req.params.id || !req.body.сategories) {
+        res.status(400).send({message: "Content can't be empty"})
+        return;
+    }
+
+    req.body.сategories.forEach(e => {
+        Category.findByPk(e).then(data => {
+            if(data) {
+                GameCategory.create({gameId: req.params.id, categoryId: e})
+                .catch(err => {
+                    out.push("Failed! Dublicate row with id"+e);
+                });
+            } else {
+                out.push("Failed! Category with id "+e+" not exists");
+            }
+        })
+    });
+    if (out.length == 0) {
+        res.send({message: "All successfully added"});
+    } else {
+        res.status(404).send({message: out});
+    }
+    return;
+}
+
+exports.removeCategories = (req, res) => {
+    let out = [];
+    if (!req.params.id || !req.body.сategories) {
+        res.status(400).send({message: "Content can't be empty"})
+        return;
+    }
+
+    req.body.сategories.forEach(e => {
+        Category.findByPk(e).then(data => {
+            if(data) {
+                GameCategory.destroy({gameId: req.params.id, categoryId: e})
+            } else {
+                out.push("Failed! Category with id "+e+" not exists");
+            }
+        })
+    });
+    if (out.length == 0) {
+        res.send({message: "All successfully removed"});
+    } else {
+        res.status(404).send({message: out});
+    }
+    return;
+}
+
+exports.addPlatforms = (req, res) => {
+    let out = [];
+    if (!req.params.id || !req.body.platforms) {
+        res.status(400).send({message: "Content can't be empty"})
+        return;
+    }
+
+    req.body.platforms.forEach(e => {
+        Platform.findByPk(e).then(data => {
+            if(data) {
+                GamePlatform.create({gameId: req.params.id, platformId: e})
+                .catch(err => {
+                    out.push("Failed! Dublicate row with id"+e);
+                });
+            } else {
+                out.push("Failed! Platform with id "+e+" not exists");
+            }
+        })
+    });
+    if (out.length == 0) {
+        res.send({message: "All successfully added"});
+    } else {
+        res.status(404).send({message: out});
+    }
+    return;
+}
+
+exports.removePlatforms = (req, res) => {
+    let out = [];
+    if (!req.params.id || !req.body.platforms) {
+        res.status(400).send({message: "Content can't be empty"})
+        return;
+    }
+
+    req.body.platforms.forEach(e => {
+        Platform.findByPk(e).then(data => {
+            if(data) {
+                GamePlatform.destroy({gameId: req.params.id, platformId: e})
+            } else {
+                out.push("Failed! Platform with id "+e+" not exists");
+            }
+        })
+    });
+    if (out.length == 0) {
+        res.send({message: "All successfully removed"});
+    } else {
+        res.status(404).send({message: out});
+    }
+    return;
 }
