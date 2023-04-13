@@ -125,19 +125,20 @@ exports.delete = (req, res) => {
 
     const id = req.params.id;
     
-    Game.destroy({where: {id: id}})
-    .then(data => {
-        GameCategory.destroy({where: {GameId: id}})
-        .then(cat => {
-            GameCompany.destroy({where: {GameId: id}})
-            .then(com => {
-                GamePlatform.destroy({where: {GameId: id}})
-                .then(pla => {
+    
+    // GameCategory.destroy({where: {GameId: id}})
+    // .then(cat => {
+    //     GameCompany.destroy({where: {GameId: id}})
+    //     .then(com => {
+    //         GamePlatform.destroy({where: {GameId: id}})
+    //         .then(pla => {
+                Game.destroy({where: {id: id}})
+                .then(data => {
                     res.send(data)
                 })
-            })
-        })
-    })
+    //         })
+    //     })
+    // })
 }
 
 exports.count = (req, res) => {

@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-    res.send("Hello, JPTV20!");
+    res.send("Hello, JPTV20! <br><br><a href='/api-docs'>Go to docs</a>");
 });
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
